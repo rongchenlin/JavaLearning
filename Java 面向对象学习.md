@@ -155,3 +155,344 @@ hhhhhh
 
 数组是引用类型，一定要在堆中开辟空间才能使用。
 
+### 7.2 数组常用函数库
+
+排序：Arrays.sort();
+
+拷贝：System.arraycopy();
+
+### 7.3 方法可变参数
+
+例：public int sum(int  ... data){}  // 参数个数可变，本质上依然属于数组
+
+### 7.4 对象数组
+
+数组中的元素是对象，这样的数组就是对象数组。
+
+## 8 引用传递实际应用
+
+### 8.1 类关联结构
+
+```Java
+class Car{
+	private String name;
+	private double price;
+	private Person person ;
+	
+	public Car(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+	public String getInfor(){
+		return "车牌："+name+" 价格"+price;
+	}
+	// setter getter
+	public Person getPerson() {
+		return person;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+}
+
+class Person{
+	private String name;
+	private int age;
+	private Car car;
+	public Person(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+	public String getInfor() {
+		return "车主："+name+" 年龄: "+age;
+	}
+	// setter getter	
+	public String getName() {
+		return name;
+	}
+	public Car getCar() {
+		return car;
+	}
+	public void setCar(Car car) {
+		this.car = car;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		Person person = new Person("张三", 20);
+		Car car = new Car("劳斯莱斯", 80000000);
+		// 创建关联关系
+		person.setCar(car); // 一个人有一辆车
+		car.setPerson(person); // 一辆车属于一个人
+		// 根据关系获取数据
+		System.out.println(person.getCar().getInfor()); // 车的信息
+		System.out.println(car.getPerson().getInfor()); // 车主的信息
+	}
+}
+
+```
+
+### *8.2 自身关联
+
+```Java
+class Car{
+	private String name;
+	private double price;
+	private Person person ;
+	public Car(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+	public String getInfor(){
+		return "车牌："+name+" 价格"+price;
+	}
+	// setter getter
+	public Person getPerson() {
+		return person;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+}
+
+class Person{
+	private String name;
+	private int age;
+	private Car car;
+	private Person[]  children;  // 一个人有多个孩子
+	public Person(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+	public String getInfor() {
+		return "车主："+name+" 年龄: "+age;
+	}
+	// setter getter
+	public Person[] getChildren() {
+		return children;
+	}
+	public void setChildren(Person[] children) {
+		this.children = children;
+	}
+	public String getName() {
+		return name;
+	}
+	public Car getCar() {
+		return car;
+	}
+	public void setCar(Car car) {
+		this.car = car;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+}
+
+
+public class Test {
+	public static void main(String[] args) {
+		Person person = new Person("张三", 20);
+		Car car = new Car("劳斯莱斯", 80000000);
+		Person childA = new Person("儿子", 12);
+		Person childB = new Person("女儿", 10);
+		childA.setCar(new Car("宝马", 30000)); // 匿名对象
+		childB.setCar(new Car("奥迪", 40000)); // 匿名对象
+		person.setChildren(new Person[]{childA,childB}); // 一个人有孩子	
+		// 创建关联关系
+		person.setCar(car); // 一个人有一辆车
+		car.setPerson(person); // 一辆车属于一个人
+		// 查看一个人的孩子信息和孩子的汽车
+		for(int i = 0; i<person.getChildren().length;i++){
+			System.out.println("名字："+person.getChildren()[i].getName());
+			System.out.println("\t "+person.getChildren()[i].getCar().getInfor());
+		}
+	}
+}
+```
+
+## 9 数据报与简单Java类映射转换
+
+### 9.1 数据报与简单Java类映射转换
+
+### 9.3 多对多关系映射
+
+<img src="image/image-20210803112047587.png" alt="image-20210803112047587" style="zoom:50%;" />
+
+## 12 继承的定义和使用
+
+### 12.1 继承问题引出
+
+继承的本质：在原有类的基础上继续进行扩充
+
+### 12.2 继承的实现
+
+子类又称作派生类，父类称作superClass
+
+extends
+
+### 12.3 子类对象实例化流程
+
+![image-20210803143047034](image/image-20210803143047034.png)
+
+super()表示的就是子类构造调用父类构造的语句，该语句只允许在首行，默认情况下调用无参构造，但是若父类没有无参构造，则<u>子类必须利用super明确调用有参构造。</u>
+
+无论你如何折腾，在实例化子类对象的同时一定会实例化父类对象，目的是为了所有的属性进行空间分配。
+
+this是调用本类构造方法，super是调用父类构造方法，都是放在首行，因此不能同时出现。
+
+### 12.4 继承定义限制
+
+1. Java不能多重继承，只可以多层继承：一个类不能同时继承两个以上的类。
+2. 在进行继承关系定义的时候，子类可以继承父类中所有的操作结构。但是对于私有操作属于隐式继承，其它的属于显示继承。
+3. 隐式继承：java中的继承,子类可以从父类继承所有的属性和方法,无论访问修饰符是private或是其他,都会被子类继承,但是因为访问修饰符的限制,导致在子类中无法直接访问到继承过来的private属性和方法
+
+## 13 覆写
+
+### 13.1 方法覆写
+
+方法名称和父类相同，但是参数类型和个数、返回值相同，就叫做覆写。
+
+由于现在实例化的是子类对象，所以此时调用的方法一定是被子类所覆写过的方法，如果该方法没有被覆写过。那么将调用父类中提供的方法，覆写的意义是在于:优化父类的功能。.
+
+在子类进行方法覆写之后如果现在要想继续调用父类中的方法，那么就必须使用“super.方法()”。
+
+只要是在子类中调用父类方法的时候一定要在方法前追加有“super.方法”
+
+### 13.2 方法覆写限制
+
+1. 被覆写的方法，不能拥有比父类更加严格的访问权限。
+2. 重载VS覆写
+
+<img src="image/image-20210803151038002.png" alt="image-20210803151013695" style="zoom: 50%;" />
+
+<img src="image/image-20210803151118237.png" alt="image-20210803151118237" style="zoom: 50%;" />
+
+### 13.3 属性覆写
+
+当子类定义了与父类相同名称的成员时候就称为属性覆盖。（如果属性封装了，那么此时就不是属性覆写）
+
+super vs this
+
+- 在程序类中使用this表示先从本类查找所需要的属性或方法，如果本类不存在则查找父类定义，如果使用super则表示不查找子类，直接查找父类。
+- this与super都可以调用构造方法，但是this调用的是本类构造，但是super调用的是父类构造
+
+### 13.4 final关键字
+
+final定义不能被继承的类。
+
+final定义不能被覆写的方法和常量。
+
+final用于定义常量。
+
+实际上常量通常是公共的共享的，因此常常使用public static final int ON = 1；这样来定义常量。
+
+## 14 继承分析
+
+```Java
+class Person{
+	private String name;
+	private int age;
+	private String sex;
+	public Person(String name){
+		this.name = name;
+	}
+	public Person(String name, int age, String sex) {
+		this(name);
+		this.age = age;
+		this.sex = sex;
+	}
+	public String getInfor(){
+		return "姓名："+name+"\t年龄："+age+"\t性别："+sex;
+	}
+}
+class Student extends Person{
+	private String school;
+	private String grade;
+	public Student(String name, int age, String sex,String school,String grade) {
+		super(name, age, sex);
+		this.school = school;
+		this.grade = grade;
+	}
+	public String getInfor(){
+		return super.getInfor()+"\t学校："+school+"\t年级: "+grade;
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Student student = new Student("Bobo", 12, "man", "LNU", "se");
+		System.out.println(student.getInfor());
+	}
+}
+```
+
+## 15 Annotation注解
+
+### 15.1 Annotation简介
+
+利用Annotation可以有效减少程序配置的代码，并且可以利用Annotation进行一些结构化的定义。Annotation是以一种注解的形式实现的程序开发。
+
+利用注解可以减少一些配置文件。
+
+### 15.2 准确覆写@Override
+
+可以**在明确要覆写的方法**上，增加一个@Override
+
+该注解可以帮助开发者在程序编译的时候检查出问题的错误（比如要覆写的方法名写错了）。
+
+### 15.3 过期声明@Deprecated
+
+所谓的过期操作指的是在一个软件项目的迭代开发过程之中，可能有某一个方法或者是某个类，由于在最初设计的时候考虑不周到（存在有缺陷），导致新版本的应用会有不适应的地方（老版本不影响），这个时候又不可能直接删除掉这些操作，那么就希望给一个过渡的时间，于是采用一个过期的声明，目的是高斯新的用户这些操作不要再用了，老的用户用了就用了，这样的方法必须使用@Deprecated进行定义。
+
+<img src="image/image-20210803160156770.png" alt="image-20210803160156770" style="zoom:50%;" />
+
+### 15.4 压制警告@SuppressWarings
+
+就是让警告信息不出现，不骚扰你。
+
+## 16 多态性
+
+### 16.1 多态性简介
+
