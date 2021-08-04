@@ -375,7 +375,7 @@ extends
 
 ### 12.3 子类对象实例化流程
 
-![image-20210803143047034](image/image-20210803143047034.png)
+<img src="image/image-20210803143047034.png" alt="image-20210803143047034" style="zoom:50%;" />
 
 super()表示的就是子类构造调用父类构造的语句，该语句只允许在首行，默认情况下调用无参构造，但是若父类没有无参构造，则<u>子类必须利用super明确调用有参构造。</u>
 
@@ -495,4 +495,223 @@ public class Test {
 ## 16 多态性
 
 ### 16.1 多态性简介
+
+- 方法的多态：
+  - 方法的重载
+  - 方法的覆写
+- 对象的多态性：父子实例之间的转换处理
+  - 对象向上转型:父类父类实例=子类实例、自动完成转换;
+  - 对象向下转型:子类子类实例=(子类)父类实例、强制完成转换。
+
+大多数是向上转型
+
+### 16.2 对象向上转型
+
+<img src="image/image-20210804101737024.png" alt="image-20210804101737024" style="zoom:50%;" />
+
+向上 转型的优势：对参数进行统一的设计（接收或返回参数的统一性）。
+
+**关键：实例化的是哪个子类、以及子类有没有进行方法的覆写。**
+
+```Java
+class Person{
+	private String name;
+	private int age;
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	public void print(){
+		System.out.println("I am a Person！");
+	}
+}
+class Student extends Person{
+	public Student(String name, int age) {
+		super(name, age);
+	}
+	public void print(){           // 方法覆写
+		System.out.println("I am a student！");
+	}
+}
+class Teacher extends Person{
+	public Teacher(String name, int age) {
+		super(name, age);
+	}
+	public void print(){           // 方法覆写
+		System.out.println("I am a teacher！");
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		fun(new Student("Bob", 12));  // 子类向上转型
+		fun(new Teacher("LIi", 22));  // 子类向上转型
+		// 通过向上转型，如果有n个子类的话，在进行调用的时候，
+		// 也只需要fun这一个方法
+	}
+	public static void fun(Person person){
+		person.print();
+	}
+}
+```
+
+### 16.3 对象向下转型
+
+向上描述的是一些公共的特征，而向下描述的是子类自己特殊的定义环境，但是需要明确的是，向下转型并不是一件安全的事情。因为**在进行向下转型之前一定要首先发生向上转型**。
+
+```Java
+class Person{
+	public void print(){
+		System.out.println("I am a Person！");
+	}
+}
+class Superman extends Person{
+	public void print(){           
+		System.out.println("I am a Superman！");
+	}
+	public void fly(){
+		System.out.println("I can fly!");
+	}
+	public void fire(){
+		System.out.println("I can fire!");
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Person person = new Superman();       // 向上转型
+		person.print(); // 他首先是一个超人，但是正常情况下他处于正常人的状态
+		// 一旦有超人的需要，就进行变形（向下转型），可以飞行和喷火
+		Superman superman = (Superman)person; // 向下转型
+		superman.fly();
+		superman.fire();
+	}
+}
+```
+
+**向下转型是为了使用子类的功能**
+
+### 16.4 instanceof 关键字
+
+为了保证向下转型的安全，需要使用instanceof进行判断。
+
+```Java
+public class Test {
+	public static void main(String[] args) {
+		Person person = new Superman();       // 向上转型
+		if(person instanceof Superman){      // 转型之前先判断
+			Superman superman = (Superman)person; // 向下转型
+			superman.fly();
+			superman.fire();
+		}
+	}
+}
+```
+
+## 17 Object类
+
+### 17.1 Object类的基本概念
+
+Object类的主要特点是可以解决参数的统一问题，也就是说使用Object类可以接收所有数据类型。
+
+在Java之中只有一个类是不存在有继承关系的，那么这个类就是Object。
+
+如果一个程序的方法要求**可以接收所有类对象**的时候就可以利用Obiect实现处理，但需要注意，在Java设计中，对于**所有的引用数据类型实际上都可以使用Object类进行接收**，包括数组。
+
+### 17.2 取得对象信息
+
+toString()；  // 用于获取对象信息，默认情况下不写
+
+### 17.3 对象比较equals()
+
+## 18 抽象类的定义与使用
+
+### 18.1 抽象类基本概念
+
+在父类设计的时候，优先考虑使用抽象类
+
+抽象类的主要作用在于对子类中覆写方法进行约定，在抽象类里面可以去定义一些抽象方法以实现这样的约定，抽象方法指的是使用了**abstract关键字定义的并且没有提供方法体的方法**。（在普通类的基础上追加抽象方法就是抽象类）
+
+**抽象类不能直接实例化**
+
+- 抽象类必须提供有子类，子类使用extends继承一个抽象类;
+- 抽象类的子类（不是抽象类）一定要覆写抽象类中的全部抽象方法;
+- 抽象类的对象实例化可以利用对象多态性通过子类向上转型的方式完成
+
+### 18.2 抽象类的相关说明
+
+1. 抽象类不能用final定义
+2. 抽象类允许没有抽象方法
+3. 抽象类可以有static方法
+4. static永远不会受到类结构的影响
+
+### 18.3 模版设计模式
+
+## 19 包装类
+
+### 19.1 包装类实现原理分析
+
+包装类的主要功能是针对于基本数据类型的对象转换而实现的，并且随着JDk改变而进行改变。
+
+```Java
+class Int{
+	private int data;  // 包装一个基本数据类型
+	public Int(int data){
+		this.data = data;
+	}
+	public int intValue(){
+		return this.data;
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Object obj = new Int(10);  // 装箱：基本数据类型包装
+		int x = ((Int)obj).intValue();// 拆箱：从包装类中去数据类型
+		System.out.println(x);
+	}
+}
+```
+
+现在可以发现在Java 中包装类一共提供有两种类型:
+
+- 对象型包装类( Object直接子类):Boolean、Character; 
+- 数值型的包装类(Number直接子类):Byte、Short、Integer、Long、Float
+
+Number类是一个抽象类，这个类有六个方法。
+
+<img src="image/image-20210804115008506.png" alt="image-20210804115008506" style="zoom:50%;" />
+
+### 19.2 装箱与拆箱
+
+数据装箱:将基本数据类型保存到包装类之中，一般可以利用构造方法完成
+
+- Integer类: public Integer(int value);
+- Double类: public Double(double value); 
+- Boolean类: public Boolean(boolean value); 
+
+数据拆箱:从包装类中获取基本数据类型:
+
+- 数值型包装类已经由Number类定义了拆箱的方法了; 
+
+- Boolean型: public boolean booleanValue(); 
+
+```Java
+public class Test {
+	public static void main(String[] args) {
+		Integer obj = new Integer(10); // 装箱
+		int x = obj.intValue();  // 拆箱
+		System.out.println(x);
+	}
+}
+```
+
+```Java
+public class Test {
+	public static void main(String[] args) {
+		Integer obj = 10; //自动装箱
+		int x = obj; // 自动拆箱
+		System.out.println(x);
+	}
+}
+```
+
+以后进行包装类相等判断的时候**一定要使用equals()完成**
 
