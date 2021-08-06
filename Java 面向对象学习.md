@@ -715,3 +715,427 @@ public class Test {
 
 以后进行包装类相等判断的时候**一定要使用equals()完成**
 
+## 20 接口的定义与使用
+
+### 20.1 接口基本定义
+
+接口可以理解为一个纯粹的抽象类（最原始的定义接口之中是只包含有抽象方法和全局常量的），但是从JDK1.8开始由引入了Lambda表达式的概念，所以接口的定义也得到了加强，除了抽象方法与全局常量之外，还可以定义普通方法或静态方法。但是从设计本身来考虑，接口的组成还是应该以**抽象方法和全局常量**为主。
+
+接口使用原则：
+
+- 接口需要被子类实现（implements )，一个子类可以实现多个父接口;
+- 子类（如果不是抽象类）那么一定要覆写接口之中的全部抽象方法;.
+- 接口对象可以利用子类对象的向上转型进行实例化。
+
+使用接口的主要目的是：一个子类可以实现多个接口，利用接口实现多继承。
+
+```Java
+interface IMessage{ //定义一个接口，一般命名以I开头
+	public static final String INFO = "你好！"; // 全局常量
+	public abstract String getInfo(); // 抽象方法
+}
+interface IChannel{
+	public abstract boolean connect(); // 抽象方法
+}
+// 定义类来实现接口
+class MessageImpl implements IMessage,IChannel{
+	public String getInfo(){
+		return "收到了消息！";
+	}
+	public boolean connect(){
+		System.out.println("连接成功！");
+		return true;
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		IMessage msg = new MessageImpl();
+		System.out.println(msg.getInfo());
+		IChannel ich = (IChannel)msg;
+		ich.connect();
+	}
+}
+```
+
+由于MessageImpl子类实现了lMessage与IChannel 两个接口，所以这个子类可以是这个两个接口任意一个接口的实例，表示这两个接口实例可以转换。
+
+由于接口描述的是一个公共的定义标准，所以在**接口之中所有的抽象方法的访问权限都是public**，也就是写与不写都是一样的。
+
+**extends在类继承上只能够继承一个父类，但是接口上可以继承多个**
+
+```Java
+interface IMessage{ //定义一个接口，一般命名以I开头
+	public static final String INFO = "你好！"; // 全局常量
+	public abstract String getInfo(); // 抽象方法
+}
+interface IChannel{
+	public abstract boolean connect(); // 抽象方法
+}
+// 接口可以多继承
+interface IServece extends IMessage,IChannel{
+	public abstract String getMore();
+}
+```
+
+ ### 20.2 接口定义加强
+
+JDK1.8之后，**可以在接口中加入普通方法**，但是必须加入default声明，**该操作属于挽救操作。**
+
+### 20.3 使用接口定义标准
+
+```Java
+interface IUSB{  // 定义USB标准
+	public boolean check();
+	public void work();
+}
+class Computer{
+	public void plugin(IUSB usb){ // 向上转型
+		if(usb.check()){
+			usb.work();
+		}
+	}
+}
+class KeyBoard implements IUSB{
+	public boolean check(){
+		return true;
+	}
+	public void work(){
+		System.out.println("开始打字工作");
+	}
+}
+class Print implements IUSB{
+	public boolean check(){
+		return true;
+	}
+	public void work(){
+		System.out.println("开始打印工作");
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Computer computer = new Computer();
+		computer.plugin(new Print()); // 向上转型
+		computer.plugin(new KeyBoard()); // 向上转型
+	}
+}
+运行结果：
+    开始打印工作
+	开始打字工作
+```
+
+### 20.4 工厂设计模式
+
+```Java
+interface IFood{
+	public void eat();
+}
+class Bread implements IFood{
+	public void eat(){
+		System.out.println("吃面包");
+	}
+}
+class Milk implements IFood{
+	public void eat(){
+		System.out.println("喝牛奶");
+	}
+}
+class Factory{
+	public static IFood getInstance(String className){
+		if("bread".equals(className)){
+			return new Bread();
+		}else if("milk".equals(className)){
+			return new Milk();
+		}else{
+			return null;
+		}
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		IFood food = Factory.getInstance("bread");
+		food.eat();
+	}
+}
+```
+
+在本程序之中，客户端程序类与IFood接口的子类没有任何的关联，所有的关联都是通过Factory类完成的，而在程序运行的时候可以通过初始化参数来进行要使用的子类定义。客户端不关注子类。
+
+<img src="image/image-20210806110559239.png" alt="image-20210806110559239" style="zoom:50%;" />
+
+### 20.5 代理设计模式（Proxy）
+
+代理设计模式的主要功能是可以帮助用户将所有的开发注意力只集中在核心业务功能。
+
+代理设计的主要特点:一个接口提供有两个子类，其中一个子类是真实业务操作类,另外一个主题是代理业务操作类，没有代理操作，真实操作无法完成。
+
+<img src="image/image-20210806111340283.png" alt="image-20210806111340283" style="zoom: 50%;" />
+
+```java
+interface IEat{
+	public void get();
+}
+class EatReal implements IEat{
+	public void get(){
+		System.out.println("真正开始享用美食");
+	}
+}
+class EatProxy implements IEat{ // 服务代理
+	private IEat eat;  // 为吃而服务
+	public EatProxy(IEat eat) { // 代理项
+		this.eat = eat;
+	}
+	public void get(){
+		this.prepare();
+		this.eat.get();
+		this.clear();
+	}
+	public void prepare(){
+		System.out.println("【代理主题】1、准备食材");
+		System.out.println("【代理主题】2、烹饪食材");
+	}
+	public void clear(){
+		System.out.println("【代理主题】3、收拾碗筷");
+	}	
+}
+public class Test {
+	public static void main(String[] args) {
+		IEat eat = new EatProxy(new EatReal());
+		eat.get();
+	}
+}
+运行结果：
+    【代理主题】1、准备食材
+    【代理主题】2、烹饪食材
+     真正开始享用美食
+    【代理主题】3、收拾碗筷
+```
+
+### 20.6 抽象类与接口区别
+
+## 22 泛型
+
+### 22.1 泛型问题引出
+
+泛型的主要目的是为了解决ClassCastException的问题，在进行向下转型时可能存在安全隐患
+
+### 22.2 泛型基本定义
+
+泛型的本质：**类中的属性或方法的参数与返回值的类型可以由对象实例化的时候动态决定。**
+
+那么此时就需要在类定义的时候明确的定义占位符（泛型标记)。
+
+现在的程序代码之中，由于Point类里面设置的泛型类型为Integer，**这样所有的对应此泛型的属性、变量、方法返回值就将全部替换为Integer(只局限于此对象之中)**，这样在进行处理的时候如果发现设置的内容有错误提示，同时也避免了对象的向下转型处理（可以避免安全隐患)。
+
+注意：
+
+- 泛型只能用于引用类型可如果是基本数据类型，则要用包装类
+- 从JDK1.7 开始，泛型对象实例化可以简化为：Point<Integet> point = new Point<>();
+
+### *22.3 泛型通配符
+
+### 22.4 泛型接口
+
+```Java
+interface IMessage<T>{
+	public String echo(T t);
+}
+class MessageImpl<S> implements IMessage<S>{
+	public String echo(S x){
+		return "Echo: "+ x;
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		IMessage<String> message = new MessageImpl<String>();
+		System.out.println(message.echo("HEllo WOrld"));
+	}
+}
+运行结果：
+    	Echo: HEllo WOrld
+```
+
+### 22.5 泛型方法
+
+```Java
+public class Test {
+	public static void main(String[] args) {
+		System.out.println(fun("Hello"));
+		System.out.println(fun(3.1415));
+		System.out.println(fun(100));
+	}
+	// 泛型方法
+	public static <T> T fun(T t){
+		return t;
+	}
+}
+```
+
+## 23 包的定义及使用
+
+一个*.java文件里面**只允许有一个**public class，而且如果需要被其他包所使用，则一定要定义为public class
+
+一个*.java文件里面**可以有多个**class类，但是这些class只允许在一个包中使用
+
+如果使用“包.*”这种方式导入，若两个包中含有同名的类，则对于类的使用，则使用**全名**的引用方式。
+
+## 25 单例设计模式
+
+单例设计模式：
+
+- 饿汉式：在系统加载的时候进行实例化
+
+```Java
+class Singleton{
+	// final:不能修改 ；static:可以直接用类访问；private: 封装
+	private static final Singleton INSTANCE = new Singleton();
+	private Singleton(){} // 构造方法私有化了，则不能被调用
+	public static Singleton getInstance(){
+		return INSTANCE;
+	}
+	public void print(){
+		System.out.println("hello world");
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Singleton instance = null; // 声明对象
+		instance = Singleton.getInstance();
+		instance.print();
+	}
+}
+```
+
+
+
+- 懒汉式：在第一次使用的时候进行实例化对象处理
+
+```Java
+class Singleton{
+	private static Singleton instance ;
+	private Singleton(){} // 构造方法私有化了，则不能被调用
+	public static Singleton getInstance(){
+		if(instance == null){
+			return new Singleton();
+		}
+		return instance;
+	}
+	public void print(){
+		System.out.println("hello world");
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Singleton instance = null; // 声明对象
+		instance = Singleton.getInstance();
+		instance.print();
+	}
+}
+```
+
+ ### 多例设计模式
+
+```Java
+class Color{
+	private static final Color RED = new Color("红色");
+	private static final Color GREEN = new Color("绿色");
+	private static final Color BLUE = new Color("蓝色");
+	private String title;
+	private Color(String title){
+		this.title = title;
+	}
+	public static Color getInstance(String color) {
+		switch (color) {
+		case "red": return RED; 
+		case "blue": return BLUE; 
+		case "green": return GREEN; 		
+		default: return null;
+		}
+	}
+	public String toString(){
+		return this.title;
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		Color color = Color.getInstance("green");
+		System.out.println(color);
+	}
+}
+```
+
+## 26 枚举
+
+### 26.1 定义枚举类
+
+枚举主要作用是用于定义有限个数对象的一种结构（多例设计）。
+
+```Java
+enum Color{
+	RED,GREEN,BLUE;
+}
+public class Test {
+	public static void main(String[] args) {
+		Color color = Color.BLUE;
+		System.out.println(color);
+	}
+}
+运行结果：
+    BLUE
+```
+
+使用枚举可以在编译的时候发现程序的错误，但是多例设计不行。
+
+### 26.2 Enum类
+
+在枚举之中每一个对象的序号都是根据枚举对象的定义顺序来决定的。.
+
+enum和Enum的区别：
+
+- enum:是从JDK 1.5之后提供的一个关键字，用于定义枚举类;.
+- Enum:是一个抽象类，所以使用enum关键字定义的类就默认继承了此类
+
+### 26.3 定义枚举结构
+
+枚举类中定义的构造方法不能采用非私有化定义（public无法使用）
+
+**枚举对象写在首行**
+
+```Java
+enum Color{
+	RED("红色"),GREEN("绿色"),BLUE("蓝色"); // 枚举对象写在首行
+	private String title;  //定义属性
+	private Color (String title){
+		this.title = title;
+	}
+	public String toString(){
+		return this.title;
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		for(Color c: Color.values()){
+			System.out.println(c.ordinal() + " - " + c.name()+ " - " + c);
+		}
+	}
+}
+运行结果：
+    0 - RED - 红色
+    1 - GREEN - 绿色
+    2 - BLUE - 蓝色
+```
+
+**枚举类也可以进行继承使用**
+
+## 27 异常的捕获及处理
+
+### 27.2 处理异常
+
+在处理异常的时候，要把捕获范围大的异常常在捕获范围小的异常之后。
+
+try catch finally
+
+### throws关键字
+
+
+
