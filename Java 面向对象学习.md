@@ -1135,7 +1135,170 @@ public class Test {
 
 try catch finally
 
-### throws关键字
+### throws、throw关键字
 
+- throw:是在代码块中使用的，主要是手工进行异常对象的抛出;
+- throws:是在方法定义上使用的，表示将此方法中可能产生的异常明确告诉给调用处，由调用处进行处理
 
+### 27.3 异常处理模型
+
+```Java
+class MyMath{
+	// 异常交给被调用处处理则一定要在方法上使用throws
+	public static int div(int x,int y) throws Exception{
+		int tmp = 0 ;
+		System.out.println("*** 开始计算 ***");
+		try {
+			tmp = x / y;
+		} finally {
+			System.out.println("*** 结束计算 ***");
+		}
+		return tmp;
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		try{
+			System.out.println(MyMath.div(10, 0));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+### 27.4 自定义异常
+
+```Java
+class BombException extends Exception{
+	public BombException(String msg){
+		super(msg);
+	}
+}
+class Food{
+	public static void eat(int num) throws BombException{
+		if(num > 10){
+			throw new BombException("吃太多，肚子饱了！");
+		}else{
+			System.out.println("正常吃，不怕吃胖");
+		}
+	}
+}
+public class Test {
+	public static void main(String[] args) throws Exception {
+		Food.eat(11);
+	}
+}
+```
+
+## 28 内部类
+
+### 28.1 内部类基本概念
+
+一个类的内部类可以定义其它的类，叫做内部类。
+
+为什么要内部类：
+
+​	**让Inner这个内部类可以访问Outer这个外部类的私有属性。**
+
+```Java
+class Outer{           // 外部类
+	private String msg = "Hello World";
+	public void fun(){
+		Inner inner = new Inner();
+		inner.print();
+	}
+	class Inner{        // 内部类
+		public void print(){
+			// 访问外部类私有属性
+			System.out.println(Outer.this.msg);
+		}
+	}
+}
+public class Test {
+	public static void main(String[] args) throws Exception {
+		Outer outer = new Outer();
+		outer.fun();
+	}
+}
+```
+
+### 28.2 内部类相关说明
+
+1. 当内部类定义为private的时候，只允许外部类去访问。
+2. 如果内部类定义public，则可以在程序外部访问这个内部类。例如： Outer.Innner in = new Outer().new Inner();
+
+### 28.3 static定义内部类
+
+如果在内部类上使用了static定义，那么这个内部类就变成了外部类，static定义的都是独立于类的结构。
+
+注意：static定义的不管是类还是方法，只能访问外部类的static方法和属性。
+
+```Java
+class Outer{                   // 外部类
+	private static final String msg = "Hello World";
+	static class Inner{        // 内部类
+		public void print(){
+			// 访问外部类私有属性
+			System.out.println(Outer.msg);
+		}
+	}
+}
+public class Test {
+	public static void main(String[] args) throws Exception {
+		// 注意下面的访问方式，这是static的访问方式
+		Outer.Inner inner = new Outer.Inner();
+		inner.print();
+	}
+}
+```
+
+### 28.4 匿名内部类
+
+```Java
+interface IMessage{
+	public void send(String str);
+}
+public class Test {
+	public static void main(String[] args) throws Exception {
+		IMessage msg = new IMessage() { // 匿名内部类			
+			@Override
+			public void send(String str) {
+				System.out.println(str);
+			}
+		};
+		msg.send("Hello World");
+	}
+}
+```
+
+匿名内部类是一个没有名字的只能使用一次，并且结构固定的一个类。
+
+## 29 函数式编程
+
+### 29.1 Lamda表达式
+
+使用Lamda表达式的要求： **SAM (Single Abstract Method)，只有一个抽象方法。**
+
+```Java
+@FunctionalInterface  // 函数式接口
+interface IMessage{
+	public void send(String str);
+}
+public class Test {
+	public static void main(String[] args) throws Exception {
+		IMessage message = (str)->{ // lamda表达式
+			System.out.println("发送消息："+str);
+		};
+		message.send("你好");
+	}
+}
+```
+
+### 29.2 方法引用
+
+- 引用静态方法:类名称:: static方法名称;
+- 引用某个实例对象的方法:实例化对象::普通方法;
+- 引用特定类型的方法:特定类::普通方法;
+- 引用构造方法:类名称:: new。
 
