@@ -1,6 +1,10 @@
-# Java 学习笔记
+# Java学习笔记
 
-## 目录
+**这是我在学习Java过程中的学习笔记，期间主要参考了一些视频资料。**
 
-### [Java 面向对象学习](https://rongchenlin.github.io/JavaLearning/Java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0.html)
+**面向对象、高级编程学习的视频**：[阿里云大学 Java面向对象编程 魔乐科技软件学院](https://developer.aliyun.com/course/1011)
+
+* #### [Java面向对象学习](Java面向对象学习.md)
+
+* #### [Java高级编程](Java高级编程.md)
 
