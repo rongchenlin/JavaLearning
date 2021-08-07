@@ -6,7 +6,8 @@
 
 ### 1.1 Thread类实现多线程
 
-**继承Thread**类实现多线程 ，然后**覆写run()方法**，但是run()方法不能直接被调用，要想启动多线程必须**使用start()方法**完成。
+- **继承Thread**类实现多线程 ，然后**覆写run()方法**，但是run()方法不能直接被调用，要想启动多线程必须**使用start()方法**完成。
+
 
 ```Java
 class MyThread extends Thread{
