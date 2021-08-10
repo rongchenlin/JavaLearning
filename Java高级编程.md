@@ -1,4 +1,32 @@
-[TOC]
+- [Java高级编程](#java高级编程)
+  - [1 Java多线程编程](#1-java多线程编程)
+    - [1.1 Thread类实现多线程](#11-thread类实现多线程)
+    - [1.2 Runnable接口实现多线程](#12-runnable接口实现多线程)
+    - [？1.4 Callable接口实现多线程](#14-callable接口实现多线程)
+    - [1.5 多线程运行状态](#15-多线程运行状态)
+  - [2 线程常用操作方法](#2-线程常用操作方法)
+    - [2.1 线程的命名和取得](#21-线程的命名和取得)
+    - [2.2 线程休眠](#22-线程休眠)
+    - [2.3 线程中断](#23-线程中断)
+    - [2.4 线程强制执行](#24-线程强制执行)
+    - [2.5 线程礼让](#25-线程礼让)
+    - [2.6 线程优先级](#26-线程优先级)
+  - [3 线程的同步与死锁](#3-线程的同步与死锁)
+    - [3.1 同步问题引出](#31-同步问题引出)
+    - [3.2 线程同步处理](#32-线程同步处理)
+  - [*4 生产者消费者问题](#4-生产者消费者问题)
+    - [线程等待和唤醒](#线程等待和唤醒)
+  - [5 多线程案例](#5-多线程案例)
+    - [加法减法问题](#加法减法问题)
+  - [7 java基础类库](#7-java基础类库)
+    - [7.1 CharSequence](#71-charsequence)
+    - [Runtime类](#runtime类)
+    - [System类](#system类)
+  - [9 日期操作](#9-日期操作)
+    - [9.1 Date日期处理](#91-date日期处理)
+    - [9.2 SimpleDateFormat处理类](#92-simpledateformat处理类)
+    - [开发支持类库](#开发支持类库)
+    - [UUID类](#uuid类)
 
 # Java高级编程
 
@@ -149,7 +177,7 @@ public class Test {
 
 如果希望某一个线程可以暂缓执行，那么可以进行休眠。
 
-![image-20210809105130698](image/image-20210809105130698.png)
+<img src="image/image-20210809105130698.png" alt="image-20210809105130698" style="zoom:67%;" />
 
 ### 2.3 线程中断
 
@@ -258,12 +286,195 @@ public class Test {
     票已经卖光了
     票已经卖光了
     票已经卖光了
-
 ```
-
-### 3.3 线程死锁
 
 ## *4 生产者消费者问题
 
-## 5 多线程深入话题
+### 线程等待和唤醒
+
+wait()：   // 线程等待
+
+notify()：// 唤醒第一个等待进程，其他进程继续等待
+
+notifyAll()：// 唤醒所有等待进程，优先级高的可能优先被唤醒
+
+## 5 多线程案例
+
+### 加法减法问题
+
+```Java
+// 加法线程类
+class  AddThread implements Runnable{
+    private Resource resource;
+    public AddThread (Resource resource){
+        this.resource = resource;
+    }
+
+    @Override
+    public void run() {
+        for(int i=0;i<50;i++){
+            try {
+                this.resource.add();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+// 减法线程类
+class  SubThread implements Runnable{
+    private Resource resource;
+    public SubThread (Resource resource){
+        this.resource = resource;
+    }
+    @Override
+    public void run() {
+        for(int i=0;i<50;i++){
+            try {
+                this.resource.sub();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+class Resource{
+    private int num = 0;
+    private boolean flag = true;
+    // flag = true : 只可以进行加操作
+    // flag = false :只可以进行减操作
+    public synchronized void add() throws InterruptedException {
+        if(this.flag == false) {   // 现在只能进行减法操作，加法等待
+            super.wait();
+        }
+        Thread.sleep(100);
+        this.num++;
+        System.out.println("加法操作 "+ Thread.currentThread().getName() + "num = " + this.num);
+        this.flag = false;   // 加法操作结束，需要进行减法操作
+        super.notifyAll();   // 唤醒全部等待进程
+    }
+
+    public synchronized void sub() throws InterruptedException {
+        if(this.flag == true) {
+            super.wait();
+        }
+        Thread.sleep(200);
+        this.num--;
+        System.out.println("减法操作 "+ Thread.currentThread().getName() + "num = " + this.num);
+        this.flag = true;
+        super.notifyAll();
+    }
+}
+public class Hello {
+    public static void main(String[] args) {
+        Resource res = new Resource();
+        AddThread addThread = new AddThread(res);
+        SubThread subThread = new SubThread(res);
+        new Thread(addThread,"加法进程A：").start();
+        new Thread(addThread,"加法进程B：").start();
+        new Thread(subThread,"减法进程X：").start();
+        new Thread(subThread,"减法进程Y：").start();
+    }
+}
+```
+
+## 7 java基础类库
+
+### 7.1 CharSequence
+
+CharSequence是一个描述字符串结构的接口，在这个接口有三个常用子类。
+
+<img src="image/image-20210810161013237.png" alt="image-20210810161013237" style="zoom:50%;" />
+
+### Runtime类
+
+Runtime类是描述运行时状态的类。
+
+- 获取实例化对象:public static Runtime getRuntime();
+- 通过这个类中的availableProcessors()方法可以获取本机的CPU内核数
+- 获取最大可用内存空间: public long maxMemory();   // 默认为1/4
+- 获取可用内存空间:public long totalMemory(); 
+- 获取空闲内存空间: public long freeMemory(); 
+- 手工进行GC处理: public void gc()。
+
+```Java
+public class Hello {
+    public static void main(String[] args) {
+        Runtime runtime = Runtime.getRuntime(); // 获取实例化对象
+        System.out.println("内核数量："+runtime.availableProcessors());
+        System.out.println("最大内存："+runtime.maxMemory());
+        System.out.println("可用内存："+runtime.totalMemory());
+        System.out.println("空闲内存："+runtime.freeMemory());
+    }
+}
+```
+
+### System类
+
+获取当前的日期时间数值:public static long currentTimeMillis();
+
+## 9 日期操作
+
+### 9.1 Date日期处理
+
+- 将long转为Date: public Date(long date);
+- 将 Date转为 long: public long getTime(); 
+
+```Java
+import java.util.Date;
+
+public class Hello {
+    public static void main(String[] args) {
+        Date date = new Date();
+        System.out.println(date);
+        // Date = > long
+        long nextDay = date.getTime() + 86400 *1000;   // 一天之后的时间
+        System.out.println(new Date(nextDay));  // long = > Date
+    }
+}
+```
+
+### 9.2 SimpleDateFormat处理类
+
+主要是用于**时间格式化处理**，返回String类型
+
+```Java
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class Hello {
+    public static void main(String[] args) throws ParseException {
+        // 日期 => String
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String str = sdf.format(date);
+        System.out.println(str);
+        // String => 日期
+        String dd = "2020-11-11 12:12:20.111";
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        Date date1 = sdf2.parse(dd);
+        System.out.println(date1);
+    }
+}
+```
+
+### 开发支持类库
+
+### UUID类
+
+根据时间戳产生一个无重复的字符串定义。
+
+```java
+import java.text.ParseException;
+import java.util.UUID;
+
+public class Hello {
+    public static void main(String[] args) throws ParseException {
+       UUID uuid = UUID.randomUUID();
+        System.out.println(uuid.toString());
+    }
+}
+```
+
+在对文件进行自动命名时，UUID类型好用。
 
