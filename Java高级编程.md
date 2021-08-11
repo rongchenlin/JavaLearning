@@ -478,3 +478,258 @@ public class Hello {
 
 在对文件进行自动命名时，UUID类型好用。
 
+### ThreadLocal类
+
+所有线程的数据都存放到ThreadLocal中，同时ThreadLocal提供set()、get()、remove()方法。
+
+对于线程对象，则是由Thread.currentThread()来获取。
+
+### 定时调度
+
+- java.util.TimerTask类:实现定时任务处理;.
+- java.util.Timer类:进行任务的启动，启动的方法: 
+  - 任务启动: public void schedule(TimerTask task, long delay)
+  - 间隔触发：scheduleAtFixedRate()
+
+<img src="image/image-20210811113439228.png" alt="image-20210811113439228" style="zoom:50%;" />
+
+```Java
+import java.util.Timer;
+import java.util.TimerTask;
+
+class MyTask extends TimerTask{ // 任务主体
+    @Override
+    public void run() {  // 多线程处理方法
+        System.out.println(Thread.currentThread().getName() + " 定时任务执行，当前时间：" + System.currentTimeMillis());
+    }
+}
+public class Hello {
+    public static void main(String[] args)  {
+       Timer timer = new Timer();  // 定时任务
+        timer.schedule(new MyTask(),1000); // 延迟1s中后启动
+    }
+}
+```
+
+### Base64加密和解密
+
+- Base64.Encoder:进行加密处理;.
+  - 加密处理: public byte[] encode(byte[] src);
+- Base64.Decoder:进行解密处理。
+  - 解密处理: public byte[] decode(String src); 
+
+**加密：**
+
+<img src="image/image-20210811115207774.png" alt="image-20210811115207774" style="zoom:50%;" />
+
+**解密：**
+
+<img src="image/image-20210811115246659.png" alt="image-20210811115246659" style="zoom:50%;" />
+
+## 13 比较器
+
+### Comparable比较器
+
+对象数组排序，只需要在compareTo()方法进行排序规则的定义。
+
+```Java
+import java.util.Arrays;
+
+class Person implements Comparable<Person>{
+    private String name;
+    private int age;
+    public Person(String name,int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.age - o.age;  // 根据年龄进行排序
+    }
+
+    @Override
+    public String toString() {
+        return "姓名："+this.name+" 年龄："+this.age+"\n";
+    }
+}
+public class Hello {
+    public static void main(String[] args)  {
+        Person[] data = new Person[]{
+                new Person("张三",12),
+                new Person("李四",8),
+                new Person("王五",16)
+        };
+        Arrays.sort(data);   // 根据compareTo()里面的排序方式
+        System.out.println(Arrays.toString(data));
+    }
+}
+```
+
+### Comparator比较器
+
+**对于排序，不建议使用Comparator，最好使用Comprable**
+
+java.lang.Comparable是在类定义的时候实现的父接口，主要用于定义排序规则
+
+java.util.Comparator是挽救的比较器操作，需要设置单独的比较器规则类实现排序
+
+```Java
+import java.util.Arrays;
+import java.util.Comparator;
+
+class Person {
+    private String name;
+    private int age;
+    public Person(String name,int age){
+        this.name = name;
+        this.age = age;
+    }
+    public int getAge(){
+        return this.age;
+    }
+    @Override
+    public String toString() {
+        return "姓名："+this.name+" 年龄："+this.age+"\n";
+    }
+}
+class PersonComprator implements Comparator<Person>{
+    @Override
+    public int compare(Person o1, Person o2) {
+        return o1.getAge() - o2.getAge();
+    }
+}
+public class Hello {
+    public static void main(String[] args)  {
+        Person[] data = new Person[]{
+                new Person("张三",12),
+                new Person("李四",8),
+                new Person("王五",16)
+        };
+        Arrays.sort(data,new PersonComprator());   // 根据compareTo()里面的排序方式
+        System.out.println(Arrays.toString(data));
+    }
+}
+```
+
+## 14 类库使用案例分析
+
+### 学生信息比较
+
+```Java
+import java.util.Arrays;
+
+class Student implements Comparable<Student>{
+    private String name;
+    private int age;
+    private double score;
+    public Student(String name, int age, double score) {
+        this.name = name;
+        this.age = age;
+        this.score = score;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        if(this.score < o.score){
+            return 1;
+        } else if(this.score > o.score){
+            return -1;
+        } else{
+            return  this.age - o.age;
+        }
+    }
+    @Override
+    public String toString() {
+        return "姓名：" + this.name + " 年龄：" + this.age + "成绩：" + this.score +"\n";
+    }
+}
+
+public class Hello {
+    public static void main(String[] args)  {
+        String title = "张三:21:95|李四:18:90|王五:23:98";
+        String [] result = title.split("\\|");
+        Student students [] = new Student[result.length];
+        for(int i = 0;i<result.length;i++){
+            String  temp[] = result[i].split(":");
+            students[i] = new Student(temp[0],Integer.parseInt(temp[1]),Double.parseDouble(temp[2]));
+        }
+        Arrays.sort(students);
+        System.out.println(Arrays.toString(students));
+    }
+}
+```
+
+## 15 文件操作
+
+### 15.1 File类基本操作
+
+```Java
+import java.io.File;
+import java.io.IOException;
+
+public class Hello {
+    public static void main(String[] args) throws IOException {
+        File file = new File("e:\\Java.txt"); // 文件对象
+        if(file.exists()) { // 判断文件是否存在
+            file.delete();  // 若文件存在则删除
+        } else {             // 若文件不存在
+            file.createNewFile();// 创建文件
+        }
+    }
+}
+```
+
+### 15.2 File类操作深入
+
+1. 为了考虑不同操作系统的文件分隔符问题，File类采用了常量**File.separator**来定义。
+
+``` Java
+File file = new File("e:"+File.separator+"Java.txt");
+```
+
+2. 获取父路径：getParentFIle()；
+3. 创建目录：mkdirs();  // 多级，单级使用mkdir();
+
+```Java
+File file = new File("e:"+File.separator+"hello"+File.separator+"hello"+File.separator+"Java.txt");
+if(!file.getParentFile().exists()) {  // 如果目录不存在
+    file.mkdirs();
+}
+```
+
+### 15.3 获取文件信息
+
+```Java
+public class Hello {
+    public static void main(String[] args) throws IOException {
+        File file = new File("e:"+File.separator+"2.jpg");
+        System.out.println("文件是否可读："+file.canRead());
+        System.out.println("文件是否可写："+file.canWrite());
+        System.out.println("文件大小："+file.length());
+    }
+}
+```
+
+### 15.4 列出所有目录内容
+
+```Java
+public class Hello {
+    public static void main(String[] args) throws IOException {
+        File file = new File("e:"+File.separator);
+        listDir(file);
+    }
+    public static void listDir(File file){
+        if(file.isDirectory()) { // 是一个目录
+            File result[] = file.listFiles(); // 列出目录中所有内容
+            if (result != null) {
+                for (int i = 0; i < result.length; i++) {
+                    listDir(result[i]);
+                }
+            }
+        }
+        System.out.println(file); // 如果不是目录，则列出后内容
+    }
+}
+```
+
