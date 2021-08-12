@@ -733,3 +733,169 @@ public class Hello {
 }
 ```
 
+## 反射机制
+
+### Class类对象的三种实例化模式
+
+getClass()可以帮助使用者找到对象的根源。
+
+Class类三种实例化形式：
+
+1. Object类支持：
+
+```Java
+class Person{
+
+}
+
+public class Hello {
+    public static void main(String[] args) {
+        Person per = new Person();
+        Class<? extends Person> cls = per.getClass();
+        System.out.println(cls.getSimpleName());
+    }
+}
+```
+
+2. JVM直接支持：类.class
+
+```Java
+class Person{
+
+}
+
+public class Hello {
+    public static void main(String[] args) {
+        Class<? extends Person> cls = Person.class;
+        System.out.println(cls.getSimpleName());
+    }
+}
+```
+
+3. Class类支持：Class中的static方法
+
+```Java
+class Person{
+
+}
+
+public class Hello {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class<? > cls = Class.forName("Person");
+        System.out.println(cls.getName());
+    }
+}
+```
+
+## 22 反射应用案例
+
+### 22.1 反射实例化对象
+
+**默认的Class类中的newInstance()方法只能够调用无参构造**
+
+**旧的方法**
+
+```Java
+class Person{
+    public Person(){
+        System.out.println("这是一个无参构造方法");
+    }
+}
+
+public class Hello {
+    public static void main(String[] args) throws Exception {
+        Class<? > cls = Class.forName("Person");
+        Object obj = cls.newInstance(); // 实例化对象，JDK1.9之后废除了
+        System.out.println(obj);
+    }
+}
+```
+
+新的方法
+
+```java
+class Person{
+    public Person(){
+        System.out.println("这是一个无参构造方法");
+    }
+}
+
+public class Hello {
+    public static void main(String[] args) throws Exception {
+        Class<? > cls = Class.forName("Person");
+//        Object obj = cls.newInstance(); // 实例化对象，JDK1.9之后废除了
+        Object obj = cls.getDeclaredConstructor().newInstance();
+        System.out.println(obj);
+    }
+}
+```
+
+### 反射与工厂设计模式
+
+```Java
+class Factory{
+    /**
+     * @function 获取接口实例化对象：通过泛型、反射实现一个与接口类型无关的工厂设计模式
+     * @param className 接口的子类名称
+     * @param clazz 描述的是接口的类型
+     * @return 如果子类存在则返回指定类型的实例化对象
+     */
+    private Factory(){}
+    public static <T> T getInstance(String className,Class<T> clazz){
+        T instance = null;
+        try {
+            instance = (T) Class.forName(className).getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return instance;
+    }
+}
+interface IService{
+    public void service();
+}
+class HouseService implements IService{
+    @Override
+    public void service() {
+        System.out.println("住房服务！");
+    }
+}
+interface IMessage{
+    public void send();
+}
+class Message implements IMessage{
+    @Override
+    public void send() {
+        System.out.println("发送消息");
+    }
+}
+public class Hello {
+    public static void main(String[] args) throws Exception {
+        // 发送消息
+        IMessage msg = Factory.getInstance("Message",IMessage.class);
+        msg.send();
+        // 住房服务
+        IService ser = Factory.getInstance("HouseService",IService.class);
+        ser.service();
+    }
+}
+```
+
+### **反射与单例设计模式
+
+![image-20210812143430051](image/image-20210812143430051.png)
+
+## 23 反射与类操作
+
+### 23.1 反射获取类结构信息
+
+- 获取包名称: public Package getPackage(); .
+- 获取继承父类: public Class<? super T> getSuperclass();
+- 获取实现父接口: public Class<?-[]getInterfaces()。
+
+### 23.2 反射调用构造方法
+
+所有类的构造方法的获取都可以通过Class类来完成。
+
+- 获取所有构造方法：getDeclaredConstructors()；
+- 获取指定构造方法：gtDeclaredConstructor(Class<?>)
