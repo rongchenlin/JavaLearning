@@ -899,3 +899,98 @@ public class Hello {
 
 - 获取所有构造方法：getDeclaredConstructors()；
 - 获取指定构造方法：gtDeclaredConstructor(Class<?>)
+
+**反射调用有参构造**
+
+```Java
+import java.lang.reflect.Constructor;
+
+class Person{
+    private int age;
+    private String  name;
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "姓名："+this.name+" 年龄："+this.age+'\n';
+    }
+}
+public class Hello {
+    public static void main(String[] args) throws Exception {
+        Class<?> cls = Person.class;  // 获取指定类的class对象
+        Constructor<?> con = cls.getConstructor(int.class,String.class);
+        Object obj = con.newInstance(25,"张三");
+        System.out.println(obj);
+    }
+}
+```
+
+### 反射调用普通方法
+
+**Class类获取方法**
+
+- 获取全部方法: public Method[ ] getMethods() 
+- 获取指定方法: public Method getMethod()
+- 获取本类全部方法: public Method[] getDeclaredMethods( ) 
+- 获取本类指定方法 :public Method getDeclaredMethod()
+
+**通过反射机制来实现Person类之中的setter 与 getter方法的调用处理**
+
+```Java
+import java.lang.reflect.Method;
+
+class Person{
+    private int age;
+    private String  name;
+
+    public Person() {
+    }
+
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+public class Hello {
+    public static void main(String[] args) throws Exception {
+        Class<?> cls = Class.forName("Person");
+        String value = "张三";  // 要设置的属性内容
+        Object obj = cls.getDeclaredConstructor().newInstance(); // 调用无参构造实例化
+        String setMethodName = "setName";  // 方法名称
+        Method setMethod = cls.getDeclaredMethod(setMethodName,String.class); // 获取指定方法
+        setMethod.invoke(obj,value);  // 等价于:Person对象.setName(value);
+        String getMethodName = "getName";
+        Method getMethod = cls.getDeclaredMethod(getMethodName);
+        System.out.println(getMethod.invoke(obj));
+    }
+}
+```
+
+### 反射调用成员
+
+**反射获取成员**
+
+- 获取本类全部成员: public Field[] getDeclaredFields( ) 
+- 获取本类指定成员:public Field getDeclaredField(String name)
+- 获取父类全部成员: public Field[ ] getFields() 
+- 获取父类指定成员: public Field getField(String name) 
+
