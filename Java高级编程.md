@@ -139,9 +139,9 @@ public class Test {
 
 ### 1.5 多线程运行状态
 
-start（）：准备运行，进入就绪状态，实际还没执行
+start（）：准备运行，进入就绪状态，实际还没执行；
 
-run（）：获得调度，开始执行
+run（）：获得调度，开始执行；
 
 ## 2 线程常用操作方法
 
@@ -993,4 +993,63 @@ public class Hello {
 - 获取本类指定成员:public Field getDeclaredField(String name)
 - 获取父类全部成员: public Field[ ] getFields() 
 - 获取父类指定成员: public Field getField(String name) 
+
+**其它重要操作**
+
+- 设置属性内容: public void set(Object obj. Object value) 
+- 获取属性内容: public Object get(Object obj) 
+- <u>解除封装</u>: public void setAccessible(boolean flag); 
+- **获取成员类型:public Class<?> getType();**
+
+```Java
+import java.lang.reflect.Field;
+
+class Person{
+    private int age;
+    private String  name;
+
+    public Person() {
+    }
+
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+public class Hello {
+    public static void main(String[] args) throws Exception {
+        Class<?> cls = Class.forName("Person");               // 获取指定类Class对象
+        Object obj = cls.getConstructor().newInstance();      //实例化对象空间
+        Field nameField = cls.getDeclaredField("name"); // 获取成员对象
+        nameField.setAccessible(true);                        // 解除封装
+        nameField.set(obj,"张三");                            // 等价于：Person.对象.name  = "张三"
+        System.out.println(nameField.get(obj));               // 等价于：Person对象.name
+
+    }
+}
+```
+
+## 24 反射与简单Java类
+
+### 24.1 传统简单Java类的弊端
+
+**<u>反射机制最大的特征是可以根据其自身的特点( Object类直接操作、可以直接操作属性或方法)实现相同功能类的重复操作的抽象处理。</u>**
+
+### 24.2 属性自动赋值实现思路
 
