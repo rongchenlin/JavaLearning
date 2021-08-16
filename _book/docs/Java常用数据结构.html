@@ -1,0 +1,760 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Java常用数据结构 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Java高级编程.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Java学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Java面向对象学习.html">
+            
+                <a href="Java面向对象学习.html">
+            
+                    
+                    Java面向对象学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Java高级编程.html">
+            
+                <a href="Java高级编程.html">
+            
+                    
+                    Java高级编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="Java常用数据结构.html">
+            
+                <a href="Java常用数据结构.html">
+            
+                    
+                    Java常用数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Java常用数据结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B97;&#x6CD5;&#x5237;&#x9898;&#x5E38;&#x7528;&#x7684;java&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x7B97;&#x6CD5;&#x5237;&#x9898;&#x5E38;&#x7528;&#x7684;Java&#x6570;&#x636E;&#x7ED3;&#x6784;</h1>
+<ul>
+<li><a href="#&#x7B97;&#x6CD5;&#x5237;&#x9898;&#x5E38;&#x7528;&#x7684;java&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x7B97;&#x6CD5;&#x5237;&#x9898;&#x5E38;&#x7528;&#x7684;Java&#x6570;&#x636E;&#x7ED3;&#x6784;</a><ul>
+<li><a href="#import">import</a></li>
+<li><a href="#format">format</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#hashset">HashSet</a></li>
+<li><a href="#hashmap">HashMap</a></li>
+<li><a href="#stack">Stack</a></li>
+<li><a href="#queue">Queue</a></li>
+<li><a href="#array">Array</a></li>
+<li><a href="#character">Character</a></li>
+<li><a href="#string">String</a></li>
+<li><a href="#stringbuffer">StringBuffer</a></li>
+<li><a href="#arraylist">ArrayList</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="import">import</h2>
+<pre><code class="lang-Java"><span class="hljs-keyword">import</span> java.util.*;
+</code></pre>
+<h2 id="format">format</h2>
+<pre><code class="lang-Java"><span class="hljs-keyword">import</span> java.util.Locale;   
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestNumber</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span> year = <span class="hljs-number">2020</span>;
+        <span class="hljs-comment">//&#x603B;&#x957F;&#x5EA6;&#xFF0C;&#x5DE6;&#x5BF9;&#x9F50;&#xFF0C;&#x8865;0&#xFF0C;&#x5343;&#x4F4D;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x5C0F;&#x6570;&#x70B9;&#x4F4D;&#x6570;&#xFF0C;&#x672C;&#x5730;&#x5316;&#x8868;&#x8FBE;</span>
+
+        <span class="hljs-comment">//&#x76F4;&#x63A5;&#x6253;&#x5370;&#x6570;&#x5B57;</span>
+        System.out.format(<span class="hljs-string">&quot;%d%n&quot;</span>,year);
+        <span class="hljs-comment">//&#x603B;&#x957F;&#x5EA6;&#x662F;8,&#x9ED8;&#x8BA4;&#x53F3;&#x5BF9;&#x9F50;</span>
+        System.out.format(<span class="hljs-string">&quot;%8d%n&quot;</span>,year);
+        <span class="hljs-comment">//&#x603B;&#x957F;&#x5EA6;&#x662F;8,&#x5DE6;&#x5BF9;&#x9F50;</span>
+        System.out.format(<span class="hljs-string">&quot;%-8d%n&quot;</span>,year);
+        <span class="hljs-comment">//&#x603B;&#x957F;&#x5EA6;&#x662F;8,&#x4E0D;&#x591F;&#x8865;0</span>
+        System.out.format(<span class="hljs-string">&quot;%08d%n&quot;</span>,year);
+        <span class="hljs-comment">//&#x5343;&#x4F4D;&#x5206;&#x9694;&#x7B26;</span>
+        System.out.format(<span class="hljs-string">&quot;%,8d%n&quot;</span>,year*<span class="hljs-number">10000</span>);
+
+        <span class="hljs-comment">//&#x5C0F;&#x6570;&#x70B9;&#x4F4D;&#x6570;</span>
+        System.out.format(<span class="hljs-string">&quot;%.2f%n&quot;</span>,Math.PI);
+
+        <span class="hljs-comment">//&#x4E0D;&#x540C;&#x56FD;&#x5BB6;&#x7684;&#x5343;&#x4F4D;&#x5206;&#x9694;&#x7B26;</span>
+        System.out.format(Locale.FRANCE,<span class="hljs-string">&quot;%,.2f%n&quot;</span>,Math.PI*<span class="hljs-number">10000</span>);
+        System.out.format(Locale.US,<span class="hljs-string">&quot;%,.2f%n&quot;</span>,Math.PI*<span class="hljs-number">10000</span>);
+        System.out.format(Locale.UK,<span class="hljs-string">&quot;%,.2f%n&quot;</span>,Math.PI*<span class="hljs-number">10000</span>);          
+    }
+}
+</code></pre>
+<h2 id="math">Math</h2>
+<pre><code class="lang-Java">        <span class="hljs-comment">// &#x7EDD;&#x5BF9;&#x503C;</span>
+        Math.abs(-<span class="hljs-number">12.3</span>);            
+
+        <span class="hljs-comment">//e&#x7684;x&#x6B21;&#x5E42;</span>
+        Math.exp(<span class="hljs-number">2</span>);        
+
+        <span class="hljs-comment">//e&#x7684;x&#x6B21;&#x5E42; - 1</span>
+        Math.expm1(<span class="hljs-number">3</span>);                    
+
+        <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x6700;&#x8FD1;&#x7684;&#x4E14;&#x5927;&#x4E8E;&#x8FD9;&#x4E2A;&#x6570;&#x7684;&#x6574;&#x6570;</span>
+        Math.ceil(<span class="hljs-number">12.3</span>);                <span class="hljs-comment">// 13.0</span>
+        Math.ceil(-<span class="hljs-number">12.3</span>);                <span class="hljs-comment">//-12.0</span>
+
+        <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x6700;&#x8FD1;&#x7684;&#x4E14;&#x5C0F;&#x4E8E;&#x8FD9;&#x4E2A;&#x6570;&#x7684;&#x6574;&#x6570;</span>
+        Math.floor(<span class="hljs-number">12.3</span>);                <span class="hljs-comment">//12.0</span>
+        Math.floor(-<span class="hljs-number">12.3</span>);                <span class="hljs-comment">//-13.0</span>
+
+        <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x6982;&#x8FF0;&#x7684;&#x4E8C;&#x6B21;&#x65B9;&#x6839;</span>
+        Math.sqrt(<span class="hljs-number">4</span>);                    
+
+        <span class="hljs-comment">//&#x5BF9;&#x6570;&#x51FD;&#x6570;</span>
+        Math.log(<span class="hljs-number">1</span>);                    <span class="hljs-comment">//1 &#x4EE5;e&#x4E3A;&#x5E95;&#x7684;&#x5BF9;&#x6570;</span>
+        Math.log10(<span class="hljs-number">100</span>);                <span class="hljs-comment">//10 &#x4EE5;10&#x4E3A;&#x5E95;&#x7684;&#x5BF9;&#x6570;</span>
+
+        <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x8F83;&#x5927;&#x503C;&#x548C;&#x8F83;&#x5C0F;&#x503C;</span>
+        Math.max(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);                    
+        Math.min(<span class="hljs-number">3</span>,<span class="hljs-number">9</span>);                    
+
+        <span class="hljs-comment">//&#x8FD4;&#x56DE; x&#x7684;y&#x6B21;&#x5E42;            </span>
+        Math.pow(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);                    <span class="hljs-comment">//&#x5373;2&#xB3; &#x5373;&#x8FD4;&#x56DE;&#xFF1A;8</span>
+
+        <span class="hljs-comment">//&#x968F;&#x673A;&#x8FD4;&#x56DE;[0,1)&#x4E4B;&#x95F4;&#x7684;&#x65E0;&#x7B26;&#x53F7;double&#x503C;</span>
+        Math.random();                    
+
+        <span class="hljs-comment">//&#x4E09;&#x89D2;&#x51FD;&#x6570;</span>
+        Math.sin(&#x3B1;);                    <span class="hljs-comment">//sin&#xFF08;&#x3B1;&#xFF09;&#x7684;&#x503C;</span>
+        Math.cos(&#x3B1;);                    <span class="hljs-comment">//cos&#xFF08;&#x3B1;&#xFF09;&#x7684;&#x503C;</span>
+        Math.tan(&#x3B1;);                    <span class="hljs-comment">//tan&#xFF08;&#x3B1;&#xFF09;&#x7684;&#x503C;</span>
+
+        <span class="hljs-comment">//&#x6C42;&#x89D2;</span>
+        Math.asin(x/z);                    <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x89D2;&#x5EA6;&#x503C;[-&#x3C0;/2&#xFF0C;&#x3C0;/2]  arc sin&#xFF08;x/z&#xFF09;</span>
+        Math.acos(y/z);                    <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x89D2;&#x5EA6;&#x503C;[0~&#x3C0;]   arc cos&#xFF08;y/z&#xFF09;</span>
+        Math.atan(y/x);                    <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x89D2;&#x5EA6;&#x503C;[-&#x3C0;/2&#xFF0C;&#x3C0;/2]</span>
+        Math.atan2(y-y0, x-x0);         <span class="hljs-comment">//&#x540C;&#x4E0A;&#xFF0C;&#x8FD4;&#x56DE;&#x7ECF;&#x8FC7;&#x70B9;&#xFF08;x&#xFF0C;y&#xFF09;&#x4E0E;&#x539F;&#x70B9;&#x7684;&#x7684;&#x76F4;&#x7EBF;&#x548C;&#x7ECF;&#x8FC7;&#x70B9;&#xFF08;x0&#xFF0C;y0&#xFF09;&#x4E0E;&#x539F;&#x70B9;&#x7684;&#x76F4;&#x7EBF;&#x4E4B;&#x95F4;&#x6240;&#x6210;&#x7684;&#x5939;&#x89D2;</span>
+
+        Math.sinh(x);                    <span class="hljs-comment">//&#x53CC;&#x66F2;&#x6B63;&#x5F26;&#x51FD;&#x6570;sinh(x)=(exp(x) - exp(-x)) / 2.0;</span>
+        Math.cosh(x);                    <span class="hljs-comment">//&#x53CC;&#x66F2;&#x4F59;&#x5F26;&#x51FD;&#x6570;cosh(x)=(exp(x) + exp(-x)) / 2.0;</span>
+        Math.tanh(x);                    <span class="hljs-comment">//tanh(x) = sinh(x) / cosh(x);</span>
+
+        <span class="hljs-comment">//&#x89D2;&#x5EA6;&#x5F27;&#x5EA6;&#x4E92;&#x6362;</span>
+        Math.toDegrees(angrad);            <span class="hljs-comment">//&#x89D2;&#x5EA6;&#x8F6C;&#x6362;&#x6210;&#x5F27;&#x5EA6;&#xFF0C;&#x8FD4;&#x56DE;&#xFF1A;angrad * 180d / PI    </span>
+        Math.toRadians(angdeg);            <span class="hljs-comment">//&#x5F27;&#x5EA6;&#x8F6C;&#x6362;&#x6210;&#x89D2;&#x5EA6;&#xFF0C;&#x8FD4;&#x56DE;&#xFF1A;angdeg / 180d * PI</span>
+</code></pre>
+<h2 id="hashset">HashSet</h2>
+<pre><code class="lang-Java">        HashSet&lt;String&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;();
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x5143;&#x7D20;&#xFF08;&#x65E0;&#x5E8F;&#x7684;&#xFF09;</span>
+        set.add(<span class="hljs-string">&quot;Tom&quot;</span>);
+        set.add(<span class="hljs-string">&quot;Jerry&quot;</span>);
+
+        <span class="hljs-comment">// &#x4E2A;&#x6570;</span>
+        System.out.println(set.size());
+
+        <span class="hljs-comment">// &#x5224;&#x7A7A;</span>
+        System.out.println(set.isEmpty());
+
+        <span class="hljs-comment">// &#x5220;&#x9664;&#x5143;&#x7D20;:romove() &#x8FD4;&#x56DE;true / false</span>
+        System.out.println(set.remove(<span class="hljs-string">&quot;Tom&quot;</span>));
+
+        <span class="hljs-comment">// &#x662F;&#x5426;&#x5305;&#x542B;&#x5143;&#x7D20;: contains(object);</span>
+        System.out.println(set.contains(<span class="hljs-string">&quot;Jerry&quot;</span>));
+
+        <span class="hljs-comment">// clear() &#xFF1A; &#x79FB;&#x9664;&#x6B64;Set&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;</span>
+        set.clear();
+</code></pre>
+<h2 id="hashmap">HashMap</h2>
+<pre><code class="lang-Java">        HashMap&lt;String, String&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;String,String&gt;();
+        map.put(<span class="hljs-string">&quot;zhang&quot;</span>, <span class="hljs-string">&quot;31&quot;</span>);<span class="hljs-comment">//&#x5B58;&#x653E;&#x952E;&#x503C;&#x5BF9;</span>
+
+        <span class="hljs-comment">// containsKey() &#x952E;&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x6570;&#x636E;</span>
+        System.out.println(map.containsKey(<span class="hljs-string">&quot;zhang&quot;</span>));
+        System.out.println(map.containsKey(<span class="hljs-string">&quot;daniu&quot;</span>));
+
+        <span class="hljs-comment">// get() &#x901A;&#x8FC7;&#x952E;&#x62FF;&#x503C;,&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;null</span>
+        System.out.println(map.get(<span class="hljs-string">&quot;zhang&quot;</span>));
+
+        <span class="hljs-comment">// &#x5224;&#x7A7A;</span>
+        System.out.println(map.isEmpty());
+
+        <span class="hljs-comment">// &#x4E2A;&#x6570;</span>
+        System.out.println(map.size());
+
+        <span class="hljs-comment">//&#x4ECE;&#x952E;&#x503C;&#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x8FD4;&#x56DE;&#x88AB;&#x5220;&#x9664;Key&#x5BF9;&#x5E94;&#x7684;Value</span>
+        System.out.println(map.remove(<span class="hljs-string">&quot;zhang&quot;</span>));
+        System.out.println(map);
+
+        map.put(<span class="hljs-string">&quot;zhang&quot;</span>, <span class="hljs-string">&quot;31&quot;</span>);
+        map.put(<span class="hljs-string">&quot;cheng&quot;</span>, <span class="hljs-string">&quot;32&quot;</span>);
+        map.put(<span class="hljs-string">&quot;yun&quot;</span>, <span class="hljs-string">&quot;33&quot;</span>);
+
+        <span class="hljs-comment">// &#x904D;&#x5386;Key&#x7684;&#x503C;</span>
+        <span class="hljs-keyword">for</span> (String key : map.keySet()) {
+            System.out.println(key);
+        }
+
+        <span class="hljs-comment">// &#x904D;&#x5386;Value&#x7684;&#x503C;</span>
+        <span class="hljs-keyword">for</span> (String values : map.values()) {
+            System.out.println(values);
+        }
+
+        <span class="hljs-comment">// &#x6E05;&#x7A7A;Map</span>
+        map.clear();
+        System.out.println(map);
+</code></pre>
+<h2 id="stack">Stack</h2>
+<pre><code class="lang-Java">        Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> Stack&lt;Integer&gt;();
+
+         <span class="hljs-comment">// &#x5165;&#x6808;</span>
+         st.push(<span class="hljs-number">1</span>);
+         st.push(<span class="hljs-number">2</span>);
+         st.push(<span class="hljs-number">3</span>);
+         st.push(<span class="hljs-number">4</span>);
+         System.out.println(st);
+
+         <span class="hljs-comment">// &#x53D6;&#x6808;&#x9876;&#xFF0C;&#x4E0D;&#x51FA;&#x6808;:st.peek();</span>
+         System.out.println(st.peek());
+
+         <span class="hljs-comment">// &#x51FA;&#x6808;&#xFF0C;&#x540C;&#x65F6;&#x83B7;&#x53D6;&#x5143;&#x7D20;:st.op();</span>
+         System.out.println(st.pop());
+         System.out.println(st);
+
+         <span class="hljs-comment">// &#x6808;&#x5224;&#x7A7A;</span>
+         System.out.println(st.empty());
+
+         <span class="hljs-comment">// &#x83B7;&#x53D6;&#x6808;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;</span>
+         List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();
+         <span class="hljs-keyword">while</span>(!st.empty()){
+             list.add(<span class="hljs-number">0</span>,st.pop());  <span class="hljs-comment">// &#x6CE8;&#x610F;&#xFF0C;&#x8981;&#x4ECE;0&#x5F00;&#x59CB;add</span>
+         } 
+         System.out.println(list);
+</code></pre>
+<h2 id="queue">Queue</h2>
+<pre><code class="lang-Java">        Queue&lt;Integer&gt; q = <span class="hljs-keyword">new</span> LinkedList&lt;Integer&gt;();
+
+         <span class="hljs-comment">// &#x5165;&#x5BF9;</span>
+         q.offer(<span class="hljs-number">1</span>);
+         q.offer(<span class="hljs-number">2</span>);
+         q.offer(<span class="hljs-number">3</span>);
+         System.out.println(q);
+
+         <span class="hljs-comment">// &#x83B7;&#x53D6;&#x961F;&#x5934;&#xFF0C;&#x4E0D;&#x51FA;&#x961F;&#xFF1A;peek()</span>
+         System.out.println(q.peek());
+
+         <span class="hljs-comment">// &#x51FA;&#x961F; : poll();</span>
+         System.out.println(q.poll());
+         System.out.println(q);
+
+         <span class="hljs-comment">// &#x5224;&#x7A7A; : isEmpty();</span>
+         System.out.println(q.isEmpty());
+
+         <span class="hljs-comment">// &#x4E2A;&#x6570;</span>
+         System.out.println(q.size());
+
+         <span class="hljs-comment">// &#x83B7;&#x53D6;&#x961F;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;</span>
+         List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();
+         <span class="hljs-keyword">while</span>(!q.isEmpty()){
+             list.add(q.poll());  <span class="hljs-comment">// &#x6CE8;&#x610F;&#xFF0C;&#x8981;&#x4ECE;0&#x5F00;&#x59CB;add</span>
+         } 
+         System.out.println(list);
+</code></pre>
+<h2 id="array">Array</h2>
+<pre><code class="lang-Java">        <span class="hljs-keyword">int</span>[] intArray = { <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> };
+
+        <span class="hljs-comment">// Array = &gt; Set</span>
+        String[] stringArray = { <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;d&quot;</span>, <span class="hljs-string">&quot;e&quot;</span> };
+        HashSet&lt;String&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;(Arrays.asList(stringArray));
+        System.out.println(set);
+
+        <span class="hljs-comment">// &#x6392;&#x5E8F;</span>
+        Arrays.sort(intArray);
+
+        <span class="hljs-comment">// &#x6570;&#x7EC4;&#x586B;&#x5145;</span>
+        <span class="hljs-keyword">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">20</span>];
+        Arrays.fill(a, <span class="hljs-number">1</span>);
+
+        <span class="hljs-comment">// &#x4E8C;&#x5206;&#x67E5;&#x627E;</span>
+        Arrays.binarySearch(a, <span class="hljs-number">5</span>);
+
+        <span class="hljs-comment">// &#x4E8C;&#x7EF4;&#x6570;&#x7EC4;</span>
+        <span class="hljs-keyword">int</span>[][] b = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>][<span class="hljs-number">4</span>];
+        <span class="hljs-keyword">int</span> n = b.length;  <span class="hljs-comment">// &#x884C;</span>
+        <span class="hljs-keyword">int</span> m = b[<span class="hljs-number">0</span>].lengtth; <span class="hljs-comment">// &#x5217;</span>
+</code></pre>
+<h2 id="character">Character</h2>
+<pre><code>char x = &apos;Z&apos;;
+&#x4F8B;&#xFF1A;
+if(Character.isLetter(x)){
+    System.out.println(&apos;&#x662F;&apos;);
+}
+1. isLetter();
+2. isDigit();
+3. isUpperCase();  //&#x662F;&#x5927;&#x5199;zim
+4. isLowerCase();
+5. toUpperCase();
+6. toLowerCase();
+7. toString();     // char =&gt; String
+</code></pre><h2 id="string">String</h2>
+<ul>
+<li><h3 id="&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8F6C;&#x6362;">&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8F6C;&#x6362;</h3>
+</li>
+</ul>
+<pre><code class="lang-Java"><span class="hljs-number">1</span>. <span class="hljs-keyword">char</span>[]  = &gt;  String
+<span class="hljs-keyword">char</span>[] helloArray = { <span class="hljs-string">&apos;h&apos;</span>, <span class="hljs-string">&apos;e&apos;</span>, <span class="hljs-string">&apos;l&apos;</span>, <span class="hljs-string">&apos;l&apos;</span>, <span class="hljs-string">&apos;o&apos;</span>, <span class="hljs-string">&apos;.&apos;</span>};
+String helloString = <span class="hljs-keyword">new</span> String(helloArray); 
+System.out.println( helloString );
+
+<span class="hljs-number">2</span>. String  = &gt; <span class="hljs-keyword">char</span>[]
+String s = <span class="hljs-string">&quot;hsdahda&quot;</span>;
+<span class="hljs-keyword">char</span>[] cs = s.toCharArray();
+</code></pre>
+<ul>
+<li><h3 id="string&#x7C7B;&#x65B9;&#x6CD5;-1">String&#x7C7B;&#x65B9;&#x6CD5; <a href="https://www.jb51.net/article/79561.htm" target="_blank">1</a></h3>
+</li>
+</ul>
+<pre><code class="lang-Java"><span class="hljs-number">1</span>. &#x83B7;&#x53D6;&#x957F;&#x5EA6;&#xFF1A;s.length()
+<span class="hljs-number">2</span>. &#x62FC;&#x63A5;&#x5B57;&#x7B26;&#x4E32;String&#xFF1A; s3 =  s1 + s2;
+<span class="hljs-number">3</span>. s.charAt(i);  <span class="hljs-comment">//&#x7B2C;i&#x4E2A;&#x5143;&#x7D20;</span>
+<span class="hljs-number">4</span>. <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lastIndexOf</span><span class="hljs-params">(String str, <span class="hljs-keyword">int</span> fromIndex)</span> <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x7D22;&#x5F15;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6307;&#x5B9A;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6700;&#x540E;&#x51FA;&#x73B0;&#x5904;&#xFF0C;&#x4ECE;&#x6307;&#x5B9A;&#x7684;&#x7D22;&#x5F15;&#x5F00;&#x59CB;&#x5904;&#x5411;&#x540E;&#x641C;&#x7D22;&#x3002;</span>
+5. <span class="hljs-keyword">int</span> <span class="hljs-title">lastIndexOf</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ch, <span class="hljs-keyword">int</span> fromIndex)</span>     <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x6B64;&#x5B57;&#x7B26;&#x4E32;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x5904;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x4ECE;&#x6307;&#x5B9A;&#x7D22;&#x5F15;&#x5F00;&#x59CB;&#x5411;&#x540E;&#x641C;&#x7D22;&#x3002;</span>
+6. <span class="hljs-keyword">int</span> <span class="hljs-title">indexOf</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ch, <span class="hljs-keyword">int</span> fromIndex)</span>         <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x7D22;&#x5F15;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x5904;&#xFF0C;&#x6307;&#x5B9A;&#x7D22;&#x5F15;&#x5904;&#x5F00;&#x59CB;&#x641C;&#x7D22;&#x3002;</span>
+7. <span class="hljs-keyword">int</span> <span class="hljs-title">indexOf</span><span class="hljs-params">(String str,<span class="hljs-keyword">int</span> fromIndex)</span>      <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6307;&#x5B9A;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x5904;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x4ECE;&#x6307;&#x5B9A;&#x7684;&#x7D22;&#x5F15;&#x5904;&#x5F00;&#x59CB;&#x3002;</span>
+8. s</span>= s.trim();          <span class="hljs-comment">// &#x53BB;&#x9664;&#x5934;&#x5C3E;&#x7A7A;&#x683C;</span>
+<span class="hljs-number">9</span>. s = s.toLowerCase();  <span class="hljs-comment">// &#x5C0F;&#x5199;</span>
+<span class="hljs-number">10</span>.s = s.toUpperCase();
+<span class="hljs-number">11</span>. String s1 = s.substring(<span class="hljs-number">5</span>,<span class="hljs-number">8</span>);  <span class="hljs-comment">// &#x83B7;&#x53D6;s&#x7684;5-8&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x7B26;&#x5B50;&#x4E32;</span>
+<span class="hljs-number">12</span>. System.out.println(s1.startsWith(<span class="hljs-string">&quot;DA&quot;</span>)); <span class="hljs-comment">// &#x662F;&#x5426;&#x4EE5;&quot;DA&quot;&#x4E3A;&#x524D;&#x7F00;</span>
+<span class="hljs-number">13</span>. System.out.println(s1.endsWith(<span class="hljs-string">&quot;D&quot;</span>));               <span class="hljs-comment">// &#x662F;&#x5426;&#x4EE5;&quot;D&quot;&#x4E3A;&#x540E;&#x7F00;&#x7ED3;&#x675F;   </span>
+<span class="hljs-number">14</span>. System.out.println(s.replaceFirst(<span class="hljs-string">&quot;&#x7231;&quot;</span>,<span class="hljs-string">&quot;&#x6068;&quot;</span> ));      <span class="hljs-comment">//&#x53EA;&#x66FF;&#x6362;&#x7B2C;&#x4E00;&#x4E2A;</span>
+<span class="hljs-number">15</span>. System.out.println(s.replace(<span class="hljs-string">&quot;&#x7231;&quot;</span>,<span class="hljs-string">&quot;&#x6068;&quot;</span> ));                <span class="hljs-comment">//&#x5168;&#x90E8;&#x66FF;&#x6362;</span>
+<span class="hljs-number">16</span>. System.out.println(s1.equals(s2));               <span class="hljs-comment">// &#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;</span>
+<span class="hljs-number">17</span>. System.out.println(s.compareTo(s1));                 <span class="hljs-comment">// &#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;</span>
+</code></pre>
+<ul>
+<li><h3 id="string&#x4E0E;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362;-2">String&#x4E0E;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362; <a href="https://www.cnblogs.com/huxiuqian/p/10167415.html" target="_blank">2</a></h3>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th>&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;</th>
+<th>&#x5176;&#x5B83;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;1</th>
+<th>&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>Byte.parseByte(str)</td>
+<td>String.valueOf([byte] bt)</td>
+<td>Byte.toString([byte] bt)</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer.parseInt(str)</td>
+<td>String.valueOf([int] i)</td>
+<td>Int.toString([int] i)</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long.parseLong(str)</td>
+<td>String.valueOf([long] l)</td>
+<td>Long.toString([long] l)</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float.parseFloat(str)</td>
+<td>String.valueOf([float] f)</td>
+<td>Float.toString([float] f)</td>
+</tr>
+<tr>
+<td>double</td>
+<td>double.parseDouble(str)</td>
+<td>String.valueOf([double] d)</td>
+<td>Double.toString([double] b)</td>
+</tr>
+<tr>
+<td>char</td>
+<td>str.charAt()</td>
+<td>String.valueOf([char] c)</td>
+<td>Character.toString([char] c)</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean.getBoolean(str)</td>
+<td>String.valueOf([boolean] b)</td>
+<td>Boolean.toString([boolean] b)</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-Java">&#x4F8B;&#xFF1A;
+    <span class="hljs-keyword">int</span> integer = Integer.parseInt(<span class="hljs-string">&quot;20&quot;</span>); <span class="hljs-comment">//&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x6574;&#x5F62;</span>
+    <span class="hljs-keyword">double</span> d = Double.parseDouble(<span class="hljs-string">&quot;1.52123&quot;</span>);<span class="hljs-comment">//&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x53CC;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x578B;</span>
+    String stri1 = String.valueOf(integer); <span class="hljs-comment">//&#x5C06;&#x6574;&#x5F62;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</span>
+    String strl1 = String.valueOf(LongInt); <span class="hljs-comment">//&#x5C06;&#x957F;&#x6574;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</span>
+</code></pre>
+<h2 id="stringbuffer">StringBuffer</h2>
+<pre><code class="lang-Java"><span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;</span>
+        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer();
+        System.out.println(sb);
+
+        <span class="hljs-comment">//StringBuffer&#x6784;&#x9020;&#x65B9;&#x6CD5;1</span>
+        StringBuffer sb1=<span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-string">&quot;Hello&quot;</span>);
+        System.out.println(sb1);
+
+        <span class="hljs-comment">// String =&gt; StringBuffer</span>
+        String s1=<span class="hljs-string">&quot;World&quot;</span>;
+        StringBuffer sb2=<span class="hljs-keyword">new</span> StringBuffer(s1);
+        System.out.println(sb2);
+
+        <span class="hljs-comment">// StringBuffer =&gt; String</span>
+        String ss = sb2.toString();
+        System.out.println(ss);
+
+        <span class="hljs-comment">//length()&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;</span>
+        System.out.println(sb2.length());
+
+        <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x5404;&#x79CD;&#x7C7B;&#x578B;</span>
+        sb1.append(<span class="hljs-string">&quot; World&quot;</span>);
+        System.out.println(sb1);
+
+        <span class="hljs-comment">//public StringBuffer deleteCharAt(int index)</span>
+        <span class="hljs-comment">//&#x5220;&#x9664;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x7B26;</span>
+        sb1.deleteCharAt(<span class="hljs-number">0</span>);
+        System.out.println(sb1);
+
+        <span class="hljs-comment">//public StringBuffer delete(int start,int end)&#xFF0C;&#x5220;&#x9664;[Start,end)</span>
+        sb1.delete(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
+        System.out.println(sb1);
+
+        <span class="hljs-comment">//&#x5B57;&#x7B26;&#x4E32;&#x53CD;&#x8F6C;</span>
+        sb1.reverse();
+        System.out.println(sb1);
+
+        <span class="hljs-comment">// charAt(index);  &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x5B57;&#x7B26;&#xFF0C;</span>
+        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-string">&quot;This is a StringBuffer&quot;</span>);
+        System.out.println(sb.charAt(sb.length() - <span class="hljs-number">1</span>));
+
+        <span class="hljs-comment">// &#x5220;&#x9664;&#x5143;&#x7D20;</span>
+        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-string">&quot;This is a StringBuffer!&quot;</span>);
+        sb.delete(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);                   <span class="hljs-comment">// &#x5220;&#x9664;[0,5]</span>
+        System.out.println(sb.toString());
+        sb.deleteCharAt(<span class="hljs-number">2</span>);                  <span class="hljs-comment">// &#x5220;&#x9664;sb[2]</span>
+        System.out.println(sb.toString());
+
+        <span class="hljs-comment">// insert(index,type0; &#x5728;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x63D2;&#x5165;&#x4EFB;&#x610F;&#x7C7B;&#x578B;</span>
+        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-string">&quot;This is a StringBuffer!&quot;</span>);
+        sb.insert(<span class="hljs-number">2</span>, <span class="hljs-string">&apos;W&apos;</span>);
+        sb.insert(<span class="hljs-number">3</span>, <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[] { <span class="hljs-string">&apos;A&apos;</span>, <span class="hljs-string">&apos;B&apos;</span>, <span class="hljs-string">&apos;C&apos;</span> });
+        sb.insert(<span class="hljs-number">8</span>, <span class="hljs-string">&quot;abc&quot;</span>);
+        sb.insert(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+        sb.insert(<span class="hljs-number">3</span>, <span class="hljs-number">2.3f</span>);
+        sb.insert(<span class="hljs-number">6</span>, <span class="hljs-number">3.75</span>d);
+        sb.insert(<span class="hljs-number">5</span>, <span class="hljs-number">9843L</span>);
+        sb.insert(<span class="hljs-number">2</span>, <span class="hljs-keyword">true</span>);
+        System.out.println(sb.toString());
+
+        <span class="hljs-comment">// &#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x67E5;&#x627E;&#x76F8;&#x5173;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;</span>
+        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer();
+        sb.append(<span class="hljs-string">&quot;This is a StringBuffer&quot;</span>);
+        <span class="hljs-comment">// indexOf &#x8FD4;&#x56DE;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6700;&#x5148;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;&#x8D1F;&#x6570;</span>
+        System.out.println(<span class="hljs-string">&quot;sb.indexOf(\&quot;is\&quot;)=&quot;</span> + sb.indexOf(<span class="hljs-string">&quot;is&quot;</span>));
+        <span class="hljs-comment">// &#x7ED9;indexOf&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x6307;&#x5B9A;&#x5339;&#x914D;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;</span>
+        System.out.println(<span class="hljs-string">&quot;sb.indexOf(\&quot;is\&quot;)=&quot;</span> + sb.indexOf(<span class="hljs-string">&quot;is&quot;</span>, <span class="hljs-number">3</span>));
+        <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6700;&#x540E;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8FD4;&#x56DE;&#x8D1F;&#x6570;</span>
+        System.out.println(<span class="hljs-string">&quot;sb.lastIndexOf(\&quot;is\&quot;) = &quot;</span> + sb.lastIndexOf(<span class="hljs-string">&quot;is&quot;</span>));
+        <span class="hljs-comment">// &#x7ED9;lastIndexOf&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x6307;&#x5B9A;&#x5339;&#x914D;&#x7684;&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;</span>
+        System.out.println(<span class="hljs-string">&quot;sb.lastIndexOf(\&quot;is\&quot;, 1) = &quot;</span>+ sb.lastIndexOf(<span class="hljs-string">&quot;is&quot;</span>, <span class="hljs-number">1</span>));
+
+        <span class="hljs-comment">// &#x5B57;&#x7B26;&#x4E32;&#x622A;&#x53D6;</span>
+        StringBuffer sb = <span class="hljs-keyword">new</span> StringBuffer();
+        sb.append(<span class="hljs-string">&quot;This is a StringBuffer&quot;</span>);
+        <span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x7684;&#x7EC8;&#x6B62;&#x4F4D;&#x7F6E;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x672B;&#x5C3E;</span>
+        System.out.print(<span class="hljs-string">&quot;sb.substring(4)=&quot;</span> + sb.substring(<span class="hljs-number">6</span>));
+        <span class="hljs-comment">// substring&#x65B9;&#x6CD5;&#x622A;&#x53D6;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x622A;&#x53D6;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x548C;&#x7EC8;&#x6B62;&#x4F4D;&#x7F6E;</span>
+        System.out.print(<span class="hljs-string">&quot;\nsb.substring(4,9)=&quot;</span> + sb.substring(<span class="hljs-number">6</span>, <span class="hljs-number">12</span>));
+</code></pre>
+<h2 id="arraylist">ArrayList</h2>
+<pre><code class="lang-Java">         List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();         
+         list.add(<span class="hljs-string">&quot;abc&quot;</span>);         
+         list.add(<span class="hljs-string">&quot;efg&quot;</span>);         
+         list.add(<span class="hljs-string">&quot;sdsd&quot;</span>);         
+         System.out.println(list);                 
+         List&lt;String&gt; list2 = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();         
+         list2.add(<span class="hljs-string">&quot;a22222bc&quot;</span>);         
+         list2.add(<span class="hljs-string">&quot;22222efg&quot;</span>);         
+         list2.add(<span class="hljs-string">&quot;s22222dsd&quot;</span>);                  <span class="hljs-comment">// &#x5728;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x6DFB;&#x52A0;         </span>
+         list.add(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;sDD&quot;</span>);         
+         System.out.println(list);                  <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x96C6;&#x5408;         </span>
+         list.addAll(list2);    <span class="hljs-comment">// &#x5C06;&#x96C6;&#x5408;list2&#x6DFB;&#x52A0;&#x5230;list&#x540E;&#x9762;         </span>
+         System.out.println(list);                  <span class="hljs-comment">// &#x5728;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x503C;         </span>
+         list.set(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;&#x5F00;&#x59CB;&quot;</span>);        
+         System.out.println(list);                  <span class="hljs-comment">// list&#x662F;&#x5426;&#x5305;&#x542B;&quot;abc&quot;         </span>
+         System.out.println(list.contains(<span class="hljs-string">&quot;abc&quot;</span>));                  <span class="hljs-comment">// &#x4ECE;&#x524D;&#x5F80;&#x540E;&#x67E5;&#x627E;&#x5143;&#x7D20;&#x7684;&#x7D22;&#x5F15;</span>
+         System.out.println(list.indexOf(<span class="hljs-string">&quot;efg&quot;</span>));                  <span class="hljs-comment">// &#x4ECE;&#x540E;&#x5F80;&#x524D;&#x67E5;&#x627E;&#x5143;&#x7D20;&#x7684;&#x7D22;&#x5F15;        </span>
+         System.out.println(list.lastIndexOf(<span class="hljs-string">&quot;a22222bc&quot;</span>));                  <span class="hljs-comment">// &#x622A;&#x53D6;         </span>
+         List&lt;String&gt; list3 = list.subList(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);         
+         System.out.println(list3);                  <span class="hljs-comment">// &#x5143;&#x7D20;&#x4E2A;&#x6570;/&#x957F;&#x5EA6;         </span>
+         System.out.println(list.size());                  <span class="hljs-comment">//&#x79FB;&#x9664;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&quot;abc&quot;        </span>
+         list.remove(<span class="hljs-string">&quot;abc&quot;</span>);         
+         System.out.println(list);                  <span class="hljs-comment">//&#x79FB;&#x9664;&#x7D22;&#x5F15;&#x4E3A;index&#x7684;&#x6570;&#x5B57;&#x5143;&#x7D20;         </span>
+         list.remove(<span class="hljs-number">0</span>);         
+         System.out.println(list);                 <span class="hljs-comment">// &#x79FB;&#x9664;&#x6240;&#x6709;&#x5143;&#x7D20;         </span>
+         list.removeAll(list);         
+         System.out.println(list);         <span class="hljs-comment">// &#x5C06;ArrayList =&gt; &#x6570;&#x7EC4;         </span>
+         String[] arr = <span class="hljs-keyword">new</span> String[list.size()];         
+         list.toArray(arr);         <span class="hljs-comment">// &#x6570;&#x7EC4; =&gt; List : &#x4F7F;&#x7528;Arrays.asList         </span>
+         List&lt;String&gt; list2=Arrays.asList(arr);         
+         System.out.println(list2);                  <span class="hljs-comment">// &#x6570;&#x7EC4; =&gt; ArrayList         </span>
+         ArrayList&lt;String&gt; list3 = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(arr));         
+         System.out.println(list3);         <span class="hljs-comment">// &#x5347;&#x5E8F;&#x6392;&#x5E8F; : Comparator.naturalOrder()         </span>
+         list.sort(Comparator.naturalOrder());         
+         System.out.println(list);                  <span class="hljs-comment">// &#x964D;&#x5E8F;&#x6392;&#x5E8F; : Comparator.reverseOrder()         </span>
+         list.sort(Comparator.reverseOrder());         System.out.println(list);
+</code></pre>
+<h2 id="others">Others</h2>
+<ul>
+<li><p>length,length(),size() &#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x533A;&#x522B;</p>
+<ul>
+<li>length&#x5C5E;&#x6027;&#x662F;<strong><u>&#x9488;&#x5BF9;&#x6570;&#x7EC4;</u></strong>&#x8BF4;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x4F60;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x60F3;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x5219;&#x7528;&#x5230;&#x4E86;length&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</li>
+<li>length()&#x65B9;&#x6CD5;&#x662F;<strong><u>&#x9488;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;String</u></strong>&#x8BF4;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x770B;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#x5219;&#x7528;&#x5230;length()&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>size()&#x65B9;&#x6CD5;&#x662F;<strong><u>&#x9488;&#x5BF9;&#x6CDB;&#x578B;&#x96C6;&#x5408;&#x6CDB;&#x578B;&#x96C6;&#x5408;(Collection)&#x5982;Set&#x3001;List&#x3001;Map</u></strong>&#x8BF4;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x770B;&#x8FD9;&#x4E2A;&#x6CDB;&#x578B;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5C31;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x6765;&#x67E5;&#x770B;&#x3002;&#x6570;&#x7EC4;&#x6CA1;&#x6709;size()&#x65B9;&#x6CD5;&#x3002;</li>
+</ul>
+</li>
+<li><p>MAX_VALUE</p>
+<ul>
+<li><p>```java</p>
+<pre><code>System.out.println(Integer.MAX_VALUE);
+</code></pre></li>
+<li><p>```java</p>
+<pre><code>System.out.println(Long.MAX_VALUE);
+System.out.println(Float.MAX_VALUE);
+</code></pre></li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Java高级编程.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Java高级编程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java常用数据结构","level":"1.4","depth":1,"previous":{"title":"Java高级编程","level":"1.3","depth":1,"path":"Java高级编程.md","ref":"Java高级编程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java常用数据结构.md","mtime":"2021-08-13T06:41:56.047Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-13T06:43:39.922Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
