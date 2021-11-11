@@ -1,0 +1,721 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Servlet学习 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Note/IO流.html" />
+    
+    
+    <link rel="prev" href="Java常用数据结构.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Java学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Java面向对象学习.html">
+            
+                <a href="Java面向对象学习.html">
+            
+                    
+                    Java面向对象学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Ajax技术.html">
+            
+                <a href="Ajax技术.html">
+            
+                    
+                    Ajax技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Java高级编程.html">
+            
+                <a href="Java高级编程.html">
+            
+                    
+                    Java高级编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Java常用数据结构.html">
+            
+                <a href="Java常用数据结构.html">
+            
+                    
+                    Java常用数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="Servlet学习.html">
+            
+                <a href="Servlet学习.html">
+            
+                    
+                    Servlet学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Note/IO流.html">
+            
+                <a href="Note/IO流.html">
+            
+                    
+                    IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Note/Java8新特性.html">
+            
+                <a href="Note/Java8新特性.html">
+            
+                    
+                    Java8新特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Note/Java集合类.html">
+            
+                <a href="Note/Java集合类.html">
+            
+                    
+                    Java集合类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Note/Java面向对象——补充复习.html">
+            
+                <a href="Note/Java面向对象——补充复习.html">
+            
+                    
+                    Java面向对象——补充复习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Note/JDBC核心.html">
+            
+                <a href="Note/JDBC核心.html">
+            
+                    
+                    JDBC核心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Note/XML.html">
+            
+                <a href="Note/XML.html">
+            
+                    
+                    XML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Note/常用类.html">
+            
+                <a href="Note/常用类.html">
+            
+                    
+                    常用类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Note/多线程.html">
+            
+                <a href="Note/多线程.html">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Note/反射.html">
+            
+                <a href="Note/反射.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="Note/枚举类与注解.html">
+            
+                <a href="Note/枚举类与注解.html">
+            
+                    
+                    枚举类与注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="Note/尚硅谷_JDBC.html">
+            
+                <a href="Note/尚硅谷_JDBC.html">
+            
+                    
+                    尚硅谷_JDBC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="Note/异常.html">
+            
+                <a href="Note/异常.html">
+            
+                    
+                    异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="Note/基本数据类型和引用数据类型的区！.html">
+            
+                <a href="Note/基本数据类型和引用数据类型的区！.html">
+            
+                    
+                    基本数据类型和引用数据类型的区！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Servlet学习</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="servlet">Servlet</h1>
+<h2 id="1-&#x4EC0;&#x4E48;&#x662F;-servlet">1. <strong>&#x4EC0;&#x4E48;&#x662F;</strong> <strong>Servlet</strong></h2>
+<p>1&#x3001;Servlet &#x662F; JavaEE &#x89C4;&#x8303;&#x4E4B;&#x4E00;&#x3002;&#x89C4;&#x8303;&#x5C31;&#x662F;<strong>&#x63A5;&#x53E3;</strong></p>
+<p>2&#x3001;Servlet &#x5C31; JavaWeb &#x4E09;&#x5927;&#x7EC4;&#x4EF6;&#x4E4B;&#x4E00;&#x3002;&#x4E09;&#x5927;&#x7EC4;&#x4EF6;&#x5206;&#x522B;&#x662F;&#xFF1A;Servlet &#x7A0B;&#x5E8F;&#x3001;Filter &#x8FC7;&#x6EE4;&#x5668;&#x3001;Listener &#x76D1;&#x542C;&#x5668;&#x3002;</p>
+<p>3&#x3001;Servlet &#x662F;&#x8FD0;&#x884C;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x4E00;&#x4E2A; java &#x5C0F;&#x7A0B;&#x5E8F;&#xFF0C;<strong>&#x5B83;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</strong></p>
+<h2 id="2-&#x624B;&#x52A8;&#x5B9E;&#x73B0;-servlet-&#x7A0B;&#x5E8F;">2. <strong>&#x624B;&#x52A8;&#x5B9E;&#x73B0;</strong> <strong>Servlet</strong> <strong>&#x7A0B;&#x5E8F;</strong></h2>
+<p>1&#x3001;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7C7B;&#x53BB;<strong>&#x5B9E;&#x73B0; Servlet &#x63A5;&#x53E3;</strong></p>
+<p>2&#x3001;<strong>&#x5B9E;&#x73B0; service &#x65B9;&#x6CD5;</strong>&#xFF0C;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x54CD;&#x5E94;&#x6570;&#x636E;</p>
+<p>3&#x3001;&#x5230; web.xml &#x4E2D;&#x53BB;<strong>&#x914D;&#x7F6E;</strong> servlet &#x7A0B;&#x5E8F;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<h3 id="21-servlet-&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;">2.1 Servlet &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloServlet</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Servlet</span> </span>{
+    <span class="hljs-comment">// &#x6784;&#x9020;&#x65B9;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HelloServlet</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;1 &#x6784;&#x9020;&#x5668;&#x65B9;&#x6CD5;&quot;</span>);
+    }
+
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(ServletConfig servletConfig)</span> <span class="hljs-keyword">throws</span> ServletException </span>{
+
+    }
+
+    <span class="hljs-comment">// &#x914D;&#x7F6E;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ServletConfig <span class="hljs-title">getServletConfig</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-comment">// &#x5904;&#x7406;&#x670D;&#x52A1;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(ServletRequest servletRequest, ServletResponse servletResponse)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+    }
+
+    <span class="hljs-comment">// &#x9500;&#x6BC1;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">destroy</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;4 . destroy&#x9500;&#x6BC1;&#x65B9;&#x6CD5;&quot;</span>);
+    }
+}
+</code></pre>
+<p>1&#x3001;&#x6267;&#x884C;Servlet &#x6784;&#x9020;&#x5668;&#x65B9;&#x6CD5;</p>
+<p>2&#x3001;&#x6267;&#x884C;init &#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</p>
+<p>&#x7B2C;&#x4E00;&#x3001;&#x4E8C;&#x6B65;&#xFF0C;&#x662F;&#x5728;<strong>&#x7B2C;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;</strong>&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;Servlet &#x7A0B;&#x5E8F;&#x4F1A;&#x8C03;&#x7528;&#x3002;</p>
+<p>3&#x3001;&#x6267;&#x884C;service &#x65B9;&#x6CD5;</p>
+<p>&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;<strong>&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;</strong>&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x3002;</p>
+<p>4&#x3001;&#x6267;&#x884C;destroy &#x9500;&#x6BC1;&#x65B9;&#x6CD5;</p>
+<p>&#x7B2C;&#x56DB;&#x6B65;&#xFF0C;&#x5728;<strong>web &#x5DE5;&#x7A0B;&#x505C;&#x6B62;</strong>&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</p>
+<h3 id="23-url&#x5230;servlet&#x8BBF;&#x95EE;">2.3 url&#x5230;Servlet&#x8BBF;&#x95EE;</h3>
+<p><img src="image/image-20211111163131381.png" alt="image-20211111163131381"></p>
+<h2 id="3-&#x901A;&#x8FC7;&#x7EE7;&#x627F;httpservlet-&#x5B9E;&#x73B0;servlet-&#x7A0B;&#x5E8F;&#xFF08;&#x6700;&#x5E38;&#x7528;&#xFF09;">3. &#x901A;&#x8FC7;&#x7EE7;&#x627F;HttpServlet &#x5B9E;&#x73B0;Servlet &#x7A0B;&#x5E8F;&#xFF08;&#x6700;&#x5E38;&#x7528;&#xFF09;</h2>
+<p>&#x4E00;&#x822C;&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x7EE7;&#x627F;HttpServlet &#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x5B9E;&#x73B0;Servlet &#x7A0B;&#x5E8F;&#x3002;
+1&#x3001;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7C7B;&#x53BB;&#x7EE7;&#x627F;HttpServlet &#x7C7B;
+2&#x3001;&#x6839;&#x636E;&#x4E1A;&#x52A1;&#x9700;&#x8981;&#x91CD;&#x5199;doGet &#x6216;doPost &#x65B9;&#x6CD5;
+3&#x3001;&#x5230;web.xml &#x4E2D;&#x7684;&#x914D;&#x7F6E;Servlet &#x7A0B;&#x5E8F;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<h3 id="31-servlet&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x4F53;&#x7CFB;">3.1 Servlet&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x4F53;&#x7CFB;</h3>
+<p><img src="image/image-20210822163013965.png" alt="image-20210822163013965" style="zoom: 67%;"></p>
+<h3 id="32-&#x7EE7;&#x627F;httpservlet&#x7C7B;&#x3001;&#x91CD;&#x5199;doget&#x548C;dopost&#x65B9;&#x6CD5;">3.2 &#x7EE7;&#x627F;HttpServlet&#x7C7B;&#x3001;&#x91CD;&#x5199;doGet()&#x548C;doPost()&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloServlet3</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HttpServlet</span> </span>{
+
+    <span class="hljs-comment">// &#x8986;&#x5199;doPost()</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doPost</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+        System.out.println(<span class="hljs-string">&quot;doPost&#x65B9;&#x6CD5;&quot;</span>);
+    }
+
+    <span class="hljs-comment">// &#x8986;&#x5199;doGet()</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+        System.out.println(<span class="hljs-string">&quot;doGet&#x65B9;&#x6CD5;&quot;</span>);
+    }
+}
+</code></pre>
+<h3 id="33-xml&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x6CD5;">3.3 XML&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x6CD5;</h3>
+<p>context-param&#x662F;&#x4E0A;&#x4E0B;&#x6587;&#x53C2;&#x6570;(<strong>&#x5B83;&#x5C5E;&#x4E8E;&#x6574;&#x4E2A;web&#x5DE5;&#x7A0B;</strong>)</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">context-param</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>username<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>context<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">context-param</span>&gt;</span>
+</code></pre>
+<p> <strong>servlet</strong>&#x6807;&#x7B7E;&#x7ED9;Tomcat<strong>&#x914D;&#x7F6E;Servlet&#x7A0B;&#x5E8F;</strong> 
+ <strong>servlet-name</strong>&#x6807;&#x7B7E; Servlet&#x7A0B;&#x5E8F;&#x8D77;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#xFF08;&#x4E00;&#x822C;&#x662F;&#x7C7B;&#x540D;&#xFF09; </p>
+<pre><code class="lang-java">&lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;
+</code></pre>
+<p><strong>servlet-class</strong>&#x662F;Servlet&#x7A0B;&#x5E8F;&#x7684;<u><strong>&#x5168;&#x7C7B;&#x540D;</strong></u></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>HelloServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span>
+</code></pre>
+<p>   <strong>init-param</strong>&#x662F;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;</p>
+<pre><code class="lang-java">&lt;init-param&gt;
+    &lt;param-name&gt;username&lt;/param-name&gt;
+    &lt;param-value&gt;root&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;init-param&gt;
+     &lt;param-name&gt;url&lt;/param-name&gt;
+     &lt;param-value&gt;
+        jdbc:mysql://localhost:8080 
+     &lt;/param-value&gt;
+&lt;/init-param&gt;
+</code></pre>
+<p><strong>servlet-mapping</strong>&#x6807;&#x7B7E;&#x7ED9;servlet&#x7A0B;&#x5E8F;&#x914D;&#x7F6E;&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<pre><code class="lang-Java">&lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;ContextServlet2&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/context2&lt;/url-pattern&gt;
+ &lt;/servlet-mapping&gt;
+</code></pre>
+<h2 id="4-servletconfig-&#x7C7B;">4. ServletConfig &#x7C7B;</h2>
+<p>ServletConfig &#x7C7B;&#x4ECE;&#x7C7B;&#x540D;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x5C31;&#x77E5;&#x9053;&#x662F;Servlet &#x7A0B;&#x5E8F;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x7C7B;&#x3002;</p>
+<p>ServletConfig &#x662F;&#x6BCF;&#x4E2A;Servlet &#x7A0B;&#x5E8F;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5C31;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684;ServletConfig &#x5BF9;&#x8C61;&#x3002;</p>
+<h3 id="41-servletconfig-&#x7C7B;&#x7684;&#x4E09;&#x5927;&#x4F5C;&#x7528;">4.1 ServletConfig &#x7C7B;&#x7684;&#x4E09;&#x5927;&#x4F5C;&#x7528;</h3>
+<p>1&#x3001;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;Servlet &#x7A0B;&#x5E8F;&#x7684;&#x522B;&#x540D;servlet-name &#x7684;&#x503C;</p>
+<p>2&#x3001;&#x83B7;&#x53D6;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;init-param</p>
+<p>3&#x3001;&#x83B7;&#x53D6;ServletContext &#x5BF9;&#x8C61;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(ServletConfig servletConfig)</span> <span class="hljs-keyword">throws</span> ServletException </span>{
+
+        <span class="hljs-comment">// 1&#x3001;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;Servlet&#x7A0B;&#x5E8F;&#x7684;&#x522B;&#x540D;servlet-name&#x7684;&#x503C;</span>
+        System.out.println(<span class="hljs-string">&quot;HelloServlet&#x7A0B;&#x5E8F;&#x7684;&#x522B;&#x540D;&#x662F;:&quot;</span> + servletConfig.getServletName());
+
+        <span class="hljs-comment">// 2&#x3001;&#x83B7;&#x53D6;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;init-param</span>
+        System.out.println(<span class="hljs-string">&quot;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;username&#x7684;&#x503C;&#x662F;;&quot;</span> + servletConfig.getInitParameter(<span class="hljs-string">&quot;username&quot;</span>));
+        System.out.println(<span class="hljs-string">&quot;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;url&#x7684;&#x503C;&#x662F;;&quot;</span> + servletConfig.getInitParameter(<span class="hljs-string">&quot;url&quot;</span>));
+
+        <span class="hljs-comment">// 3&#x3001;&#x83B7;&#x53D6;ServletContext&#x5BF9;&#x8C61;</span>
+        System.out.println(servletConfig.getServletContext());
+    }
+</code></pre>
+<h2 id="5-servletcontext-&#x7C7B;">5 ServletContext &#x7C7B;</h2>
+<h3 id="51-&#x4EC0;&#x4E48;&#x662F;servletcontext">5.1 &#x4EC0;&#x4E48;&#x662F;ServletContext?</h3>
+<p>1&#x3001;ServletContext &#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5B83;&#x8868;&#x793A;Servlet &#x4E0A;&#x4E0B;&#x6587;&#x5BF9;&#x8C61;
+2&#x3001;<strong>&#x4E00;&#x4E2A;web &#x5DE5;&#x7A0B;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;ServletContext &#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x3002;</strong>
+3&#x3001;ServletContext &#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;<strong>&#x57DF;&#x5BF9;&#x8C61;</strong>&#x3002;
+4&#x3001;ServletContext &#x662F;&#x5728;web &#x5DE5;&#x7A0B;&#x90E8;&#x7F72;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x3002;&#x5728;web &#x5DE5;&#x7A0B;&#x505C;&#x6B62;&#x7684;&#x65F6;&#x5019;&#x9500;&#x6BC1;&#x3002;</p>
+<h3 id="52-&#x4EC0;&#x4E48;&#x662F;&#x57DF;&#x5BF9;&#x8C61;">5.2 &#x4EC0;&#x4E48;&#x662F;&#x57DF;&#x5BF9;&#x8C61;?</h3>
+<p><strong>&#x57DF;&#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x53EF;&#x4EE5;&#x50CF;Map &#x4E00;&#x6837;&#x5B58;&#x53D6;&#x6570;&#x636E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x53EB;&#x57DF;&#x5BF9;&#x8C61;&#x3002;</strong>&#x8FD9;&#x91CC;&#x7684;&#x57DF;&#x6307;&#x7684;&#x662F;&#x5B58;&#x53D6;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;&#x8303;&#x56F4;&#xFF0C;&#x6574;&#x4E2A;web &#x5DE5;&#x7A0B;&#x3002;<strong><u>&#xFF08;&#x7C7B;&#x4F3C;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x8303;&#x56F4;&#x662F;&#x6574;&#x4E2A;web&#xFF09;</u></strong></p>
+<pre><code>            &#x5B58;&#x6570;&#x636E;             &#x53D6;&#x6570;&#x636E;             &#x5220;&#x9664;&#x6570;&#x636E;
+Map         put()             get()             remove()
+&#x57DF;&#x5BF9;&#x8C61;       setAttribute()    getAttribute()    removeAttribute();
+</code></pre><h3 id="53-servletcontext-&#x7C7B;&#x7684;&#x4F5C;&#x7528;">5.3 ServletContext &#x7C7B;&#x7684;&#x4F5C;&#x7528;</h3>
+<p>1&#x3001;&#x83B7;&#x53D6;web.xml &#x4E2D;&#x914D;&#x7F6E;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x53C2;&#x6570;context-param</p>
+<p>2&#x3001;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x5DE5;&#x7A0B;&#x8DEF;&#x5F84;&#xFF0C;&#x683C;&#x5F0F;: /&#x5DE5;&#x7A0B;&#x8DEF;&#x5F84;</p>
+<p>3&#x3001;&#x83B7;&#x53D6;&#x5DE5;&#x7A0B;&#x90E8;&#x7F72;&#x540E;&#x5728;&#x670D;&#x52A1;&#x5668;&#x786C;&#x76D8;&#x4E0A;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</p>
+<p>4&#x3001;&#x50CF;Map &#x4E00;&#x6837;&#x5B58;&#x53D6;&#x6570;&#x636E;</p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+
+        ServletContext context = getServletConfig().getServletContext();
+        <span class="hljs-comment">// 1&#x3001;&#x83B7;&#x53D6;web.xml&#x4E2D;&#x914D;&#x7F6E;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x53C2;&#x6570;context-param</span>
+        String username = context.getInitParameter(<span class="hljs-string">&quot;username&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;context-param&#x53C2;&#x6570;username&#x7684;&#x503C;&#x662F;:&quot;</span> + username);
+
+        <span class="hljs-comment">// 2&#x3001;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x5DE5;&#x7A0B;&#x8DEF;&#x5F84;&#xFF0C;&#x683C;&#x5F0F;: /&#x5DE5;&#x7A0B;&#x8DEF;&#x5F84;</span>
+        System.out.println( <span class="hljs-string">&quot;&#x5F53;&#x524D;&#x5DE5;&#x7A0B;&#x8DEF;&#x5F84;:&quot;</span> + context.getContextPath() );
+
+        <span class="hljs-comment">// 3&#x3001;&#x83B7;&#x53D6;&#x5DE5;&#x7A0B;&#x90E8;&#x7F72;&#x540E;&#x5728;&#x670D;&#x52A1;&#x5668;&#x786C;&#x76D8;&#x4E0A;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</span>
+        System.out.println(<span class="hljs-string">&quot;&#x5DE5;&#x7A0B;&#x90E8;&#x7F72;&#x7684;&#x8DEF;&#x5F84;&#x662F;:&quot;</span> + context.getRealPath(<span class="hljs-string">&quot;/&quot;</span>));
+
+        <span class="hljs-comment">// 4&#x3001;&#x4FDD;&#x5B58;&#x6570;&#x636E;</span>
+        context.setAttribute(<span class="hljs-string">&quot;key1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);
+
+        <span class="hljs-comment">// 5. &#x83B7;&#x53D6;&#x57DF;&#x5BF9;&#x8C61;&#x6570;&#x636E;</span>
+        System.out.println(<span class="hljs-string">&quot;Context1 &#x83B7;&#x53D6;&#x57DF;&#x6570;&#x636E;key1&#x7684;&#x503C;:&quot;</span> + context.getAttribute(<span class="hljs-string">&quot;key1&quot;</span>));
+
+    }
+</code></pre>
+<h2 id="6-httpservletrequest&#x7C7B;">6 HttpServletRequest&#x7C7B;</h2>
+<p>&#x6BCF;&#x6B21;&#x53EA;&#x8981;&#x6709;&#x8BF7;&#x6C42;&#x8FDB;&#x5165;Tomcat &#x670D;&#x52A1;&#x5668;&#xFF0C;Tomcat &#x670D;&#x52A1;&#x5668;&#x5C31;&#x4F1A;<strong>&#x628A;&#x8BF7;&#x6C42;&#x8FC7;&#x6765;&#x7684;HTTP &#x534F;&#x8BAE;&#x4FE1;&#x606F;&#x89E3;&#x6790;&#x597D;&#x5C01;&#x88C5;&#x5230;Request &#x5BF9;&#x8C61;&#x4E2D;&#x3002;&#x7136;&#x540E;&#x4F20;&#x9012;&#x5230;service &#x65B9;&#x6CD5;&#xFF08;doGet &#x548C;doPost&#xFF09;&#x4E2D;&#x7ED9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x3002;</strong>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;HttpServletRequest &#x5BF9;&#x8C61;&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<h3 id="61-&#x5E38;&#x7528;&#x65B9;&#x6CD5;">6.1 &#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
+<p><img src="image/image-20210822204920445.png" alt="image-20210822204920445" style="zoom:67%;"></p>
+<h3 id="&#x5B9E;&#x8DF5;">&#x5B9E;&#x8DF5;</h3>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doPost</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+        request.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x8DEF;&#x5F84; &quot;</span> + request.getRequestURI());
+        System.out.println(<span class="hljs-string">&quot;&#x8BF7;&#x6C42;&#x7684;URL &quot;</span> + request.getRequestURL());
+        System.out.println(<span class="hljs-string">&quot;&#x5BA2;&#x6237;&#x7AEF;IP  &quot;</span> + request.getRemoteHost());
+        System.out.println(<span class="hljs-string">&quot;&#x8BF7;&#x6C42;&#x5934;User-Agent &quot;</span> + request.getHeader(<span class="hljs-string">&quot;User-Agent&quot;</span>));
+        System.out.println(<span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x53C2;&#x6570; &quot;</span> + request.getParameter(<span class="hljs-string">&quot;username&quot;</span>) );
+        String[] hobbies = request.getParameterValues(<span class="hljs-string">&quot;hobby&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;hobby&#xFF1A;&quot;</span> + Arrays.toString(hobbies));
+        System.out.println(<span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;: &quot;</span> + request.getMethod());
+        request.setAttribute(<span class="hljs-string">&quot;fruit&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>);
+        System.out.println(<span class="hljs-string">&quot;&#x83B7;&#x53D6;&#x57DF;&#x6570;&#x636E;fruit&#xFF1A;&quot;</span> + request.getAttribute(<span class="hljs-string">&quot;fruit&quot;</span>));
+    }
+</code></pre>
+<h3 id="62-&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;">6.2 &#x8BF7;&#x6C42;&#x8F6C;&#x53D1;</h3>
+<p>&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x662F;&#x6307;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x4ECE;&#x4E00;&#x6B21;&#x8D44;&#x6E90;&#x8DF3;&#x8F6C;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x64CD;&#x4F5C;&#x53EB;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x3002;</p>
+<ul>
+<li><p>&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x7684;&#x7279;&#x70B9;:
+1&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x6CA1;&#x6709;&#x53D8;&#x5316;</p>
+<p>2&#x3001;&#x4ED6;&#x4EEC;&#x662F;<strong>&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#xFF08;&#x6CE8;&#x610F;&#x533A;&#x5206;&#x91CD;&#x5B9A;&#x5411;&#xFF09;</strong></p>
+<p>3&#x3001;&#x4ED6;&#x4EEC;<strong>&#x5171;&#x4EAB;Request&#x57DF;</strong>&#x4E2D;&#x7684;&#x6570;&#x636E;</p>
+<p>4&#x3001;&#x53EF;&#x4EE5;&#x8F6C;&#x53D1;&#x5230;WEB-INF&#x76EE;&#x5F55;&#x4E0B;&#xFF08;&#x56E0;&#x4E3A;&#x662F;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#xFF09;</p>
+<p>5&#x3001;&#x4E0D;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5DE5;&#x7A0B;&#x4EE5;&#x5916;&#x7684;&#x8D44;&#x6E90;&#xFF08;&#x56E0;&#x4E3A;&#x8F6C;&#x53D1;&#x7684;&#x5730;&#x5740;&#x7684;&#x6839;&#x8DEF;&#x5F84;&#x662F;&#x5F53;&#x524D;&#x5DE5;&#x7A0B;&#x7684;&#x6839;&#x8DEF;&#x5F84;&#xFF09;</p>
+</li>
+</ul>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Servlet1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HttpServlet</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+        <span class="hljs-comment">// &#x8F6C;&#x53D1;&#x5230;/servlet2&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;</span>
+        RequestDispatcher red = req.getRequestDispatcher(<span class="hljs-string">&quot;/servlet2&quot;</span>);
+        <span class="hljs-comment">// forward&#x5F00;&#x59CB;&#x8F6C;&#x53D1;</span>
+        red.forward(req,resp);
+    }
+}
+</code></pre>
+<h3 id="63-base&#x6807;&#x7B7E;">6.3 base&#x6807;&#x7B7E;</h3>
+<p>base&#x6807;&#x7B7E;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x9875;&#x9762;&#x4E2D;&#x6240;&#x6709;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5DE5;&#x4F5C;&#x65F6;,&#x53C2;&#x7167;&#x54EA;&#x4E2A;&#x8DEF;&#x5F84;&#x6765;&#x8FDB;&#x884C;&#x8DF3;&#x8F6C;&#x3002;</p>
+<h2 id="7-httpservletresponse-&#x7C7B;">7 HttpServletResponse &#x7C7B;</h2>
+<p>HttpServletResponse &#x7C7B;&#x548C;HttpServletRequest &#x7C7B;&#x4E00;&#x6837;&#x3002;<strong>&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x8FDB;&#x6765;&#xFF0C;Tomcat &#x670D;&#x52A1;&#x5668;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Response &#x5BF9;&#x8C61;&#x4F20;&#x9012;&#x7ED9;Servlet &#x7A0B;&#x5E8F;&#x53BB;&#x4F7F;&#x7528;&#x3002;HttpServletRequest &#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FC7;&#x6765;&#x7684;&#x4FE1;&#x606F;&#xFF0C;HttpServletResponse &#x8868;&#x793A;&#x6240;&#x6709;&#x54CD;&#x5E94;&#x7684;&#x4FE1;&#x606F;</strong>&#xFF0C;&#x6211;&#x4EEC;&#x5982;&#x679C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;HttpServletResponse &#x5BF9;&#x8C61;&#x6765;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;</p>
+<p>&#x5B57;&#x8282;&#x6D41;                getOutputStream();                  &#x5E38;&#x7528;&#x4E8E;&#x4E0B;&#x8F7D;&#xFF08;&#x4F20;&#x9012;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#xFF09;
+&#x5B57;&#x7B26;&#x6D41;                getWriter();                                 &#x5E38;&#x7528;&#x4E8E;&#x56DE;&#x4F20;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x5E38;&#x7528;&#xFF09;
+&#x4E24;&#x4E2A;&#x6D41;&#x540C;&#x65F6;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x5B57;&#x8282;&#x6D41;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x6D41;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<h3 id="&#x5982;&#x4F55;&#x5F80;&#x5BA2;&#x6237;&#x7AEF;&#x56DE;&#x4F20;&#x6570;&#x636E;">&#x5982;&#x4F55;&#x5F80;&#x5BA2;&#x6237;&#x7AEF;&#x56DE;&#x4F20;&#x6570;&#x636E;</h3>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x8981;&#x6C42;&#xFF1A; &#x5F80;&#x5BA2;&#x6237;&#x7AEF;&#x56DE;&#x4F20;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;&#x3002;</span>
+PrintWriter writer = resp.getWriter();
+writer.write(<span class="hljs-string">&quot;response&apos;s content!!!&quot;</span>);
+</code></pre>
+<h3 id="&#x89E3;&#x51B3;&#x4E71;&#x7801;&#x95EE;&#x9898;">&#x89E3;&#x51B3;&#x4E71;&#x7801;&#x95EE;&#x9898;</h3>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x5B83;&#x4F1A;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x4F7F;&#x7528;UTF-8 &#x5B57;&#x7B26;&#x96C6;&#xFF0C;&#x8FD8;&#x8BBE;&#x7F6E;&#x4E86;&#x54CD;&#x5E94;&#x5934;</span>
+<span class="hljs-comment">// &#x6B64;&#x65B9;&#x6CD5;&#x4E00;&#x5B9A;&#x8981;&#x5728;&#x83B7;&#x53D6;&#x6D41;&#x5BF9;&#x8C61;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x624D;&#x6709;&#x6548;</span>
+resp.setContentType(<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span>);
+</code></pre>
+<h3 id="&#x8BF7;&#x6C42;&#x91CD;&#x5B9A;&#x5411;">&#x8BF7;&#x6C42;&#x91CD;&#x5B9A;&#x5411;</h3>
+<p>&#x8BF7;&#x6C42;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x662F;&#x6307;&#x5BA2;&#x6237;&#x7AEF;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x8BF7;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x670D;&#x52A1;&#x5668;&#x544A;&#x8BC9;&#x5BA2;&#x6237;&#x7AEF;&#x8BF4;&#x3002;&#x6211;&#x7ED9;&#x4F60;&#x4E00;&#x4E9B;&#x5730;&#x5740;&#x3002;&#x4F60;&#x53BB;&#x65B0;&#x5730;&#x5740;&#x8BBF;&#x95EE;&#x3002;&#x53EB;&#x8BF7;&#x6C42;
+&#x91CD;&#x5B9A;&#x5411;&#xFF08;&#x56E0;&#x4E3A;&#x4E4B;&#x524D;&#x7684;&#x5730;&#x5740;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x88AB;&#x5E9F;&#x5F03;&#xFF09;&#x3002;</p>
+<ul>
+<li><p>&#x8BF7;&#x6C42;&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x7279;&#x70B9;:</p>
+<p>1&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;</p>
+<p>2&#x3001;<strong>&#x4E24;&#x6B21;&#x8BF7;&#x6C42;</strong></p>
+<p>3&#x3001;<strong>&#x4E0D;&#x5171;&#x4EAB;Request&#x57DF;</strong>&#x4E2D;&#x6570;&#x636E;</p>
+<p>4&#x3001;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;WEB-INF&#x4E0B;&#x7684;&#x8D44;&#x6E90;</p>
+<p>5&#x3001;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5DE5;&#x7A0B;&#x5916;&#x7684;&#x8D44;&#x6E90;</p>
+</li>
+</ul>
+<pre><code class="lang-Java">resp.sendRedirect(<span class="hljs-string">&quot;http://localhost:8080&quot;</span>);
+</code></pre>
+<h3 id="&#x5B9E;&#x8DF5;">&#x5B9E;&#x8DF5;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>{
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x7F16;&#x7801;&#x90FD;&#x662F;utf-8&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x5728;&#x83B7;&#x53D6;&#x6D41;&#x5BF9;&#x8C61;&#x4E4B;&#x524D;</span>
+    response.setContentType(<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span>);
+    PrintWriter writer = response.getWriter();
+    writer.write(<span class="hljs-string">&quot;&#x539F;&#x6765;&#x7684;&#x7F51;&#x5740;&#x642C;&#x5BB6;&#x4E86;&#xFF0C;&#x524D;&#x5F80;&#x65B0;&#x5730;&#x5740;&#xFF01;&quot;</span>);
+
+    <span class="hljs-comment">// &#x91CD;&#x5B9A;&#x5411;</span>
+    response.sendRedirect(<span class="hljs-string">&quot;https://www.baidu.com/&quot;</span>);
+}
+</code></pre>
+<h2 id="8-tomcat">8 Tomcat</h2>
+<h3 id="&#x8BF7;&#x6C42;&#x4E0E;&#x54CD;&#x5E94;">&#x8BF7;&#x6C42;&#x4E0E;&#x54CD;&#x5E94;</h3>
+<p>&#x8BF7;&#x6C42;&#x662F;&#x6307;&#x5BA2;&#x6237;&#x7AEF;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x53EB;&#x8BF7;&#x6C42; Request&#x3002;</p>
+<p>&#x54CD;&#x5E94;&#x662F;&#x6307;&#x670D;&#x52A1;&#x5668;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x56DE;&#x4F20;&#x6570;&#x636E;&#xFF0C;&#x53EB;&#x54CD;&#x5E94; Response&#x3002;</p>
+<h3 id="&#x5982;&#x4F55;&#x90E8;&#x6691;-web-&#x5DE5;&#x7A0B;&#x5230;-tomcat-&#x4E2D;"><strong>&#x5982;&#x4F55;&#x90E8;&#x6691;</strong> <strong>web</strong> <strong>&#x5DE5;&#x7A0B;&#x5230;</strong> <strong>Tomcat</strong> <strong>&#x4E2D;</strong></h3>
+<p>&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x53EA;&#x9700;&#x8981;&#x628A; web &#x5DE5;&#x7A0B;&#x7684;&#x76EE;&#x5F55;&#x62F7;&#x8D1D;&#x5230; Tomcat &#x7684; webapps &#x76EE;&#x5F55;&#x4E0B; &#x5373;&#x53EF;&#x3002;</p>
+<p>&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;&#x627E;&#x5230; Tomcat &#x4E0B;&#x7684; conf &#x76EE;&#x5F55;\Catalina\localhost\ &#x4E0B;,&#x521B;&#x5EFA;&#x5982;&#x4E0B;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!-- Context &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5DE5;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587; path &#x8868;&#x793A;&#x5DE5;&#x7A0B;&#x7684;&#x8BBF;&#x95EE;&#x8DEF;&#x5F84;:/abc docBase &#x8868;&#x793A;&#x4F60;&#x7684;&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x5728;&#x54EA;&#x91CC; --&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">Context</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/abc&quot;</span> <span class="hljs-attr">docBase</span>=<span class="hljs-string">&quot;E:\book&quot;</span> /&gt;</span>
+</code></pre>
+<h3 id="web&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x4ECB;&#x7ECD;">Web&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x4ECB;&#x7ECD;</h3>
+<p><img src="../../gitbook/markdownImages/image-20211111155427344.png" alt="image-20211111155427344" style="zoom:50%;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Java常用数据结构.html" class="navigation navigation-prev " aria-label="Previous page: Java常用数据结构">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Note/IO流.html" class="navigation navigation-next " aria-label="Next page: IO流">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Servlet学习","level":"1.6","depth":1,"next":{"title":"IO流","level":"1.7","depth":1,"path":"Note/IO流.md","ref":"Note/IO流.md","articles":[]},"previous":{"title":"Java常用数据结构","level":"1.5","depth":1,"path":"Java常用数据结构.md","ref":"Java常用数据结构.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Servlet学习.md","mtime":"2021-11-11T12:01:34.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-11T13:06:40.609Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -10,11 +10,11 @@
 
 ## 2. **手动实现** **Servlet** **程序**
 
-1、编写一个类去实现 Servlet 接口
+1、编写一个类去**实现 Servlet 接口**
 
-2、实现 service 方法，处理请求，并响应数据
+2、**实现 service 方法**，处理请求，并响应数据
 
-3、到 web.xml 中去配置 servlet 程序的访问地址
+3、到 web.xml 中去**配置** servlet 程序的访问地址
 
 ### 2.1 Servlet 的生命周期
 
@@ -64,6 +64,10 @@ public class HelloServlet implements Servlet {
 
 第四步，在**web 工程停止**的时候调用。
 
+### 2.3 url到Servlet访问
+
+![image-20211111163131381](image/image-20211111163131381.png)
+
 ## 3. 通过继承HttpServlet 实现Servlet 程序（最常用）
 
 一般在实际项目开发中，都是使用继承HttpServlet 类的方式去实现Servlet 程序。
@@ -96,7 +100,7 @@ public class HelloServlet3 extends HttpServlet {
 
 context-param是上下文参数(**它属于整个web工程**)
 
-```java
+```xml
 <context-param>
     <param-name>username</param-name>
     <param-value>context</param-value>
@@ -110,9 +114,9 @@ context-param是上下文参数(**它属于整个web工程**)
 <servlet-name>HelloServlet</servlet-name>
 ```
 
-**servlet-class**是Servlet程序的全类名
+**servlet-class**是Servlet程序的<u>**全类名**</u>
 
-```<servlet-class>com.atguigu.servlet.HelloServlet</servlet-class>
+```xml
 <servlet-class>HelloServlet</servlet-class>
 ```
 
@@ -175,7 +179,7 @@ ServletConfig 是每个Servlet 程序创建时，就创建一个对应的Servlet
 ### 5.1 什么是ServletContext?
 
 1、ServletContext 是一个接口，它表示Servlet 上下文对象
-2、一个web 工程，只有一个ServletContext 对象实例。
+2、**一个web 工程，只有一个ServletContext 对象实例。**
 3、ServletContext 对象是一个**域对象**。
 4、ServletContext 是在web 工程部署启动的时候创建。在web 工程停止的时候销毁。
 
@@ -230,6 +234,24 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
 <img src="image/image-20210822204920445.png" alt="image-20210822204920445" style="zoom:67%;" />
 
+### 实践
+
+```java
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        System.out.println("请求的资源路径 " + request.getRequestURI());
+        System.out.println("请求的URL " + request.getRequestURL());
+        System.out.println("客户端IP  " + request.getRemoteHost());
+        System.out.println("请求头User-Agent " + request.getHeader("User-Agent"));
+        System.out.println("获取请求一个参数 " + request.getParameter("username") );
+        String[] hobbies = request.getParameterValues("hobby");
+        System.out.println("hobby：" + Arrays.toString(hobbies));
+        System.out.println("获取请求方法: " + request.getMethod());
+        request.setAttribute("fruit", "banana");
+        System.out.println("获取域数据fruit：" + request.getAttribute("fruit"));
+    }
+```
+
 ### 6.2 请求转发
 
 请求转发是指，服务器收到请求后，从一次资源跳转到另一个资源的操作叫请求转发。
@@ -237,13 +259,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 - 请求转发的特点:
   1、浏览器地址栏没有变化
 
-  2、他们是一次请求
+  2、他们是**一次请求（注意区分重定向）**
 
-  3、他们共享Request域中的数据
+  3、他们**共享Request域**中的数据
 
-  4、可以转发到WEB-INF目录下
+  4、可以转发到WEB-INF目录下（因为是一次请求）
 
-  5、不可以访问工程以外的资源
+  5、不可以访问工程以外的资源（因为转发的地址的根路径是当前工程的根路径）
 
 ```Java
 public class Servlet1 extends HttpServlet {
@@ -294,9 +316,9 @@ resp.setContentType("text/html; charset=UTF-8");
 
   1、浏览器地址栏会发生变化
 
-  2、两次请求
+  2、**两次请求**
 
-  3、不共享Request域中数据
+  3、**不共享Request域**中数据
 
   4、不能访问WEB-INF下的资源
 
@@ -305,4 +327,41 @@ resp.setContentType("text/html; charset=UTF-8");
 ```Java
 resp.sendRedirect("http://localhost:8080");
 ```
+
+### 实践
+
+```Java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // 设置服务器和客户端的编码都是utf-8，此方法在获取流对象之前
+    response.setContentType("text/html; charset=UTF-8");
+    PrintWriter writer = response.getWriter();
+    writer.write("原来的网址搬家了，前往新地址！");
+
+    // 重定向
+    response.sendRedirect("https://www.baidu.com/");
+}
+```
+
+## 8 Tomcat
+
+### 请求与响应
+
+请求是指客户端给服务器发送数据，叫请求 Request。
+
+响应是指服务器给客户端回传数据，叫响应 Response。
+
+### **如何部暑** **web** **工程到** **Tomcat** **中**
+
+方法一：只需要把 web 工程的目录拷贝到 Tomcat 的 webapps 目录下 即可。
+
+方法二：找到 Tomcat 下的 conf 目录\Catalina\localhost\ 下,创建如下的配置文件：
+
+```xml
+<!-- Context 表示一个工程上下文 path 表示工程的访问路径:/abc docBase 表示你的工程目录在哪里 --> 
+<Context path="/abc" docBase="E:\book" />
+```
+
+### Web工程目录介绍
+
+<img src="../../gitbook/markdownImages/image-20211111155427344.png" alt="image-20211111155427344" style="zoom:50%;" />
 

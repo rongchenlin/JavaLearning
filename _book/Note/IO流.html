@@ -1,0 +1,797 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>IO流 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Java8新特性.html" />
+    
+    
+    <link rel="prev" href="../Servlet学习.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Java面向对象学习.html">
+            
+                <a href="../Java面向对象学习.html">
+            
+                    
+                    Java面向对象学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Ajax技术.html">
+            
+                <a href="../Ajax技术.html">
+            
+                    
+                    Ajax技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Java高级编程.html">
+            
+                <a href="../Java高级编程.html">
+            
+                    
+                    Java高级编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Java常用数据结构.html">
+            
+                <a href="../Java常用数据结构.html">
+            
+                    
+                    Java常用数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Servlet学习.html">
+            
+                <a href="../Servlet学习.html">
+            
+                    
+                    Servlet学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="IO流.html">
+            
+                <a href="IO流.html">
+            
+                    
+                    IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Java8新特性.html">
+            
+                <a href="Java8新特性.html">
+            
+                    
+                    Java8新特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Java集合类.html">
+            
+                <a href="Java集合类.html">
+            
+                    
+                    Java集合类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Java面向对象——补充复习.html">
+            
+                <a href="Java面向对象——补充复习.html">
+            
+                    
+                    Java面向对象——补充复习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="JDBC核心.html">
+            
+                <a href="JDBC核心.html">
+            
+                    
+                    JDBC核心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="XML.html">
+            
+                <a href="XML.html">
+            
+                    
+                    XML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="常用类.html">
+            
+                <a href="常用类.html">
+            
+                    
+                    常用类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="多线程.html">
+            
+                <a href="多线程.html">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="反射.html">
+            
+                <a href="反射.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="枚举类与注解.html">
+            
+                <a href="枚举类与注解.html">
+            
+                    
+                    枚举类与注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="尚硅谷_JDBC.html">
+            
+                <a href="尚硅谷_JDBC.html">
+            
+                    
+                    尚硅谷_JDBC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="异常.html">
+            
+                <a href="异常.html">
+            
+                    
+                    异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="基本数据类型和引用数据类型的区！.html">
+            
+                <a href="基本数据类型和引用数据类型的区！.html">
+            
+                    
+                    基本数据类型和引用数据类型的区！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >IO流</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="io&#x6D41;">IO&#x6D41;</h1>
+<h2 id="file&#x7C7B;&#x7684;&#x4F7F;&#x7528;">File&#x7C7B;&#x7684;&#x4F7F;&#x7528;</h2>
+<ul>
+<li><ol>
+<li>File&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6216;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x76EE;&#x5F55;(&#x4FD7;&#x79F0;&#xFF1A;&#x6587;&#x4EF6;&#x5939;)&#x3002;</li>
+</ol>
+</li>
+<li><ol>
+<li>File&#x7C7B;&#x58F0;&#x660E;&#x5728;java.io&#x5305;&#x4E0B;&#x3002;</li>
+</ol>
+</li>
+<li><ol>
+<li><strong>File</strong>&#x7C7B;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x5173;&#x4E8E;<strong>&#x6587;&#x4EF6;&#x6216;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7684;&#x521B;&#x5EFA;&#x3001;&#x5220;&#x9664;&#x3001;&#x91CD;&#x547D;&#x540D;&#x3001;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x3001;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x7B49;&#x65B9;&#x6CD5;</strong>&#xFF0C;</li>
+</ol>
+</li>
+<li><ol>
+<li>&#x5E76;&#x672A;&#x6D89;&#x53CA;&#x5230;&#x5199;&#x5165;&#x6216;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x64CD;&#x4F5C;&#x3002;<strong>&#x5982;&#x679C;&#x9700;&#x8981;&#x8BFB;&#x53D6;&#x6216;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;IO&#x6D41;&#x6765;&#x5B8C;&#x6210;</strong>&#x3002;</li>
+</ol>
+</li>
+</ul>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-comment">// &#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x91CC;&#x7684;&#x8DEF;&#x5F84;&#x662F;&#x4EE5;module&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#xFF0C;&#x4E0D;&#x662F;src&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x800C;&#x662F;Test&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;</span>
+        File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);
+        <span class="hljs-comment">//&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;</span>
+        System.out.println(file.getAbsolutePath());
+        <span class="hljs-comment">// &#x8DEF;&#x5F84;</span>
+        System.out.println(file.getPath());
+        <span class="hljs-comment">// &#x540D;&#x5B57;</span>
+        System.out.println(file.getName());
+        <span class="hljs-comment">// &#x7236;&#x76EE;&#x5F55;&#xFF1A;&#x5982;&#x679C;&#x5199;&#x7684;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;null</span>
+        System.out.println(file.getParent());
+        <span class="hljs-comment">// &#x957F;&#x5EA6;</span>
+        System.out.println(file.length());
+        <span class="hljs-comment">// &#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;</span>
+        System.out.println(<span class="hljs-keyword">new</span> Date(file.lastModified()));
+
+        File file2 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;C:\\Program Files\\&quot;</span>);
+        <span class="hljs-comment">// &#x5F53;&#x524D;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;</span>
+        String[] list = file2.list();
+        <span class="hljs-keyword">for</span> (String s : list) {
+            System.out.print(s);
+        }
+
+        <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x76EE;&#x5F55;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;File&#x6570;&#x7EC4;</span>
+        File[] files = file2.listFiles();
+        <span class="hljs-keyword">for</span> (File s : files) {
+            System.out.print(s);
+        }
+    }
+}
+</code></pre>
+<h3 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;">&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3>
+<pre><code>public boolean isDirectory()&#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x6587;&#x4EF6;&#x76EE;&#x5F55;
+public boolean isFile() &#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x6587;&#x4EF6;
+public boolean exists() &#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;
+public boolean canRead() &#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x8BFB;
+public boolean canWrite() &#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x5199;
+public boolean isHidden() &#xFF1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9690;&#x85CF;
+public boolean createNewFile() &#xFF1A;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x3002;&#x82E5;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x4E0D;&#x521B;&#x5EFA;&#xFF0C;&#x8FD4;&#x56DE;false
+public boolean mkdir() &#xFF1A;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;&#x5982;&#x679C;&#x6B64;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4E0D;&#x521B;&#x5EFA;&#x4E86;&#x3002;&#x5982;&#x679C;&#x6B64;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7684;&#x4E0A;&#x5C42;&#x76EE;&#x5F55;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x4E5F;&#x4E0D;&#x521B;&#x5EFA;&#x3002;
+public boolean mkdirs() &#xFF1A;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;&#x5982;&#x679C;&#x6B64;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4E0D;&#x521B;&#x5EFA;&#x4E86;&#x3002;&#x5982;&#x679C;&#x4E0A;&#x5C42;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x4E00;&#x5E76;&#x521B;&#x5EFA;
+public boolean delete()&#xFF1A;&#x5220;&#x9664;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x5220;&#x9664;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;Java&#x4E2D;&#x7684;&#x5220;&#x9664;&#x4E0D;&#x8D70;&#x56DE;&#x6536;&#x7AD9;&#x3002;
+public boolean renameTo(File dest):&#x628A;&#x6587;&#x4EF6;&#x91CD;&#x547D;&#x540D;&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
+     &#x6BD4;&#x5982;&#xFF1A;file1.renameTo(file2)&#x4E3A;&#x4F8B;&#xFF1A;
+</code></pre><pre><code class="lang-Java">File fileD = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res&quot;</span>);
+File file1 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res/test.txt&quot;</span>);
+<span class="hljs-keyword">if</span> (!fileD.exists()){
+    <span class="hljs-comment">/**
+     * &#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x521B;&#x5EFA;
+     */</span>
+    fileD.mkdirs();
+    System.out.println(<span class="hljs-string">&quot;&#x6587;&#x4EF6;&#x5939;res&#x521B;&#x5EFA;&#x6210;&#x529F;&#xFF01;&quot;</span>);
+}
+<span class="hljs-keyword">if</span>(!file1.exists()){
+    <span class="hljs-comment">/**
+     * &#x521B;&#x5EFA;&#x6587;&#x4EF6;
+     */</span>
+    file1.createNewFile();
+    System.out.println(<span class="hljs-string">&quot;&#x6587;&#x4EF6;test&#x521B;&#x5EFA;&#x6210;&#x529F;&quot;</span>);
+}<span class="hljs-keyword">else</span>{
+    <span class="hljs-comment">/**
+     * &#x91CD;&#x547D;&#x540D;
+     */</span>
+    file1.renameTo(<span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res/new_name.txt&quot;</span>));
+}
+</code></pre>
+<h2 id="&#x6D41;&#x7684;&#x5206;&#x7C7B;&#xFF1A;">&#x6D41;&#x7684;&#x5206;&#x7C7B;&#xFF1A;</h2>
+<ul>
+<li>1.&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5355;&#x4F4D;&#xFF1A;&#x5B57;&#x8282;&#x6D41;&#x3001;&#x5B57;&#x7B26;&#x6D41;</li>
+<li>2.&#x6570;&#x636E;&#x7684;&#x6D41;&#x5411;&#xFF1A;&#x8F93;&#x5165;&#x6D41;&#x3001;&#x8F93;&#x51FA;&#x6D41;</li>
+<li>3.&#x6D41;&#x7684;&#x89D2;&#x8272;&#xFF1A;&#x8282;&#x70B9;&#x6D41;&#x3001;&#x5904;&#x7406;&#x6D41;</li>
+</ul>
+<ul>
+<li>&#x4E8C;&#x3001;&#x6D41;&#x7684;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</li>
+<li>&#x62BD;&#x8C61;&#x57FA;&#x7C7B;         &#x8282;&#x70B9;&#x6D41;&#xFF08;&#x6216;&#x6587;&#x4EF6;&#x6D41;&#xFF09;                               &#x7F13;&#x51B2;&#x6D41;&#xFF08;&#x5904;&#x7406;&#x6D41;&#x7684;&#x4E00;&#x79CD;&#xFF09;</li>
+<li><strong>InputStream</strong>     FileInputStream   (read(byte[] buffer))        BufferedInputStream (read(byte[] buffer))</li>
+<li><strong>OutputStream</strong>    FileOutputStream  (write(byte[] buffer,0,len)  BufferedOutputStream (write(byte[] buffer,0,len) / flush()</li>
+<li><strong>Reader</strong>          FileReader (read(char[] cbuf))                 BufferedReader (read(char[] cbuf) / readLine())</li>
+<li><strong>Writer</strong>          FileWriter (write(char[] cbuf,0,len)           BufferedWriter (write(char[] cbuf,0,len) / flush()</li>
+</ul>
+<h4 id="inputstream-&#x548C;-reader-&#x662F;&#x6240;&#x6709;&#x8F93;&#x5165;&#x6D41;&#x7684;&#x57FA;&#x7C7B;&#x3002;">InputStream &#x548C; Reader &#x662F;&#x6240;&#x6709;&#x8F93;&#x5165;&#x6D41;&#x7684;&#x57FA;&#x7C7B;&#x3002;</h4>
+<ul>
+<li>InputStream&#xFF08;&#x5178;&#x578B;&#x5B9E;&#x73B0;&#xFF1A;<strong>FileInputStream</strong>&#xFF09; &#xFF1A;<strong>&#x4E00;&#x822C;&#x7528;&#x6765;&#x5904;&#x7406;&#x5B57;&#x8282;byte</strong><ul>
+<li>int read()</li>
+<li>int read(<strong>byte</strong>[] b)</li>
+<li>int read(byte[] b, int off, int len) </li>
+</ul>
+</li>
+<li>Reader&#xFF08;&#x5178;&#x578B;&#x5B9E;&#x73B0;&#xFF1A;<strong>FileReader</strong>&#xFF09;&#xFF1A;<strong>&#x4E00;&#x822C;&#x7528;&#x6765;&#x5904;&#x7406;&#x5B57;&#x7B26;char</strong><ul>
+<li>int read()</li>
+<li>int read(<strong>char</strong> [] c)</li>
+<li>int read(char [] c, int off, int len)</li>
+</ul>
+</li>
+</ul>
+<h4 id="outputstream-&#x548C;-writer-&#x662F;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x6D41;&#x7684;&#x57FA;&#x7C7B;&#x3002;">OutputStream &#x548C; Writer &#x662F;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x6D41;&#x7684;&#x57FA;&#x7C7B;&#x3002;</h4>
+<ul>
+<li><p>OutputStream&#xFF1A;&#xFF08;&#x5178;&#x578B;&#x5B9E;&#x73B0;&#xFF1A;<strong>FileOutputStream</strong>&#xFF09;</p>
+<ul>
+<li>void write(int b/int c);</li>
+<li>void write(byte[] cbuf);</li>
+<li>void write(byte[] buff, int off, int len);</li>
+<li>void flush();</li>
+<li>void close(); &#x9700;&#x8981;&#x5148;&#x5237;&#x65B0;&#xFF0C;&#x518D;&#x5173;&#x95ED;&#x6B64;&#x6D41;</li>
+</ul>
+</li>
+<li><p>Writer&#xFF1A;&#xFF08;&#x5178;&#x578B;&#x5B9E;&#x73B0;&#xFF1A;<strong>FileWriter</strong>&#xFF09;</p>
+<ul>
+<li>void write(int b/int c);</li>
+<li>void write(char[] cbuf);</li>
+<li>void write(char[] buff, int off, int len);</li>
+<li>void flush();</li>
+<li>void close(); &#x9700;&#x8981;&#x5148;&#x5237;&#x65B0;&#xFF0C;&#x518D;&#x5173;&#x95ED;&#x6B64;&#x6D41;</li>
+</ul>
+</li>
+</ul>
+<p>==&#x4E0A;&#x9762;4&#x79CD;&#x6D41;&#xFF0C;&#x8BF4;&#x7684;&#x901A;&#x4FD7;&#x4E00;&#x4E9B;&#xFF0C;&#x5C31;&#x662F;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x5206;&#x6210;&#x4E24;&#x7C7B;&#xFF1A;Input&#x548C;Output&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x53C8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x662F;&#x5B57;&#x7B26;&#x8FD8;&#x662F;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6216;&#x8005;&#x8F93;&#x51FA;==</p>
+<h3 id="&#x8282;&#x70B9;&#x6D41;&#x5904;&#x7406;&#x6D41;">&#x8282;&#x70B9;&#x6D41;&amp;&#x5904;&#x7406;&#x6D41;</h3>
+<p>&#x8282;&#x70B9;&#x6D41;&#xFF1A;&#x76F4;&#x63A5;&#x4ECE;&#x6570;&#x636E;&#x6E90;&#x6216;&#x76EE;&#x7684;&#x5730;&#x8BFB;&#x5199;&#x6570;&#x636E;</p>
+<p>&#x5904;&#x7406;&#x6D41;&#xFF1A;&#x4E0D;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#x5230;&#x6570;&#x636E;&#x6E90;&#x6216;&#x76EE;&#x7684;&#x5730;&#xFF0C;&#x800C;&#x662F;<strong>&#x201C;&#x8FDE;&#x63A5;&#x201D;&#x5728;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x6D41;&#xFF08;&#x8282;&#x70B9;&#x6D41;&#x6216;&#x5904;&#x7406;&#x6D41;&#xFF09;&#x4E4B;&#x4E0A;</strong>&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x5904;&#x7406;&#x4E3A;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x66F4;&#x4E3A;&#x5F3A;&#x5927;&#x7684;&#x8BFB;&#x5199;&#x529F;&#x80FD;</p>
+<h3 id="&#x8282;&#x70B9;&#x6D41;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;4&#x4E2A;&#x6B65;&#x9AA4;">&#x8282;&#x70B9;&#x6D41;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;4&#x4E2A;&#x6B65;&#x9AA4;</h3>
+<h4 id="filereader&#x5B57;&#x7B26;&#x8F93;&#x5165;&#x6D41;">FileReader:&#x5B57;&#x7B26;&#x8F93;&#x5165;&#x6D41;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        <span class="hljs-comment">// 1- &#x5B9E;&#x4F8B;&#x5316;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;</span>
+        File file1 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res/test.txt&quot;</span>);
+        <span class="hljs-comment">// 2- &#x63D0;&#x4F9B;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x7684;&#x6D41;, FileReader:&#x8F93;&#x5165;&#x6D41;</span>
+        FileReader fr = <span class="hljs-keyword">new</span> FileReader(file1);
+        <span class="hljs-comment">// 3- &#x6570;&#x636E;&#x8BFB;&#x5165;</span>
+        <span class="hljs-keyword">int</span> len;
+        <span class="hljs-comment">// &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6BCF;&#x6B21;&#x8BFB;&#x7684;&#x5B57;&#x7B26;&#x6570;</span>
+        <span class="hljs-keyword">char</span>[] cbuf =<span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">50</span>];
+        <span class="hljs-keyword">while</span> ((len = fr.read(cbuf)) != -<span class="hljs-number">1</span>){
+            <span class="hljs-comment">// &#x65B9;&#x5F0F;&#x4E00;&#xFF1A;&#x4F7F;&#x7528;String&#x8BFB;&#x53D6;</span>
+            String str = <span class="hljs-keyword">new</span> String(cbuf,<span class="hljs-number">0</span>,len);
+            System.out.print(str);
+
+            <span class="hljs-comment">// &#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x8BFB;&#x53D6;cbuf</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+                System.out.print(cbuf[i]);
+            }
+        }
+        <span class="hljs-comment">// 4- &#x5173;&#x95ED;&#x6D41;</span>
+        fr.close();
+    }
+}
+</code></pre>
+<h4 id="filewriter&#x5B57;&#x7B26;&#x8F93;&#x51FA;&#x6D41;">FileWriter:&#x5B57;&#x7B26;&#x8F93;&#x51FA;&#x6D41;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+    <span class="hljs-comment">/**
+     * File&#x5BF9;&#x5E94;&#x7684;&#x786C;&#x76D8;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5728;&#x8F93;&#x51FA;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x6B64;&#x6587;&#x4EF6;&#x3002;
+     * File&#x5BF9;&#x5E94;&#x7684;&#x786C;&#x76D8;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF1A;
+     *           &#x5982;&#x679C;&#x6D41;&#x4F7F;&#x7528;&#x7684;&#x6784;&#x9020;&#x5668;&#x662F;&#xFF1A;FileWriter(file,false) / FileWriter(file):&#x5BF9;&#x539F;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x8986;&#x76D6;
+     *           &#x5982;&#x679C;&#x6D41;&#x4F7F;&#x7528;&#x7684;&#x6784;&#x9020;&#x5668;&#x662F;&#xFF1A;FileWriter(file,true):&#x4E0D;&#x4F1A;&#x5BF9;&#x539F;&#x6709;&#x6587;&#x4EF6;&#x8986;&#x76D6;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x539F;&#x6709;&#x6587;&#x4EF6;&#x57FA;&#x7840;&#x4E0A;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;
+     */</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        <span class="hljs-comment">// 1- &#x5B9E;&#x4F8B;&#x5316;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;</span>
+        File file1 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res/rr.txt&quot;</span>);
+        <span class="hljs-comment">// 2- &#x63D0;&#x4F9B;&#x5177;&#x4F53;&#x4F7F;&#x7528;&#x7684;&#x6D41;, FileWriter:&#x8F93;&#x51FA;&#x6D41;</span>
+        FileWriter fw = <span class="hljs-keyword">new</span> FileWriter(file1,<span class="hljs-keyword">true</span>);
+        <span class="hljs-comment">// 3- &#x6570;&#x636E;&#x5199;&#x51FA;</span>
+        fw.write(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x7B2C;&#x4E00;&#x884C;\n&quot;</span>);
+        fw.write(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x7B2C;&#x4E8C;&#x884C;\n&quot;</span>);
+        <span class="hljs-comment">// 4- &#x5173;&#x95ED;&#x6D41;</span>
+        fw.close();
+    }
+}
+</code></pre>
+<h4 id="fileinputstream&#xFF1A;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6D41;">FileInputStream&#xFF1A;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6D41;</h4>
+<h4 id="fileoutputstream&#xFF1A;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6D41;">FileOutputStream&#xFF1A;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6D41;</h4>
+<p>&#x7ED3;&#x8BBA;&#xFF1A;</p>
+<ul>
+<li><ol>
+<li>&#x5BF9;&#x4E8E;&#x6587;&#x672C;&#x6587;&#x4EF6;(.txt,.java,.c,.cpp)&#xFF0C;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x6D41;&#x5904;&#x7406;</li>
+</ol>
+</li>
+<li><ol>
+<li>&#x5BF9;&#x4E8E;&#x975E;&#x6587;&#x672C;&#x6587;&#x4EF6;(.jpg,.mp3,.mp4,.avi,.doc,.ppt,...)&#xFF0C;&#x4F7F;&#x7528;&#x5B57;&#x8282;&#x6D41;&#x5904;&#x7406;</li>
+</ol>
+</li>
+</ul>
+<h3 id="&#x5904;&#x7406;&#x6D41;&#x7684;&#x4F7F;&#x7528;&#x4E4B;&#x4E00;&#xFF1A;&#x7F13;&#x51B2;&#x6D41;&#x7684;&#x4F7F;&#x7528;">&#x5904;&#x7406;&#x6D41;&#x7684;&#x4F7F;&#x7528;&#x4E4B;&#x4E00;&#xFF1A;&#x7F13;&#x51B2;&#x6D41;&#x7684;&#x4F7F;&#x7528;</h3>
+<p>1.&#x7F13;&#x51B2;&#x6D41;&#xFF1A;</p>
+<ul>
+<li>BufferedInputStream</li>
+<li>BufferedOutputStream</li>
+<li>BufferedReader</li>
+<li>BufferedWriter</li>
+</ul>
+<p>2.&#x4F5C;&#x7528;&#xFF1A;</p>
+<ul>
+<li><p><strong>&#x63D0;&#x9AD8;&#x6D41;&#x7684;&#x8BFB;&#x53D6;&#x3001;&#x5199;&#x5165;&#x7684;&#x901F;&#x5EA6;</strong></p>
+<ul>
+<li>&#x63D0;&#x9AD8;&#x8BFB;&#x5199;&#x901F;&#x5EA6;&#x7684;&#x539F;&#x56E0;&#xFF1A;&#x5185;&#x90E8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<strong>&#x7F13;&#x51B2;&#x533A;</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x5B9E;&#x8DF5;">&#x5B9E;&#x8DF5;</h4>
+<pre><code class="lang-Java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        <span class="hljs-comment">/**
+         * &#x5B9E;&#x73B0;&#x56FE;&#x7247;&#xFF08;&#x975E;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x7528;&#x5B57;&#x8282;&#x7684;&#x65B9;&#x5F0F;&#xFF09;&#x7684;&#x590D;&#x5236;
+         */</span>
+        <span class="hljs-comment">// 1- &#x9020;&#x6587;&#x4EF6;</span>
+        File srcFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res/1.jpg&quot;</span>);
+        File desFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;res/2.jpg&quot;</span>);
+        <span class="hljs-comment">// 2- &#x9020;&#x6D41;</span>
+        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(srcFile);
+        FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(desFile);
+        BufferedOutputStream bos = <span class="hljs-keyword">new</span> BufferedOutputStream(fos);
+        BufferedInputStream bis = <span class="hljs-keyword">new</span> BufferedInputStream(fis);
+        <span class="hljs-comment">// 3. &#x590D;&#x5236;&#x6587;&#x4EF6;&#xFF1A;&#x8BFB;&#x6587;&#x4EF6; &#x548C; &#x5199;&#x6587;&#x4EF6;</span>
+        <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">10</span>];
+        <span class="hljs-keyword">int</span> len = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span> ((len = bis.read(buffer)) != -<span class="hljs-number">1</span>){
+            bos.write(buffer,<span class="hljs-number">0</span>,len);
+        }
+        <span class="hljs-comment">// 4- &#x5173;&#x95ED;&#x8D44;&#x6E90;&#xFF1A;&#x5148;&#x5173;&#x5916;&#x9762;&#xFF0C;&#x518D;&#x5173;&#x91CC;&#x9762;(&#x5173;&#x95ED;&#x5916;&#x5C42;&#xFF0C;&#x5185;&#x5C42;&#x4E5F;&#x4F1A;&#x81EA;&#x52A8;&#x5173;&#x95ED;&#xFF09;</span>
+        bis.close();
+        bos.close();
+    }
+}
+</code></pre>
+<h3 id="&#x5904;&#x7406;&#x6D41;&#x4E4B;&#x4E8C;&#xFF1A;&#x8F6C;&#x6362;&#x6D41;&#x7684;&#x4F7F;&#x7528;">&#x5904;&#x7406;&#x6D41;&#x4E4B;&#x4E8C;&#xFF1A;&#x8F6C;&#x6362;&#x6D41;&#x7684;&#x4F7F;&#x7528;</h3>
+<ul>
+<li>1.&#x8F6C;&#x6362;&#x6D41;&#xFF1A;&#x5C5E;&#x4E8E;&#x5B57;&#x7B26;&#x6D41;</li>
+<li>InputStreamReader&#xFF1A;&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x8F93;&#x5165;&#x6D41;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x7684;&#x8F93;&#x5165;&#x6D41;</li>
+<li>OutputStreamWriter&#xFF1A;&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x8F93;&#x51FA;&#x6D41;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x8282;&#x7684;&#x8F93;&#x51FA;&#x6D41;</li>
+<li>2.&#x4F5C;&#x7528;&#xFF1A;<strong>&#x63D0;&#x4F9B;&#x5B57;&#x8282;&#x6D41;&#x4E0E;&#x5B57;&#x7B26;&#x6D41;&#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;</strong></li>
+<li>3.&#x89E3;&#x7801;&#xFF1A;&#x5B57;&#x8282;&#x3001;&#x5B57;&#x8282;&#x6570;&#x7EC4;  ---&gt;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#x3001;&#x5B57;&#x7B26;&#x4E32;</li>
+<li>&#x7F16;&#x7801;&#xFF1A;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#x3001;&#x5B57;&#x7B26;&#x4E32; ---&gt; &#x5B57;&#x8282;&#x3001;&#x5B57;&#x8282;&#x6570;&#x7EC4;</li>
+</ul>
+<h4 id="&#x5B9E;&#x8DF5;">&#x5B9E;&#x8DF5;</h4>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    <span class="hljs-comment">//1.&#x9020;&#x6587;&#x4EF6;&#x3001;&#x9020;&#x6D41;</span>
+    File file1 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;dbcp.txt&quot;</span>);
+    File file2 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;dbcp_gbk.txt&quot;</span>);
+
+    FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(file1);
+    FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(file2);
+
+    InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(fis,<span class="hljs-string">&quot;utf-8&quot;</span>);
+    OutputStreamWriter osw = <span class="hljs-keyword">new</span> OutputStreamWriter(fos,<span class="hljs-string">&quot;gbk&quot;</span>);
+
+    <span class="hljs-comment">//2.&#x8BFB;&#x5199;&#x8FC7;&#x7A0B;</span>
+    <span class="hljs-keyword">char</span>[] cbuf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">20</span>];
+    <span class="hljs-keyword">int</span> len;
+    <span class="hljs-keyword">while</span>((len = isr.read(cbuf)) != -<span class="hljs-number">1</span>){
+        osw.write(cbuf,<span class="hljs-number">0</span>,len);
+    }
+
+    <span class="hljs-comment">//3.&#x5173;&#x95ED;&#x8D44;&#x6E90;</span>
+    isr.close();
+    osw.close();
+
+}
+</code></pre>
+<h2 id="&#x5BF9;&#x8C61;&#x6D41;&#x7684;&#x4F7F;&#x7528;">&#x5BF9;&#x8C61;&#x6D41;&#x7684;&#x4F7F;&#x7528;</h2>
+<ul>
+<li>1.ObjectInputStream &#x548C; ObjectOutputStream</li>
+<li><strong>2.&#x4F5C;&#x7528;&#xFF1A;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x548C;&#x8BFB;&#x53D6;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x6216;&#x5BF9;&#x8C61;&#x7684;&#x5904;&#x7406;&#x6D41;&#x3002;&#x5B83;&#x7684;&#x5F3A;&#x5927;&#x4E4B;&#x5904;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x628A;Java&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5199;&#x5165;&#x5230;&#x6570;&#x636E;&#x6E90;&#x4E2D;&#xFF0C;&#x4E5F;&#x80FD;&#x628A;&#x5BF9;&#x8C61;&#x4ECE;&#x6570;&#x636E;&#x6E90;&#x4E2D;&#x8FD8;&#x539F;&#x56DE;&#x6765;&#x3002;</strong></li>
+<li>3.&#x8981;&#x60F3;&#x4E00;&#x4E2A;java&#x5BF9;&#x8C61;&#x662F;&#x53EF;&#x5E8F;&#x5217;&#x5316;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x76F8;&#x5E94;&#x7684;&#x8981;&#x6C42;&#xFF1A;<ul>
+<li>1.&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#xFF1A;Serializable</li>
+<li>2.&#x5F53;&#x524D;&#x7C7B;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x5E38;&#x91CF;&#xFF1A;serialVersionUID</li>
+</ul>
+</li>
+<li>4.&#x5E8F;&#x5217;&#x5316;&#x673A;&#x5236;&#xFF1A;<ul>
+<li>&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x673A;&#x5236;&#x5141;&#x8BB8;&#x628A;&#x5185;&#x5B58;&#x4E2D;&#x7684;Java&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x6210;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6D41;&#xFF0C;&#x4ECE;&#x800C;&#x5141;&#x8BB8;&#x628A;&#x8FD9;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x6D41;&#x6301;&#x4E45;&#x5730;&#x4FDD;&#x5B58;&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#xFF0C;&#x6216;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x5C06;&#x8FD9;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x6D41;&#x4F20;&#x8F93;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x8282;&#x70B9;&#x3002;&#x5F53;&#x5176;&#x5B83;&#x7A0B;&#x5E8F;&#x83B7;&#x53D6;&#x4E86;&#x8FD9;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x6D41;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6062;&#x590D;&#x6210;&#x539F;&#x6765;&#x7684;Java&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x5B9E;&#x8DF5;">&#x5B9E;&#x8DF5;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException </span>{
+        oos();
+        ois();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">oos</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        <span class="hljs-comment">/**
+         * &#x5C06;&#x5BF9;&#x8C61;&#x5199;&#x5165;&#x6587;&#x4EF6;
+         */</span>
+        <span class="hljs-comment">// 1- &#x9020;&#x6587;&#x4EF6;&#x3001;&#x5BF9;&#x8C61;&#x6D41;</span>
+        ObjectOutputStream os = <span class="hljs-keyword">new</span> ObjectOutputStream(<span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-string">&quot;res/test.dat&quot;</span>));
+        <span class="hljs-comment">// 2- &#x5BF9;&#x8C61;&#x5199;&#x5165;test.dat</span>
+        os.writeObject(<span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;&#x6211;&#x7231;&#x5317;&#x4EAC;&#x5929;&#x5B89;&#x95E8;&quot;</span>));
+        os.flush();
+
+        os.writeObject(<span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;hello!&quot;</span>));
+        os.flush();
+        <span class="hljs-comment">// 3- &#x5173;&#x95ED;&#x8D44;&#x6E90;</span>
+        os.close();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ois</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException </span>{
+        <span class="hljs-comment">/**
+         * &#x5C06;&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x8C61;&#x8BFB;&#x51FA;
+         */</span>
+        ObjectInputStream is = <span class="hljs-keyword">new</span> ObjectInputStream(<span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">&quot;res/test.dat&quot;</span>));
+        Object obj = is.readObject();
+        String str = (String) obj;
+        System.out.println(str);
+        is.close();
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../Servlet学习.html" class="navigation navigation-prev " aria-label="Previous page: Servlet学习">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Java8新特性.html" class="navigation navigation-next " aria-label="Next page: Java8新特性">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"IO流","level":"1.7","depth":1,"next":{"title":"Java8新特性","level":"1.8","depth":1,"path":"Note/Java8新特性.md","ref":"Note/Java8新特性.md","articles":[]},"previous":{"title":"Servlet学习","level":"1.6","depth":1,"path":"Servlet学习.md","ref":"Servlet学习.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Note/IO流.md","mtime":"2021-11-10T13:39:34.829Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-11T13:06:40.609Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
