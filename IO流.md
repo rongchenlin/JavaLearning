@@ -92,11 +92,11 @@ if(!file1.exists()){
 
 
  * 二、流的体系结构
- * 抽象基类         节点流（或文件流）                               缓冲流（处理流的一种）
- * **InputStream**     FileInputStream   (read(byte[] buffer))        BufferedInputStream (read(byte[] buffer))
- * **OutputStream**    FileOutputStream  (write(byte[] buffer,0,len)  BufferedOutputStream (write(byte[] buffer,0,len) / flush()
- * **Reader**          FileReader (read(char[] cbuf))                 BufferedReader (read(char[] cbuf) / readLine())
- * **Writer**          FileWriter (write(char[] cbuf,0,len)           BufferedWriter (write(char[] cbuf,0,len) / flush()
+ * 抽象基类                 节点流（或文件流）                                      缓冲流（处理流的一种）
+ * **InputStream**     FileInputStream   (read(byte[] buffer))           BufferedInputStream (read(byte[] buffer))
+ * **OutputStream**  FileOutputStream(write(byte[] buffer,0,len)  BufferedOutputStream (write(byte[] buffer,0,len) / flush()
+ * **Reader**                 FileReader (read(char[] cbuf))                         BufferedReader (read(char[] cbuf) / readLine())
+ * **Writer**                  FileWriter (write(char[] cbuf,0,len)                BufferedWriter (write(char[] cbuf,0,len) / flush()
 
 #### InputStream 和 Reader 是所有输入流的基类。
 
