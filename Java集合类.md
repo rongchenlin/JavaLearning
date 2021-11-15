@@ -22,7 +22,7 @@
       * Set接口：存储无序的、不可重复的数据   -->高中讲的“**集合**”
            *              HashSet、LinkedHashSet、TreeSet
       
- * Map接口：双列集合，存储一对(key - value)的数据   -->高中的“**函数**”
+ * Map接口：双列集合，存储一对(key - value)的数据   -->高中的“**函数**”。
       *              HashMap、LinkedHashMap、TreeMap、Hashtable、Properties
 
 ### Collection接口常用方法
