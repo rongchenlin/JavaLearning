@@ -46,9 +46,7 @@ public class TestNumber {
         System.out.format("%.2f%n",Math.PI);
           
         //不同国家的千位分隔符
-        System.out.format(Locale.FRANCE,"%,.2f%n",Math.PI*10000);
-        System.out.format(Locale.US,"%,.2f%n",Math.PI*10000);
-        System.out.format(Locale.UK,"%,.2f%n",Math.PI*10000);          
+        System.out.format(Locale.FRANCE,"%,.2f%n",Math.PI*10000);     System.out.format(Locale.US,"%,.2f%n",Math.PI*10000);   System.out.format(Locale.UK,"%,.2f%n",Math.PI*10000);          
     }
 }
 ```
