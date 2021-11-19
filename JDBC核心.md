@@ -149,7 +149,7 @@ public void multiInsertTest() throws Exception {
         if (i % 500 == 0) {
             // 2 执行批
             ps.executeBatch();
-            // 3 清空批
+            // 3 清空 批
             ps.clearBatch();
         }
     }
