@@ -26,7 +26,6 @@ import java.util.*;
 ```Java
 import java.util.Locale;   
 public class TestNumber {
-   
     public static void main(String[] args) {
         int year = 2020;
         //总长度，左对齐，补0，千位分隔符，小数点位数，本地化表达
