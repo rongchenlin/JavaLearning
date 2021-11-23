@@ -10,15 +10,15 @@ M：Model，模型层，指工程中的JavaBean，作用是处理数据
 
 JavaBean分为两类：
 
-- 一类称为实体类Bean：专门存储业务数据的，如 Student、User 等
-- 一类称为业务处理 Bean：指 Service 或 Dao 对象，专门用于处理业务逻辑和数据访问。
+- 一类称为**实体类Bean**：专门**存储**业务数据的，如 Student、User 等
+- 一类称为**业务处理 Bean**：指 Service 或 Dao 对象，专门用于**处理**业务逻辑和数据访问。
 
-V：View，视图层，指工程中的html或jsp等页面，作用是与用户进行交互，展示数据
+V：View，视图层，指工程中的**html或jsp**等页面，作用是与用户进行交互，展示数据
 
-C：Controller，控制层，指工程中的servlet，作用是接收请求和响应浏览器
+C：Controller，控制层，指工程中的**servlet**，作用是**接收请求和响应浏览器**
 
-MVC的工作流程：
-用户通过视图层发送请求到服务器，在服务器中请求被Controller接收，Controller调用相应的Model层处理请求，处理完毕将结果返回到Controller，Controller再根据请求处理的结果找到相应的View视图，渲染数据后最终响应给浏览器
+**MVC的工作流程：**
+**用户通过视图层发送请求到服务器，在服务器中请求被Controller（后面也叫handler接收，Controller调用相应的Model层处理请求，处理完毕将结果返回到Controller，Controller再根据请求处理的结果找到相应的View视图，渲染数据后最终响应给浏览器**
 
 ### 2、什么是SpringMVC
 
@@ -121,7 +121,7 @@ Spring版本：5.3.1
 
 ##### b>扩展配置方式
 
-可通过init-param标签设置SpringMVC配置文件的位置和名称，通过load-on-startup标签设置SpringMVC前端控制器DispatcherServlet的初始化时间
+可通过init-param标签**设置SpringMVC配置文件的位置和名称**，通过load-on-startup标签**设置SpringMVC前端控制器DispatcherServlet的初始化时间**
 
 ```xml
 <!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 -->
@@ -165,7 +165,7 @@ Spring版本：5.3.1
 
 ### 4、创建请求控制器
 
-由于前端控制器对浏览器发送的请求进行了统一的处理，但是具体的请求有不同的处理过程，因此需要创建**处理具体请求的类**，即请求控制器
+由于前端控制器对浏览器发送的请求进行了统一的处理，但是具体的请求有不同的处理过程，因此需要创建**处理具体请求的类**，即**请求控制器**（<u>也就是我们自己创建的用来处理具体业务的Controller类</u>）
 
 请求控制器中每一个处理请求的方法成为控制器方法
 
@@ -207,7 +207,7 @@ public class HelloController {
 </bean>
 
 <!-- 
-   处理静态资源，例如html、js、css、jpg
+  处理静态资源，例如html、js、css、jpg
   若只设置该标签，则只能访问静态资源，其他请求则无法访问
   此时必须设置<mvc:annotation-driven/>解决问题
  -->
@@ -276,13 +276,13 @@ public String HelloWorld() {
 
 ### 7、总结
 
-浏览器发送请求，若请求地址符合前端控制器的url-pattern，该请求就会被前端控制器DispatcherServlet处理。前端控制器会读取SpringMVC的核心配置文件，通过扫描组件找到控制器，将请求地址和控制器中@RequestMapping注解的value属性值进行匹配，若匹配成功，该注解所标识的控制器方法就是处理请求的方法。处理请求的方法需要返回一个字符串类型的视图名称，该视图名称会被视图解析器解析，加上前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最终转发到视图所对应页面
+**浏览器发送请求，若请求地址符合前端控制器的url-pattern，该请求就会被前端控制器DispatcherServlet处理。前端控制器会读取SpringMVC的核心配置文件，通过扫描组件找到控制器，将请求地址和控制器中@RequestMapping注解的value属性值进行匹配，若匹配成功，该注解所标识的控制器方法就是处理请求的方法。处理请求的方法需要返回一个字符串类型的视图名称，该视图名称会被视图解析器解析，加上前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最终转发到视图所对应页面**
 
 # 三、@RequestMapping注解
 
 ### 1、@RequestMapping注解的功能
 
-从注解名称上我们可以看到，@RequestMapping注解的作用就是将请求和处理请求的控制器方法关联起来，建立映射关系。
+从注解名称上我们可以看到，<u>@RequestMapping注解的作用就是将请求和处理请求的控制器方法关联起来，建立映射关系。</u>
 
 SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的控制器方法来处理这个请求。
 
@@ -373,7 +373,7 @@ public String testRequestMapping(){
 
 ### 5、@RequestMapping注解的params属性（了解）
 
-@RequestMapping注解的params属性通过请求的请求参数匹配请求映射
+@RequestMapping注解的params属性通过请求的请求参数匹配请求映射。==**<u>（可以理解成这是对于发送请求的url中参数的一种约束，也就是说url中请求的参数必须满足params属性的要求，那么请求才有效，否则前端控制器不会正确去映射，将会报错。）</u>**==
 
 @RequestMapping注解的params属性是一个字符串类型的数组，可以通过四种表达式设置请求参数和请求映射的匹配关系
 
@@ -404,7 +404,7 @@ public String testRequestMapping(){
 >
 > 若当前请求满足@RequestMapping注解的value和method属性，但是不满足params属性，此时页面回报错400：Parameter conditions "username, password!=123456" not met for actual request parameters: username={admin}, password={123456}
 
-### 6、@RequestMapping注解的headers属性（了解）
+### 6、@RequestMapping注解的headers属性（了解）———— 与params属性类似
 
 @RequestMapping注解的headers属性通过请求的请求头信息匹配请求映射
 
@@ -469,7 +469,7 @@ public String testParam(HttpServletRequest request){
 
 ### 2、通过控制器方法的形参获取请求参数
 
-在控制器方法的形参位置，设置和请求参数同名的形参，当浏览器发送请求，匹配到请求映射时，在DispatcherServlet中就会将请求参数赋值给相应的形参
+**在控制器方法的形参位置，设置和请求参数同名的形参**，当浏览器发送请求，匹配到请求映射时，在DispatcherServlet中就会将请求参数赋值给相应的形参
 
 ```html
 <a th:href="@{/testParam(username='admin',password=123456)}">测试获取请求参数-->/testParam</a><br>
@@ -483,17 +483,17 @@ public String testParam(String username, String password){
 }
 ```
 
-> 注：
->
-> 若请求所传输的请求参数中有多个同名的请求参数，此时可以在控制器方法的形参中设置字符串数组或者字符串类型的形参接收此请求参数
->
-> 若使用字符串数组类型的形参，此参数的数组中包含了每一个数据
->
-> 若使用字符串类型的形参，此参数的值为每个数据中间使用逗号拼接的结果
+注：
+
+若请求所传输的请求参数中有多个**同名**的请求参数，此时可以在控制器方法的形参中设置字符串数组或者字符串类型的形参接收此请求参数.**(比如提交的表单中是多选的值，例如http://www.bai.com?hobby=base&hobby=asad&hobby=wewe，那么此时接收的hobby就是一个数组或者字符串)**
+
+若使用字符串数组类型的形参，此参数的数组中包含了每一个数据
+
+若使用字符串类型的形参，此参数的值为每个数据中间使用逗号拼接的结果
 
 ### 3、@RequestParam
 
-@RequestParam是将请求参数和控制器方法的形参创建映射关系
+**@RequestParam是将请求参数和控制器方法的形参创建映射关系**
 
 @RequestParam注解一共有三个属性：
 
@@ -501,9 +501,26 @@ value：指定为形参赋值的请求参数的参数名
 
 required：设置是否必须传输此请求参数，默认值为true
 
-若设置为true时，则当前请求必须传输value所指定的请求参数，若没有传输该请求参数，且没有设置defaultValue属性，则页面报错400：Required String parameter 'xxx' is not present；若设置为false，则当前请求不是必须传输value所指定的请求参数，若没有传输，则注解所标识的形参的值为null
+<u>若设置为true时，则当前请求必须传输value所指定的请求参数，若没有传输该请求参数，且没有设置defaultValue属性</u>，则页面报错400：Required String parameter 'xxx' is not present；<u>若设置为false，则当前请求不是必须传输value所指定的请求参数，若没有传输，则注解所标识的形参的值为null</u>
 
-defaultValue：不管required属性值为true或false，当value所指定的请求参数没有传输或传输的值为""时，则使用默认值为形参赋值
+defaultValue：不管required属性值为true或false，当value所指定的请求参数没有传输或传输的值为""时，则使用默认值为形参赋值。==（相对于对参数做一个缺省的默认参数，发送给服务器）==
+
+```Java
+@RequestMapping("/testParam")
+public String testParam(
+        @RequestParam(value = "user_name", required = false, defaultValue = "hehe") String username,
+        String password,
+        String[] hobby,
+        @RequestHeader(value = "sayHaha", required = true, defaultValue = "haha") String host,
+        @CookieValue("JSESSIONID") String JSESSIONID){
+    //若请求参数中出现多个同名的请求参数，可以再控制器方法的形参位置设置字符串类型或字符串数组接收此请求参数
+    //若使用字符串类型的形参，最终结果为请求参数的每一个值之间使用逗号进行拼接
+    System.out.println("username:"+username+",password:"+password+",hobby:"+ Arrays.toString(hobby));
+    System.out.println("host:"+host);
+    System.out.println("JSESSIONID:"+JSESSIONID);
+    return "success";
+}
+```
 
 ### 4、@RequestHeader
 
@@ -517,7 +534,7 @@ defaultValue：不管required属性值为true或false，当value所指定的请�
 
 @CookieValue注解一共有三个属性：value、required、defaultValue，用法同@RequestParam
 
-### 6、通过POJO获取请求参数
+### 6、通过POJO获取请求参数————==说白了就是直接接受一个Javabean对象==
 
 可以在控制器方法的形参位置设置一个实体类类型的形参，此时若浏览器传输的请求参数的参数名和实体类中的属性名一致，那么请求参数就会为此属性赋值
 
@@ -543,7 +560,7 @@ public String testPOJO(User user){
 
 ### 7、解决获取请求参数的乱码问题
 
-解决获取请求参数的乱码问题，可以使用SpringMVC提供的编码过滤器CharacterEncodingFilter，但是必须在web.xml中进行注册
+解决获取请求参数的乱码问题，可以使用SpringMVC提供的编码过滤器CharacterEncodingFilter，但是必须在web.xml中进行注册==（可以这样理解，浏览器一旦向发服务器发送请求，那么前端控制器就会去接受处理，此时数据已经获取了，再去处理乱码就很麻烦，**因此可以通过一个过滤器Filter先进行拦截过滤处理，把编码解决了**，这样后面就省事了，**而且要注意这个Filter中关于编码的配置一定要放在Filter其他过滤器之前，否则没有效果。**）==
 
 ```xml
 <!--配置springMVC的编码过滤器-->
@@ -565,9 +582,9 @@ public String testPOJO(User user){
 </filter-mapping>
 ```
 
-> 注：
->
-> SpringMVC中处理编码的过滤器一定要配置到其他过滤器之前，否则无效
+注：
+
+**SpringMVC中处理编码的过滤器一定要配置到其他过滤器之前，否则无效**
 
 # 五、域对象共享数据
 
@@ -581,7 +598,13 @@ public String testServletAPI(HttpServletRequest request){
 }
 ```
 
-### 2、使用ModelAndView向request域对象共享数据
+### 2、使用ModelAndView向request域对象共享数据 
+
+Model的作用：向域中保存添加数据
+
+View的作用：设置视图名称
+
+所以ModelAndView可以理解成这两个功能的结合
 
 ```java
 @RequestMapping("/testModelAndView")
@@ -632,7 +655,7 @@ public String testModelMap(ModelMap modelMap){
 
 ### 6、Model、ModelMap、Map的关系
 
-Model、ModelMap、Map类型的参数其实本质上都是 BindingAwareModelMap 类型的，都是调用BindingAwareModelMap来实例化Model、ModelMap、Map对象（多态）。并且在底层中将数据封装到ModelAndView
+==Model、ModelMap、Map类型的参数其实本质上都是 BindingAwareModelMap 类型的，都是调用BindingAwareModelMap来实例化Model、ModelMap、Map对象（多态）。并且在底层中将数据封装到ModelAndView==
 
 ```
 public interface Model{}
@@ -687,7 +710,7 @@ public String testHello(){
 
 ### 2、转发视图
 
-SpringMVC中默认的转发视图是InternalResourceView
+**SpringMVC中默认的转发视图是InternalResourceView**
 
 SpringMVC中创建转发视图的情况：
 
@@ -727,7 +750,7 @@ public String testRedirect(){
 
 ### 4、视图控制器view-controller
 
-当控制器方法中，仅仅用来实现页面跳转，即只需要设置视图名称时，可以将处理器方法使用view-controller标签进行表示
+当**控制器方法中，仅仅用来实现页面跳转**，即只需要设置视图名称时，可以将处理器方法使用view-controller标签进行表示
 
 ```xml
 <!--
@@ -1192,7 +1215,7 @@ public String updateEmployee(Employee employee){
 
 # 八、HttpMessageConverter
 
-HttpMessageConverter，报文信息转换器，将请求报文转换为Java对象，或将Java对象转换为响应报文
+**HttpMessageConverter，报文信息转换器，将请求报文转换为Java对象，或将Java对象转换为响应报文**
 
 HttpMessageConverter提供了两个注解和两个类型：@RequestBody，@ResponseBody，RequestEntity，
 
@@ -1200,7 +1223,7 @@ ResponseEntity
 
 ### 1、@RequestBody
 
-@RequestBody可以获取请求体，需要在控制器方法设置一个形参，使用@RequestBody进行标识，当前请求的请求体就会为当前注解所标识的形参赋值
+@RequestBody可以获取**请求体**，需要在控制器方法设置一个形参，使用@RequestBody进行标识，当前请求的请求体就会为当前注解所标识的形参赋值
 
 ```html
 <form th:action="@{/testRequestBody}" method="post">
@@ -1224,7 +1247,7 @@ requestBody:username=admin&password=123456
 
 ### 2、RequestEntity
 
-RequestEntity封装请求报文的一种类型，需要在控制器方法的形参中设置该类型的形参，当前请求的请求报文就会赋值给该形参，可以通过getHeaders()获取请求头信息，通过getBody()获取请求体信息
+RequestEntity封装**请求报文**的一种类型，需要在控制器方法的形参中设置该类型的形参，当前请求的请求报文就会赋值给该形参，可以通过getHeaders()获取请求头信息，通过getBody()获取请求体信息
 
 ```java
 @RequestMapping("/testRequestEntity")
@@ -1267,15 +1290,15 @@ a>导入jackson的依赖
 </dependency>
 ```
 
-b>在SpringMVC的核心配置文件中开启mvc的注解驱动，此时在HandlerAdaptor中会自动装配一个消息转换器：MappingJackson2HttpMessageConverter，可以将响应到浏览器的Java对象转换为Json格式的字符串
+b>在SpringMVC的核心配置文件中**开启mvc的注解驱动**，此时在HandlerAdaptor中会自动装配一个消息转换器：MappingJackson2HttpMessageConverter，可以将响应到浏览器的Java对象转换为Json格式的字符串
 
 ```
 <mvc:annotation-driven />
 ```
 
-c>在处理器方法上使用@ResponseBody注解进行标识
+c>在**处理器方法上使用@ResponseBody**注解进行标识
 
-d>将Java对象直接作为控制器方法的返回值返回，就会自动转换为Json格式的字符串
+d>**将Java对象直接作为控制器方法的返回值返回**，就会自动转换为Json格式的字符串
 
 ```java
 @RequestMapping("/testResponseUser")
@@ -1337,7 +1360,7 @@ public String testAjax(String username, String password){
 }
 ```
 
-### 6、@RestController注解
+### 6、@RestController注解 ————集成了@ResponseBody注解和@Controller注解
 
 @RestController注解是springMVC提供的一个复合注解，标识在控制器的类上，就相当于为类添加了@Controller注解，并且为其中的每个方法添加了@ResponseBody注解
 
@@ -1482,7 +1505,7 @@ SpringMVC提供了一个处理控制器方法执行过程中所出现的异常�
 
 HandlerExceptionResolver接口的实现类有：DefaultHandlerExceptionResolver和SimpleMappingExceptionResolver
 
-SpringMVC提供了自定义的异常处理器SimpleMappingExceptionResolver，使用方式：
+SpringMVC提供了**自定义的异常处理器SimpleMappingExceptionResolver**，使用方式：
 
 ```xml
 <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
@@ -1680,23 +1703,23 @@ public String index(){
 
 ### 1、SpringMVC常用组件
 
-- DispatcherServlet：**前端控制器**，不需要工程师开发，由框架提供
+- DispatcherServlet：**前端控制器**，不需要工程师开发，由框架提供——指挥中心、调度
 
 作用：统一处理请求和响应，整个流程控制的中心，由它调用其它组件处理用户的请求
 
-- HandlerMapping：**处理器映射器**，不需要工程师开发，由框架提供
+- HandlerMapping：**处理器映射器**，不需要工程师开发，由框架提供——找方法
 
 作用：根据请求的url、method等信息查找Handler，即控制器方法
 
-- Handler：**处理器**，需要工程师开发
+- Handler：**处理器**，需要工程师开发——实际业务处理方法（Controller类）
 
 作用：在DispatcherServlet的控制下Handler对具体的用户请求进行处理
 
-- HandlerAdapter：**处理器适配器**，不需要工程师开发，由框架提供
+- HandlerAdapter：**处理器适配器**，不需要工程师开发，由框架提供——调（执行）方法
 
 作用：通过HandlerAdapter对处理器（控制器方法）进行执行
 
-- ViewResolver：**视图解析器**，不需要工程师开发，由框架提供
+- ViewResolver：**视图解析器**，不需要工程师开发，由框架提供——页面跳转、渲染
 
 作用：进行视图解析，得到相应的视图，例如：ThymeleafView、InternalResourceView、RedirectView
 

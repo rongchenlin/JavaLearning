@@ -156,7 +156,7 @@ ServletConfig 是每个Servlet 程序创建时，就创建一个对应的Servlet
 
 2、获取初始化参数init-param
 
-3、获取ServletContext 对象
+**3、获取ServletContext 对象**
 
 ```java
 @Override
@@ -193,7 +193,7 @@ Map         put()             get()             remove()
 域对象       setAttribute()    getAttribute()    removeAttribute();
 ```
 
-### 5.3 ServletContext 类的作用
+### ==5.3 ServletContext 类的作用==
 
 1、获取web.xml 中配置的上下文参数context-param
 
@@ -263,7 +263,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
   3、他们**共享Request域**中的数据
 
-  4、可以转发到WEB-INF目录下（因为是一次请求）
+  4、**可以转发到WEB-INF目录下（因为是一次请求）**
 
   5、不可以访问工程以外的资源（因为转发的地址的根路径是当前工程的根路径）
 
