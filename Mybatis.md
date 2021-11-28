@@ -268,3 +268,7 @@ int updateUser(User user);
 - 如果参数是 JavaBean ， 则不能使用@Param。
 - **不使用@Param注解时，参数只能有一个，并且是Javabean。**
 
+## 逆向工程
+
+[使用Mybaits Generaotr 文档](http://mybatis.org/generator/running/runningWithJava.html)
+
