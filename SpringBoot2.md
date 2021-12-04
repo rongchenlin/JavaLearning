@@ -144,7 +144,7 @@ public class Car{
 
 #### @EnableConfigurationProperties
 
-<u>这种方式@EnableConfigurationProperties注解一定要在配置类上写</u>，@EnableConfigurationProperties的意思是
+<u>这种方式@EnableConfigurationProperties注解一定要在==配置类上==写</u>，@EnableConfigurationProperties的意思是
 
 开启属性配置功能。
 
