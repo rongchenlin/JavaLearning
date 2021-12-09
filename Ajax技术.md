@@ -386,7 +386,7 @@ xhr.open("get","/testAJAX?t="+Date.now());     // 加上Date.now() 就可以解�
         }
 `````
 
-说明：更多关于axios的使用，可以参考[**官方文档**](http://www.axios-js.com/zh-cn/docs/)。
+说明：更多关于axios的使用，可以参考[**官方文档**](http://www.axios-js.com/zh-cn/docs/)
 
 ## 4. Ajax解决跨域问题
 
