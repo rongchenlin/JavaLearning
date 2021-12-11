@@ -28,8 +28,7 @@ import java.util.Locale;
 public class TestNumber {
     public static void main(String[] args) {
         int year = 2020;
-        //总长度，左对齐，补0，千位分隔符，小数点位数，本地化表达
-         
+        //总长度，左对齐，补0，千位分隔符，小数点位数，本地化表达       
         //直接打印数字
         System.out.format("%d%n",year);
         //总长度是8,默认右对齐
