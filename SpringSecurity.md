@@ -1,10 +1,14 @@
 
 
-来源：[乐字节](https://www.bilibili.com/video/BV1vK4y1H7b1?p=15&spm_id_from=pageDriver)
+# SpringSecurity 与 JWT
+
+## 资料来源：
+
+[乐字节：2021最全【B站课件】SpringSecurity+JWT项目实战之Java权限管理，从入门到精通Spring ...](https://www.bilibili.com/video/BV1vK4y1H7b1?p=15&spm_id_from=pageDriver)
 
 ## 学习目标
 
-![](SpringSecurity.assets/Snipaste_2020-03-04_19-34-27.png)
+![](../../gitbook/markdownImages/Snipaste_2020-03-04_19-34-27.png)
 
 ## SpringSecurity
 
@@ -121,11 +125,11 @@ login.html
 
 　导入spring-boot-starter-security 启动器后，Spring Security 已经生效，默认拦截全部请求，如果用户没有登录，跳转到内置登录页面。
 
-​         ![](SpringSecurity.assets/image1.png)             
+​         ![](../../gitbook/markdownImages/image1.png)             
 
 默认的 username 为 user，password 打印在控制台中。
 
- ![](SpringSecurity.assets/image2.png)
+ ![](../../gitbook/markdownImages/image2.png)
 
 在浏览器中输入账号和密码后会显示 login.html 页面内容。
 
@@ -133,23 +137,23 @@ login.html
 
 　当什么也没有配置的时候，账号和密码是由 Spring Security 定义生成的。而在实际项目中账号和密码都是从数据库中查询出来的。所以我们要通过自定义逻辑控制认证逻辑。**如果需要自定义逻辑时，只需要实现 UserDetailsService 接口即可**。接口定义如下：
 
- ![](SpringSecurity.assets/image3.png)
+ ![](../../gitbook/markdownImages/image3.png)
 
 #### 返回值
 
 返回值 UserDetails 是一个接口，定义如下
 
- ![](SpringSecurity.assets/image4.png)
+ ![](../../gitbook/markdownImages/image4.png)
 
 要想返回 `UserDetails `的实例就只能返回接口的实现类。SpringSecurity 中提供了如下的实例。对于我们只需要使用里面的 `User `类即可。注意 User 的全限定路径是：
 
 `org.springframework.security.core.userdetails.User`此处经常和系统中自己开发的 User 类弄混。
 
- ![](SpringSecurity.assets/image5.png)
+ ![](../../gitbook/markdownImages/image5.png)
 
 在 User 类中提供了很多方法和属性。
 
- ![](SpringSecurity.assets/image6.png)
+ ![](../../gitbook/markdownImages/image6.png)
 
 其中构造方法有两个，调用其中任何一个都可以实例化
 
@@ -161,7 +165,7 @@ login.html
 
 * `authorities`：用户具有的权限。此处不允许为 null
 
- ![](SpringSecurity.assets/image7.png)
+ ![](../../gitbook/markdownImages/image7.png)
 
 　此处的用户名应该是客户端传递过来的用户名。而密码应该是从数据库中查询出来的密码。Spring Security 会根据 User 中的 `password`和客户端传递过来的 `password `进行比较。如果相同则表示认证通过，如果不相同表示认证失败。
 
@@ -187,13 +191,13 @@ login.html
 
 * `upgradeEncoding()`：如果解析的密码能够再次进行解析且达到更安全的结果则返回 true，否则返回 false。默认返回 false。
 
- ![](SpringSecurity.assets/image8.png)
+ ![](../../gitbook/markdownImages/image8.png)
 
 #### 内置解析器介绍
 
 在 Spring Security 中内置了很多解析器。
 
- ![](SpringSecurity.assets/image9.png)
+ ![](../../gitbook/markdownImages/image9.png)
 
 ####  BCryptPasswordEncoder 简介
 
@@ -504,7 +508,7 @@ http.authorizeRequests()
 
 * `postOnly=true`：默认情况下只允许POST请求。
 
- ![](SpringSecurity.assets/image10.png)
+ ![](../../gitbook/markdownImages/image10.png)
 
 ##### 修改配置
 
@@ -539,11 +543,11 @@ http.formLogin()
 
 　使用successForwardUrl()时表示成功后转发请求到地址。内部是通过 `successHandler()`方法进行控制成功后交给哪个类进行处理
 
- ![](SpringSecurity.assets/image11.png)
+ ![](../../gitbook/markdownImages/image11.png)
 
 　ForwardAuthenticationSuccessHandler内部就是最简单的请求转发。由于是请求转发，当遇到需要跳转到站外或在前后端分离的项目中就无法使用了。
 
- ![](SpringSecurity.assets/image12.png)
+ ![](../../gitbook/markdownImages/image12.png)
 
 当需要控制登录成功后去做一些事情时，可以进行自定义认证成功控制器。
 
@@ -617,11 +621,11 @@ http.formLogin()
 
 failureForwardUrl()内部调用的是` failureHandler()`方法
 
- ![](SpringSecurity.assets/image13.png)
+ ![](../../gitbook/markdownImages/image13.png)
 
 ForwardAuthenticationFailureHandler 中也是一个请求转发，并在request 作用域中设置 `SPRING_SECURITY_LAST_EXCEPTION `的 key，内容为异常对象。
 
- ![](SpringSecurity.assets/image14.png)
+ ![](../../gitbook/markdownImages/image14.png)
 
 ##### 代码实现
 
@@ -747,7 +751,7 @@ public C antMatchers(String... antPatterns)
 
 枚举类型 `HttpMethod `内置属性如下：
 
- ![](SpringSecurity.assets/image15.png)
+ ![](../../gitbook/markdownImages/image15.png)
 
 #### mvcMatchers()
 
@@ -779,37 +783,37 @@ spring.mvc.servlet.path=/yjxxt
 
 permitAll()表示所匹配的 URL 任何人都允许访问。
 
- ![](SpringSecurity.assets/image16.png)
+ ![](../../gitbook/markdownImages/image16.png)
 
 #### authenticated()
 
 authenticated()表示所匹配的 URL 都需要被认证才能访问。
 
- ![](SpringSecurity.assets/image17.png)
+ ![](../../gitbook/markdownImages/image17.png)
 
 #### anonymous()
 
 anonymous()表示可以匿名访问匹配的URL。和permitAll()效果类似，只是设置为 anonymous()的 url 会执行 filter 链中
 
- ![](SpringSecurity.assets/image18.png)
+ ![](../../gitbook/markdownImages/image18.png)
 
 #### denyAll()
 
 denyAll()表示所匹配的 URL 都不允许被访问。
 
- ![](SpringSecurity.assets/image19.png)
+ ![](../../gitbook/markdownImages/image19.png)
 
 #### rememberMe()
 
 被“remember me”的用户允许访问
 
-  ![](SpringSecurity.assets/image20.png)
+  ![](../../gitbook/markdownImages/image20.png)
 
 #### fullyAuthenticated()
 
 如果用户不是被 remember me 的，才可以访问。
 
- ![](SpringSecurity.assets/image21.png)
+ ![](../../gitbook/markdownImages/image21.png)
 
 ### 角色权限判断
 
@@ -819,7 +823,7 @@ denyAll()表示所匹配的 URL 都不允许被访问。
 
 　判断用户是否具有特定的权限，用户的权限是在自定义登录逻辑中创建 User 对象时指定的。下图中 admin和normal 就是用户的权限。admin和normal 严格区分大小写。
 
- ![](SpringSecurity.assets/image22.png)
+ ![](../../gitbook/markdownImages/image22.png)
 
 在配置类中通过 hasAuthority(“admin”)设置具有 admin 权限时才能访问。
 
@@ -849,7 +853,7 @@ denyAll()表示所匹配的 URL 都不允许被访问。
 
 给用户赋予角色：
 
- ![](SpringSecurity.assets/image23.png)
+ ![](../../gitbook/markdownImages/image23.png)
 
 　在配置类中直接写 abc 即可。
 
@@ -871,15 +875,15 @@ denyAll()表示所匹配的 URL 都不允许被访问。
 
 当浏览器中通过 localhost 进行访问时控制台打印的内容：
 
- ![](SpringSecurity.assets/image24.png)
+ ![](../../gitbook/markdownImages/image24.png)
 
 当浏览器中通过 127.0.0.1 访问时控制台打印的内容：
 
- ![](SpringSecurity.assets/image25.png)
+ ![](../../gitbook/markdownImages/image25.png)
 
 当浏览器中通过具体 ip 进行访问时控制台打印内容：
 
- ![](SpringSecurity.assets/image26.png)
+ ![](../../gitbook/markdownImages/image26.png)
 
 ```java
 .antMatchers("/main1.html").hasIpAddress("127.0.0.1")
@@ -889,7 +893,7 @@ denyAll()表示所匹配的 URL 都不允许被访问。
 
 使用 Spring Security 时经常会看见 403（无权限），默认情况下显示的效果如下：
 
- ![](SpringSecurity.assets/image27.png)
+ ![](../../gitbook/markdownImages/image27.png)
 
 而在实际项目中可能都是一个异步请求，显示上述效果对于用户就不是特别友好了。Spring Security 支持自定义权限受限。
 
@@ -947,13 +951,13 @@ http.exceptionHandling()
 
 之前学习的登录用户权限判断实际上底层实现都是调用access(表达式)
 
- ![](SpringSecurity.assets/image28.png)
+ ![](../../gitbook/markdownImages/image28.png)
 
 可以通过` access()`实现和之前学习的权限控制完成相同的功能。
 
 以 hasRole 和 和 permitAll 举例
 
- ![](SpringSecurity.assets/image29.png)
+ ![](../../gitbook/markdownImages/image29.png)
 
 ####  使用自定义方法
 
@@ -1033,7 +1037,7 @@ http.authorizeRequests()
 
 如果设置的条件允许，程序正常执行。如果不允许会报 500
 
- ![](SpringSecurity.assets/image30.png)
+ ![](../../gitbook/markdownImages/image30.png)
 
 这些注解可以写到 Service 接口或方法上，也可以写到 Controller或 Controller 的方法上。通常情况下都是写在控制器方法上的，控制接口URL是否允许被访问。
 
@@ -1041,7 +1045,7 @@ http.authorizeRequests()
 
 @Secured 是专门用于判断是否具有角色的。能写在方法或类上。参数要以 ROLE_开头。
 
- ![](SpringSecurity.assets/image31.png)
+ ![](../../gitbook/markdownImages/image31.png)
 
 ##### 开启注解
 
@@ -1102,7 +1106,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 @PreAuthorize 和@PostAuthorize 都是方法或类级别注解。
 
- ![](SpringSecurity.assets/image32.png)
+ ![](../../gitbook/markdownImages/image32.png)
 
 * `@PreAuthorize `表示访问方法或类在执行之前先判断权限，大多情况下都是使用这个注解，注解的参数和access()方法参数取值相同，都是权限表达式。
 
@@ -1372,7 +1376,7 @@ return new User(username,password, AuthorityUtils.commaSeparatedStringToAuthorit
 
 为了实现更好的效果，通常添加退出的配置。默认的退出 url 为`/logout`，退出成功后跳转到`/login?logout`
 
- ![](SpringSecurity.assets/image33.png)
+ ![](../../gitbook/markdownImages/image33.png)
 
 如果不希望使用默认值，可以通过下面的方法进行修改。
 
@@ -1388,29 +1392,29 @@ http.logout()
 
 默认是 contextLogoutHandler
 
-![](SpringSecurity.assets/image34.png)
+![](../../gitbook/markdownImages/image34.png)
 
  默认实例内容
 
- ![](SpringSecurity.assets/image35.png)
+ ![](../../gitbook/markdownImages/image35.png)
 
 ##### clearAuthentication(boolean)
 
 是否清除认证状态，默认为 true
 
-![](SpringSecurity.assets/image36.png)
+![](../../gitbook/markdownImages/image36.png)
 
 ##### invalidateHttpSession(boolean)
 
 是否销毁 HttpSession 对象，默认为 true
 
- ![](SpringSecurity.assets/image37.png)
+ ![](../../gitbook/markdownImages/image37.png)
 
 ##### logoutSuccessHandler(LogoutSuccessHandler)
 
 退出成功处理器
 
- ![](SpringSecurity.assets/image38.png)
+ ![](../../gitbook/markdownImages/image38.png)
 
 　也可以自己进行定义退出成功处理器。只要实现了`LogoutSuccessHandler `接口。与之前讲解的登录成功处理器和登录失败处理器极其类似。
 
@@ -1492,15 +1496,15 @@ Oauth 协议：https://tools.ietf.org/html/rfc6749
 
 下边分析一个Oauth2认证的例子，网站使用微信认证的过程：
 
- ![](SpringSecurity.assets/image39.png)
+ ![](../../gitbook/markdownImages/image39.png)
 
 1. 用户进入网站的登录页面，点击微信的图标以微信账号登录系统，用户是自己在微信里信息的资源拥有者。
 
- ![](SpringSecurity.assets/image40.png)
+ ![](../../gitbook/markdownImages/image40.png)
 
 点击“微信”出现一个二维码，此时用户扫描二维码，开始给网站授权。
 
- ![](SpringSecurity.assets/image41.png)
+ ![](../../gitbook/markdownImages/image41.png)
 
 2. 资源拥有者同意给客户端授权
 
@@ -1528,7 +1532,7 @@ Oauth2.0认证流程如下：
 
 引自Oauth2.0协议rfc6749 https://tools.ietf.org/html/rfc6749
 
- ![](SpringSecurity.assets/image42.png)
+ ![](../../gitbook/markdownImages/image42.png)
 
 #### 角色
 
@@ -1596,29 +1600,29 @@ Oauth2.0认证流程如下：
 
 #### 授权码模式（Authorization Code） 
 
-![](SpringSecurity.assets/image43.jpeg)
+![](../../gitbook/markdownImages/image43.jpeg)
 
 #### 简化授权模式（Implicit） 
 
-![](SpringSecurity.assets/image44.png)
+![](../../gitbook/markdownImages/image44.png)
 
 #### 密码模式（Resource Owner PasswordCredentials） 
 
-![](SpringSecurity.assets/image45.png)
+![](../../gitbook/markdownImages/image45.png)
 
 #### 客户端模式（Client Credentials）
 
-![](SpringSecurity.assets/image46.png)
+![](../../gitbook/markdownImages/image46.png)
 
 #### 刷新令牌
 
-![](SpringSecurity.assets/image47.jpeg)
+![](../../gitbook/markdownImages/image47.jpeg)
 
 ## Spring Security Oauth2 
 
 ### 授权服务器
 
-![](SpringSecurity.assets/image48.png)
+![](../../gitbook/markdownImages/image48.png)
 
 * `Authorize Endpoint`：授权端点，进行授权
 
@@ -1630,7 +1634,7 @@ Oauth2.0认证流程如下：
 
 ### Spring Security Oauth2架构
 
-![](SpringSecurity.assets/image49.png)
+![](../../gitbook/markdownImages/image49.png)
 
 流程：
 
@@ -1646,11 +1650,11 @@ Oauth2.0认证流程如下：
 
 #### 创建项目
 
- ![](SpringSecurity.assets/image50.png)
+ ![](../../gitbook/markdownImages/image50.png)
 
-![](SpringSecurity.assets/image51.png)
+![](../../gitbook/markdownImages/image51.png)
 
-![](SpringSecurity.assets/image52.png)
+![](../../gitbook/markdownImages/image52.png)
 
 #### 2、添加依赖
 
@@ -1973,21 +1977,21 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 http://localhost:8080/oauth/authorize?response_type=code&client_id=admin&redirect_uri=http://www.baidu.com&scope=all 
 
-![](SpringSecurity.assets/image53.png)
+![](../../gitbook/markdownImages/image53.png)
 
 输入账户密码
 
-![](SpringSecurity.assets/image54.png)
+![](../../gitbook/markdownImages/image54.png)
 
 点击授权获取授权码
 
-![](SpringSecurity.assets/image55.png)
+![](../../gitbook/markdownImages/image55.png)
 
 ##### 根据授权码获取令牌（POST请求）
 
-![](SpringSecurity.assets/image56.png)
+![](../../gitbook/markdownImages/image56.png)
 
- ![](SpringSecurity.assets/image57.png)
+ ![](../../gitbook/markdownImages/image57.png)
 
 * `grant_type`：授权类型，填写authorization_code，表示授权码模式
 
@@ -2003,15 +2007,15 @@ http://localhost:8080/oauth/authorize?response_type=code&client_id=admin&redirec
 
 注意：此时无法请求到令牌，访问服务器会报错
 
-![](SpringSecurity.assets/image58.png)
+![](../../gitbook/markdownImages/image58.png)
 
 ##### 根据token去资源服务器拿资源
 
-![](SpringSecurity.assets/image59.png)
+![](../../gitbook/markdownImages/image59.png)
 
 如果修改token就会报错
 
-![](SpringSecurity.assets/image60.png)
+![](../../gitbook/markdownImages/image60.png)
 
 ### Spring Security Oauth2 密码模式
 
@@ -2132,11 +2136,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 测试：
 
-![](SpringSecurity.assets/image56.png)
+![](../../gitbook/markdownImages/image56.png)
 
 
 
-![](SpringSecurity.assets/image61.png)
+![](../../gitbook/markdownImages/image61.png)
 
 ### 在Redis中存储token
 
@@ -2272,11 +2276,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 使用密码模式请求token
 
-![](SpringSecurity.assets/image62.png)
+![](../../gitbook/markdownImages/image62.png)
 
 
 
-![](SpringSecurity.assets/image63.png)
+![](../../gitbook/markdownImages/image63.png)
 
 ## JWT
 
@@ -2290,7 +2294,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 　Cookie认证机制就是为一次请求认证在服务端创建一个Session对象，同时在客户端的浏览器端创建了一个Cookie对象；通过客户端带上来Cookie对象来与服务器端的session对象匹配来实现状态管理的。默认的，当我们关闭浏览器的时候，cookie会被删除。但可以通过修改cookie 的expire time使cookie在一定时间内有效。       
 
-![](SpringSecurity.assets/image64.png)                   
+![](../../gitbook/markdownImages/image64.png)                   
 
 #### OAuth
 
@@ -2300,7 +2304,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 下面是OAuth2.0的流程：
 
- ![](SpringSecurity.assets/image65.png)
+ ![](../../gitbook/markdownImages/image65.png)
 
 　这种基于OAuth的认证机制适用于个人消费者类的互联网产品，如社交类APP等应用，但是不太适合拥有自有认证权限管理的企业应用。
 
@@ -2322,7 +2326,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 6. 服务端收到请求，然后去验证客户端请求里面带着的 Token，如果验证成功，就向客户端返回请求的数据
 
- ![](SpringSecurity.assets/image66.png)
+ ![](../../gitbook/markdownImages/image66.png)
 
 比第一种方式更安全，比第二种方式更节约服务器资源，比第三种方式更加轻量。
 
@@ -2576,7 +2580,7 @@ public class JwtdemoApplicationTests {
 
 运行结果如下
 
- ![](SpringSecurity.assets/image67.png)
+ ![](../../gitbook/markdownImages/image67.png)
 
 再次运行，会发现每次运行的结果是不一样的，因为我们的载荷中包含了时间
 
@@ -2658,7 +2662,7 @@ public void testParseTokenHasExp() {
 
 测试：当未过期时可以正常读取，当过期时会引发io.jsonwebtoken.ExpiredJwtException异常。
 
- ![](SpringSecurity.assets/image68.png)
+ ![](../../gitbook/markdownImages/image68.png)
 
 ##### 自定义claims
 
@@ -2839,11 +2843,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 用密码模式测试：
 
- ![](SpringSecurity.assets/image69.png)
+ ![](../../gitbook/markdownImages/image69.png)
 
 发现获取到的令牌已经变成了JWT令牌，将access_token拿到https://jwt.io/ 网站上去解析下可以获得其中内容。
 
- ![](SpringSecurity.assets/image70.png)
+ ![](../../gitbook/markdownImages/image70.png)
 
 ### 扩展JWT中存储的内容
 
@@ -3011,7 +3015,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 运行项目后使用密码模式来获取令牌，之后对令牌进行解析，发现已经包含扩展的内容。
 
- ![](SpringSecurity.assets/image71.png)
+ ![](../../gitbook/markdownImages/image71.png)
 
 ### Java中解析JWT中的内容
 
@@ -3064,7 +3068,7 @@ public class UserController {
 
 http://localhost:8080/user/getCurrentUser
 
-![](SpringSecurity.assets/image72.png)
+![](../../gitbook/markdownImages/image72.png)
 
 ### 刷新令牌
 
@@ -3097,17 +3101,17 @@ public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
 http://localhost:8080/oauth/token
 
-![](SpringSecurity.assets/image73.png)
+![](../../gitbook/markdownImages/image73.png)
 
 ## Spring Security Oauth2 整合单点登录（SSO）
 
 ### 创建客户端
 
-![](SpringSecurity.assets/image74.png)
+![](../../gitbook/markdownImages/image74.png)
 
-   ![](SpringSecurity.assets/image75.png)
+   ![](../../gitbook/markdownImages/image75.png)
 
-![](SpringSecurity.assets/image76.png)
+![](../../gitbook/markdownImages/image76.png)
 
 ### 添加依赖
 
@@ -3287,8 +3291,8 @@ public void configure(AuthorizationServerSecurityConfigurer security) {
 
 会跳转到授权服务的登录界面；
 
-![](SpringSecurity.assets/image77.png)
+![](../../gitbook/markdownImages/image77.png)
 
 授权后会跳转到原来需要权限的接口地址，展示登录用户信息；
 
-![](SpringSecurity.assets\image78.png)
+![](../../gitbook/markdownImages\image78.png)
