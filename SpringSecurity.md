@@ -1498,29 +1498,27 @@ Oauth 协议：https://tools.ietf.org/html/rfc6749
 
  ![](../../gitbook/markdownImages/image39.png)
 
-1. 用户进入网站的登录页面，点击微信的图标以微信账号登录系统，用户是自己在微信里信息的资源拥有者。
-
- ![](../../gitbook/markdownImages/image40.png)
+1. 用户进入网站的登录页面，点击微信的图标以微信账号登录系统，**用户是自己在微信里信息的资源拥有者。** ![](../../gitbook/markdownImages/image40.png)
 
 点击“微信”出现一个二维码，此时用户扫描二维码，开始给网站授权。
 
  ![](../../gitbook/markdownImages/image41.png)
 
-2. 资源拥有者同意给客户端授权
+2. 资源拥有者同意给客户端（指我们写的网站）授权
 
-　资源拥有者扫描二维码表示资源拥有者同意给客户端授权，微信会对资源拥有者的身份进行验证，验证通过后，微信会询问用户是否给授权网站访问自己的微信数据，用户点击“确认登录”表示同意授权，微信认证服务器会颁发一个授权码，并重定向到网站。
+　资源拥有者扫描二维码表示资源拥有者同意给客户端授权，微信会对资源拥有者的身份进行验证，验证通过后，微信会询问用户是否给授权网站访问自己的微信数据，用户点击“确认登录”表示同意授权，**微信认证服务器会颁发一个授权码，并重定向到网站。**
 
-3. 客户端获取到授权码，请求认证服务器申请令牌
+3. **客户端获取到授权码，请求认证服务器申请令牌**
 
 　此过程用户看不到，客户端应用程序请求认证服务器，请求携带授权码。
 
 4. 认证服务器向客户端响应令牌
 
-　认证服务器验证了客户端请求的授权码，如果合法则给客户端颁发令牌，令牌是客户端访问资源的通行证。此交互过程用户看不到，当客户端拿到令牌后，用户在网站看到已经登录成功。
+　认证服务器验证了客户端请求的授权码，如果合法则给客户端颁发令牌，**令牌是客户端访问资源的通行证**。此交互过程用户看不到，当客户端拿到令牌后，用户在网站看到已经登录成功。
 
 5. 客户端请求资源服务器的资源
 
-　客户端携带令牌访问资源服务器的资源。网站携带令牌请求访问微信服务器获取用户的基本信息。
+　**客户端携带令牌访问资源服务器的资源。**网站携带令牌请求访问微信服务器获取用户的基本信息。
 
 6. 资源服务器返回受保护资源
 
@@ -1560,9 +1558,9 @@ Oauth2.0认证流程如下：
 
 #### 令牌类型
 
-* `授权码`：仅用于授权码授权类型，用于交换获取访问令牌和刷新令牌
+* `授权码`：仅用于授权码授权类型，**用于交换获取访问令牌和刷新令牌**
 
-* `访问令牌`：用于代表一个用户或服务直接去访问受保护的资源
+* `访问令牌`：**用于代表一个用户或服务直接去访问受保护的资源**
 
 * `刷新令牌`：用于去授权服务器获取一个刷新访问令牌
 
@@ -1624,9 +1622,9 @@ Oauth2.0认证流程如下：
 
 ![](../../gitbook/markdownImages/image48.png)
 
-* `Authorize Endpoint`：授权端点，进行授权
+* **`Authorize Endpoint`：授权端点，进行授权**
 
-* `Token Endpoint`：令牌端点，经过授权拿到对应的Token
+* **`Token Endpoint`：令牌端点，经过授权拿到对应的Token**
 
 * `Introspection Endpoint`：校验端点，校验Token的合法性
 
@@ -1640,11 +1638,11 @@ Oauth2.0认证流程如下：
 
 1. 用户访问,此时没有Token。Oauth2RestTemplate会报错，这个报错信息会被Oauth2ClientContextFilter捕获并重定向到认证服务器
 
-2. 认证服务器通过Authorization Endpoint进行授权，并通过AuthorizationServerTokenServices生成授权码并返回给客户端
+2. 认证服务器通过Authorization Endpoint进行授权，并通过**AuthorizationServerTokenServices生成授权码并返回给客户端**
 
-3. 客户端拿到授权码去认证服务器通过Token Endpoint调用AuthorizationServerTokenServices生成Token并返回给客户端
+3. 客户端拿到授权码去认证服务器通过Token Endpoint调用**AuthorizationServerTokenServices生成Token并返回给客户端**
 
-4. 客户端拿到Token去资源服务器访问资源，一般会通过Oauth2AuthenticationManager调用ResourceServerTokenServices进行校验。校验通过可以获取资源。
+4. 客户端**拿到Token去资源服务器访问资源**，一般会通过Oauth2AuthenticationManager调用ResourceServerTokenServices进行校验。校验通过可以获取资源。
 
 ### Spring Security Oauth2授权码模式
 
@@ -2332,9 +2330,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 具体，Token Auth的优点（Token机制相对于Cookie机制又有什么好处呢？）：
 
-1. 支持跨域访问: Cookie是不允许垮域访问的，这一点对Token机制是不存在的，前提是传输的用户认证信息通过HTTP头传输.
+1. **支持跨域访问: Cookie是不允许垮域访问的，这一点对Token机制是不存在的，前提是传输的用户认证信息通过HTTP头传输.**
 
-2. 无状态(也称：服务端可扩展行):Token机制在服务端不需要存储session信息，因为Token 自身包含了所有登录用户的信息，只需要在客户端的cookie或本地介质存储状态信息.
+2. **无状态(也称：服务端可扩展行):Token机制在服务端不需要存储session信息，因为Token 自身包含了所有登录用户的信息，只需要在客户端的cookie或本地介质存储状态信息.**
 
 3. 更适用CDN: 可以通过内容分发网络请求你服务端的所有资料（如：javascript，HTML,图片等），而你的服务端只要提供API即可.
 
@@ -2366,7 +2364,7 @@ JWT令牌的优点：
 
 2. 可以在令牌中自定义丰富的内容，易扩展。
 
-3. 通过非对称加密算法及数字签名技术，JWT防止篡改，安全性高。
+3. **通过非对称加密算法及数字签名技术，JWT防止篡改，安全性高。**
 
 4. 资源服务使用JWT可不依赖认证服务即可完成授权。
 
@@ -2376,11 +2374,11 @@ JWT令牌的优点：
 
 #### JWT组成
 
-一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。
+**一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。**
 
 ##### 头部(Header)
 
-头部用于描述关于该JWT的最基本的信息，例如其类型（即JWT）以及签名所用的算法（如HMAC SHA256或RSA）等。这也可以被表示成一个JSON对象。
+**头部用于描述关于该JWT的最基本的信息，**例如其类型（即JWT）以及签名所用的算法（如HMAC SHA256或RSA）等。这也可以被表示成一个JSON对象。
 
 ```json
 {
@@ -2403,7 +2401,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
 ##### 负载(Payload)
 
-第二部分是负载，就是存放有效信息的地方。这个名字像是特指飞机上承载的货品，这些有效信息包含三个部分：
+**第二部分是负载，就是存放有效信息的地方**。这个名字像是特指飞机上承载的货品，这些有效信息包含三个部分：
 
 * 标准中注册的声明（建议但不强制使用）
 
@@ -2443,7 +2441,7 @@ jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重
  eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkphbWVzIiwiYWRtaW4iOnRydWV9  
 ```
 
-提示：声明中不要放一些敏感信息。
+**提示：声明中不要放一些敏感信息。**
 
 ##### 签证、签名（signature）
 
@@ -2467,7 +2465,7 @@ jwt的第三部分是一个签证信息，这个签证信息由三部分组成�
 eyJhbGciOiJIUzI1NiIsInR9cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.8HI-Lod0ncfVDnbKIPJJqLH998duF9DSDGkx3gRPNVI  
 ```
 
-注意：`secret`是保存在服务器端的，`jwt`的签发生成也是在服务器端的，`secret`就是用来进行`jwt`的签发和`jwt`的验证，所以，它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个`secret`, 那就意味着客户端是可以自我签发`jwt`了。
+**注意：`secret`是保存在服务器端的，`jwt`的签发生成也是在服务器端的，`secret`就是用来进行`jwt`的签发和`jwt`的验证，所以，它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个`secret`, 那就意味着客户端是可以自我签发`jwt`了。**
 
 ### JJWT简介
 
