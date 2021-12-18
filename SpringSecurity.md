@@ -165,7 +165,7 @@ login.html
 
 * `authorities`：用户具有的权限。此处不允许为 null
 
- ![](../../gitbook/markdownImages/image7.png)
+![](../../gitbook/markdownImages/image7.png)
 
 　此处的用户名应该是客户端传递过来的用户名。而密码应该是从数据库中查询出来的密码。Spring Security 会根据 User 中的 `password`和客户端传递过来的 `password `进行比较。如果相同则表示认证通过，如果不相同表示认证失败。
 
