@@ -208,7 +208,7 @@ public class TestNumber {
 ```Java
 		Queue<Integer> q = new LinkedList<Integer>();
 		 
-		 // 入对
+		 // 入队
 		 q.offer(1);
 		 q.offer(2);
 		 q.offer(3);
@@ -463,6 +463,31 @@ char[] cs = s.toCharArray();
 		 System.out.println(list);		 		 // 降序排序 : Comparator.reverseOrder()		 
 		 list.sort(Comparator.reverseOrder());		 System.out.println(list);
 ```
+
+## LinkedList
+
+- 双链表实现了`List`和`Deque`接口。
+
+- | 构造方法                                                     |
+    | ------------------------------------------------------------ |
+    | `LinkedList()`  构造一个空列表。                             |
+    | `LinkedList(Collection<? extends E> c)`  构造一个包含指定集合的元素的列表，按照它们由集合的迭代器返回的顺序。 |
+    
+    ![image-20211219110315669](../../gitbook/markdownImages/image-20211219110315669.png)
+    
+    ![image-20211219110339269](../../gitbook/markdownImages/image-20211219110339269.png)
+    
+    ![image-20211219110402062](../../gitbook/markdownImages/image-20211219110402062.png)
+    
+    ![image-20211219110421367](../../gitbook/markdownImages/image-20211219110421367.png)
+    
+    ![image-20211219110450564](../../gitbook/markdownImages/image-20211219110450564.png)
+    
+    ![image-20211219110524768](../../gitbook/markdownImages/image-20211219110524768.png)
+    
+    ![image-20211219110550140](../../gitbook/markdownImages/image-20211219110550140.png)
+    
+    ![image-20211219110608382](../../gitbook/markdownImages/image-20211219110608382.png)
 
 ## Others
 
