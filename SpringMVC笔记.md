@@ -272,8 +272,6 @@ public String index() {
 @RequestMapping("/hello")
 public String HelloWorld() {
     return "target";
-  
-  
 }
 ```
 
@@ -516,7 +514,7 @@ public String testParam(
         String[] hobby,
         @RequestHeader(value = "sayHaha", required = true, defaultValue = "haha") String host,
         @CookieValue("JSESSIONID") String JSESSIONID){
-    //若请求参数中出现多个同名的请求参数，可以再控制器方法的形参位置设置字符串类型或字符串数组接收此请求参数
+    //若请求参数中出现多个同名的请求参数，可以在控制器方法的形参位置设置字符串类型或字符串数组接收此请求参数
     //若使用字符串类型的形参，最终结果为请求参数的每一个值之间使用逗号进行拼接
     System.out.println("username:"+username+",password:"+password+",hobby:"+ Arrays.toString(hobby));
     System.out.println("host:"+host);
@@ -690,9 +688,9 @@ public String testApplication(HttpSession session){
 
 # 六、SpringMVC的视图
 
-SpringMVC中的视图是View接口，视图的作用渲染数据，将模型Model中的数据展示给用户
+SpringMVC中的视图是View接口，**视图的作用渲染数据**，将模型Model中的数据展示给用户
 
-SpringMVC视图的种类很多，默认有转发视图和重定向视图
+SpringMVC视图的种类很多，**默认有转发视图和重定向视图**
 
 当工程引入jstl的依赖，转发视图会自动转换为JstlView
 
@@ -1488,7 +1486,7 @@ postHandle：控制器方法执行之后执行postHandle()
 
 afterComplation：处理完视图和模型数据，渲染视图完毕之后执行afterComplation()
 
-### 3、多个拦截器的执行顺序
+### 3、多个拦截器的执行顺序（==可以看看Filter中filterchain、过滤器链==）
 
 a>若每个拦截器的preHandle()都返回true
 
