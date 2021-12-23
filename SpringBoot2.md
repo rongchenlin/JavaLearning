@@ -7,7 +7,7 @@
 1. 某种常见场景如开发web项目的就是 spring-boot-starter-web，开发数据库jdbc的就是spring-boot-starter-data-jdbc，开发redis的就是 spring-boot-starter-data-redis
 2. 见到很多 spring-boot-starter-* ： *就某种场景
 3. 只要引入starter，这个场景的所有常规需要的依赖我们都自动引入。
-4. SpringBoot所有支持的场景: [springboot文档](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter)
+4. SpringBoot所有支持的场景: [springboot文档](https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter).
 
 ![image-20211130114539735](../../gitbook/markdownImages/image-20211130114539735.png)
 
