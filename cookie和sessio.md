@@ -14,7 +14,7 @@ Cookie 是服务器通知客户端保存键值对的一种技术。 客户端有
 
 ### Cookie 的生命控制
 
-Cookie 的生命控制指的是如何管理 Cookie 什么时候被销毁（删除） 
+Cookie 的生命控制指的是如何管理 Cookie 什么时候被销毁（删除）。
 
 ```
 setMaxAge() 
