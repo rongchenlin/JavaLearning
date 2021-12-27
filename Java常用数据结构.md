@@ -21,7 +21,7 @@
 import java.util.*;
 ```
 
-## format
+## format.
 
 ```Java
 import java.util.Locale;   
