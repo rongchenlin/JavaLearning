@@ -597,7 +597,7 @@ public class Hello {
 
 **对于排序，不建议使用Comparator，最好使用Comprable**
 
-java.lang.Comparable是在类定义的时候实现的父接口，主要用于定义排序规则
+java.lang.Comparable是在类定义的时候实现的父接口，主要用于自定义排序规则
 
 java.util.Comparator是挽救的比较器操作，需要设置单独的比较器规则类实现排序
 
