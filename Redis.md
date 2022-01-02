@@ -175,3 +175,16 @@ decr  <key>			将 key 中储存的数字值减1，只能对数字值操作，如
 
 incrby / decrby  <key><步长> 将 key 中储存的数字值增减。自定义步长。
 
+mset  <key1><value1><key2><value2>  ..... 同时设置一个或多个 key-value对  
+
+mget  <key1><key2><key3> .....同时获取一个或多个 value  
+
+msetnx <key1><value1><key2><value2>  ..... 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。
+
+getrange  <key><起始位置><结束位置>	获得值的范围，类似java中的substring，***\*前包，后包\****
+
+setrange  <key><起始位置><value>    用 <value>覆写<key>所储存的字符串值，从<起始位置>开始(索引从0开始)。
+
+setex  <key><过期时间><value>	设置键值的同时，设置过期时间，单位秒。
+
+getset <key><value>	以新换旧，设置了新值同时获得旧值。
