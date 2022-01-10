@@ -59,8 +59,7 @@ public class TestNumber {
 		Math.exp(2);		
 		
 		//e的x次幂 - 1
-		Math.expm1(3);					
-		
+		Math.expm1(3);				
 		// 返回最近的且大于这个数的整数
 		Math.ceil(12.3);				// 13.0
 		Math.ceil(-12.3);				//-12.0
