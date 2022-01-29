@@ -191,7 +191,7 @@ login.html
 
 * `upgradeEncoding()`：如果解析的密码能够再次进行解析且达到更安全的结果则返回 true，否则返回 false。默认返回 false。
 
- ![](../../gitbook/markdownImages/image8.png)
+ ![](img/SpringSecurity.assets/image8.png)
 
 #### 内置解析器介绍
 

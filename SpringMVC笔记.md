@@ -1710,15 +1710,15 @@ public String index(){
 
 - HandlerMapping：**处理器映射器**，不需要工程师开发，由框架提供——找方法
 
-作用：根据请求的url、method等信息查找Handler，即控制器方法
+作用：根据请求的url、method等信息**查找Handler**，即控制器方法
 
 - Handler：**处理器**，需要工程师开发——实际业务处理方法（Controller类）
 
-作用：在DispatcherServlet的控制下Handler对具体的用户请求进行处理
+作用：在DispatcherServlet的控制下Handler对具体的用户请求进行**处理**
 
 - HandlerAdapter：**处理器适配器**，不需要工程师开发，由框架提供——调（执行）方法
 
-作用：通过HandlerAdapter对处理器（控制器方法）进行执行
+作用：通过HandlerAdapter对处理器（控制器方法）进行**执行**
 
 - ViewResolver：**视图解析器**，不需要工程师开发，由框架提供——页面跳转、渲染
 
