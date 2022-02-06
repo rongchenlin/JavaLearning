@@ -6,7 +6,7 @@ Cookie 是服务器通知客户端保存键值对的一种技术。 客户端有
 
 ##### cookie的创建
 
-<img src="../../gitbook/markdownImages/image-20211121170251459.png" alt="image-20211121170251459" style="zoom: 50%;" />
+<img src="img/cookie和sessio.assets/image-20211121170251459.png" alt="image-20211121170251459" style="zoom: 50%;" />
 
 ##### **Cooke的获取**
 
