@@ -2837,7 +2837,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 用密码模式测试：
 
- ![](img/SpringSecurity.assets/image69.png)
+![](img/SpringSecurity.assets/image69.png)
 
 发现获取到的令牌已经变成了JWT令牌，将access_token拿到https://jwt.io/ 网站上去解析下可以获得其中内容。
 
