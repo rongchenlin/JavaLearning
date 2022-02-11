@@ -65,8 +65,6 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
 
 4、Session 会话中，我们经常用来保存用户登录之后的信息
 
-
-
 ### session的创建
 
 - 创建和获取 Session。它们的 API 是一样的。
@@ -76,8 +74,6 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
   - false 表示获取之前创建 
 - 每个会话都有一个身份证号。也就是 ID 值。而且这个 ID 是唯一的。 getId() 得到 Session 的会话 id 值。
 
-
-
 ### Session 生命周期控制
 
 -  public void setMaxInactiveInterval(int interval) 设置 Session 的超时时间（以秒为单位），超过指定的时长，Session 就会被销毁。
@@ -86,8 +82,6 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
 - public int getMaxInactiveInterval()获取 Session 的超时时间 
 - public void invalidate() 让当前 Session 会话马上超时无效。
 - **session的超时指的是，客户端两次请求的最大间隔时长。**
-
-
 
 ![image-20211121195733708](../../gitbook/markdownImages/image-20211121195733708.png)
 
