@@ -35,25 +35,22 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
 #### 实战
 
 ```Java
-	
-	   // 创建cookie
-	   Cookie cookie1 = new Cookie("key1", "value1");
+       // 创建cookie
+       Cookie cookie1 = new Cookie("key1", "value1");
         // 设置 Cookie 一小时之后被删除。无效
         cookie1.setMaxAge(60 * 60);
         resp.addCookie(cookie1);
-        
+
         // 获取cookie
         Cookie[] cookies = req.getCookies();
         for (Cookie cookie : cookies) {
             resp.getWriter().write("Cookie[" + cookie.getName() + "=" + cookie.getValue() + "] <br/>");
         }
-        
+
         // 修改cookie
         cookie1.setValue("新设置的值");
         resp.addCookie(cookie1);
 ```
-
-
 
 ## Session （会话）
 
@@ -69,16 +66,16 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
 
 - 创建和获取 Session。它们的 API 是一样的。
 - request.getSession() 第一次调用是：创建 Session 会话 之后调用都是：获取前面创建好的 Session 会话对象。
--  isNew(); 判断到底是不是刚创建出来的（新的） 
+- isNew(); 判断到底是不是刚创建出来的（新的） 
   - true 表示刚创建 
   - false 表示获取之前创建 
 - 每个会话都有一个身份证号。也就是 ID 值。而且这个 ID 是唯一的。 getId() 得到 Session 的会话 id 值。
 
 ### Session 生命周期控制
 
--  public void setMaxInactiveInterval(int interval) 设置 Session 的超时时间（以秒为单位），超过指定的时长，Session 就会被销毁。
+- public void setMaxInactiveInterval(int interval) 设置 Session 的超时时间（以秒为单位），超过指定的时长，Session 就会被销毁。
   - 值为正数的时候，设定 Session 的超时时长。
-  -  负数表示永不超时（极少使用） 
+  - 负数表示永不超时（极少使用） 
 - public int getMaxInactiveInterval()获取 Session 的超时时间 
 - public void invalidate() 让当前 Session 会话马上超时无效。
 - **session的超时指的是，客户端两次请求的最大间隔时长。**
@@ -88,16 +85,16 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
 ### 实战
 
 ```Java
-	   // 获取session
-	   HttpSession session = req.getSession();
-	   // 判断是否新建
+       // 获取session
+       HttpSession session = req.getSession();
+       // 判断是否新建
         boolean isNew = session.isNew();
-	   // 获取Session的ID
+       // 获取Session的ID
         String id = session.getId();
 
         resp.getWriter().write("session's id is " + id + "<br/>");
         resp.getWriter().write("is this session created? " + isNew + "<br/>");
-        
+
          // Session域中添加数据
         req.getSession().setAttribute("key1", "value1");
         resp.getWriter().write("完成session保存数据");
@@ -105,4 +102,3 @@ Cookie 的 path 属性可以有效的过滤哪些 Cookie 可以发送给服务�
         Object key1 = req.getSession().getAttribute("key1");
         resp.getWriter().write("session 中获得的key的数据为：" + key1);
 ```
-
